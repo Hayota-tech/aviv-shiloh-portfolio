@@ -1,3 +1,7 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
 .container {
 	display: flex;
 	align-items: center;
@@ -11,11 +15,32 @@
 		padding-top: 0;
 	}
 
-	&__link {
+	.mobileBurger {
+		display: none;
+	}
+
+	&__menu {
 		text-decoration: none;
 		font-size: 4rem;
 		font-weight: 700;
 		transition: color 0.2s ease-in-out;
+		white-space: nowrap;
+
+		&--dark {
+			color: #333333;
+		}
+
+		&--light {
+			color: #f5f5f5;
+		}
+	}
+
+	&__logo {
+		text-decoration: none;
+		font-size: 4rem;
+		font-weight: 700;
+		transition: color 0.2s ease-in-out;
+		white-space: nowrap;
 
 		&--dark {
 			color: #333333;
@@ -36,6 +61,46 @@
 
 		&--light {
 			color: #f5f5f5;
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		padding: 16px 16px 0 16px;
+
+		&--float {
+			top: 16px;
+		}
+
+		.mobileBurger {
+			display: block;
+
+			&__icon {
+				width: 32px;
+				height: 32px;
+
+				&--dark {
+					fill: #333333;
+				}
+
+				&--light {
+					fill: #f5f5f5;
+				}
+			}
+		}
+
+		&__menu {
+			display: none;
+		}
+
+		&__logo {
+			font-size: 2.4rem;
+			font-weight: 800;
+		}
+
+		&__text {
+			display: none;
 		}
 	}
 }
