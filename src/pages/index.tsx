@@ -1,10 +1,18 @@
+'use client';
+
 import React from 'react';
 import type { NextPage } from 'next';
 
+import Header from '@/layout/Header';
 import Main from '@/containers/Main';
 
 const MainPage: NextPage = () => {
-	return <Main />;
+	return (
+		<>
+			<Header theme="light" float />
+			<Main />
+		</>
+	);
 };
 
 MainPage.displayName = 'MainPage';

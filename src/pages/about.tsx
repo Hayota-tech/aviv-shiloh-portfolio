@@ -1,10 +1,16 @@
 import React from 'react';
 import type { NextPage } from 'next';
 
+import Header from '@/layout/Header';
 import About from '@/containers/About';
 
 const AboutPage: NextPage = () => {
-	return <About />;
+	return (
+		<>
+			<Header theme="dark" />
+			<About />
+		</>
+	);
 };
 
 AboutPage.displayName = 'AboutPage';
