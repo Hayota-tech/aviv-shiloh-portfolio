@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
 
+import NavMenu from '@/layout/NavMenu';
 import classes from './Main.module.scss';
 
 interface IProps {}
@@ -8,8 +8,7 @@ interface IProps {}
 const MainView: React.FC<IProps> = () => {
 	return (
 		<main className={classes['container']}>
-			<span>Noa wait for me</span>
-			<Link href="/about">Click me</Link>
+			<NavMenu />
 		</main>
 	);
 };
