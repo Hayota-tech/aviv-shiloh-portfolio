@@ -1,14 +1,22 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 
 import classes from './NavMenu.module.scss';
+import NavLink from './NavLink';
 
 interface IProps {
 	readonly selectedImageIndex: number;
-	readonly onLinkHover: () => void;
+	readonly onHomeLinkHover: () => void;
+	readonly onAboutLinkHover: () => void;
+	readonly onContactLinkHover: () => void;
+	readonly onPortfolioLinkHover: () => void;
+	readonly onLinkHoverLeave: () => void;
+
+	readonly isVisible: boolean;
+	readonly linkHoverIndex: number;
+	readonly animate: boolean;
 }
 
 const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -22,43 +30,62 @@ const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		<section className={classes['container']}>
 			<div className={classes['innerContainer']}>
 				<div className={classes['linksContainer']}>
-					<Link
-						href="/about"
-						className={classes['linksContainer__link']}
-						onMouseEnter={props.onLinkHover}
+					<NavLink
+						selectedImageIndex={props.selectedImageIndex}
+						isVisible={props.isVisible}
+						linkNumber={0}
+						animate={props.animate}
+						linkHoverIndex={props.linkHoverIndex}
+						onMouseEnter={props.onHomeLinkHover}
+						onMouseLeave={props.onLinkHoverLeave}
 					>
-						Home
-					</Link>
-					<Link
-						href="/about"
-						className={classes['linksContainer__link']}
-						onMouseEnter={props.onLinkHover}
-					>
-						Portfolio
-					</Link>
-					<Link
-						href="/about"
-						className={classes['linksContainer__link']}
-						onMouseEnter={props.onLinkHover}
-					>
-						About
-					</Link>
-					<Link
-						href="/about"
-						className={classes['linksContainer__link']}
-						onMouseEnter={props.onLinkHover}
-					>
-						Contact
-					</Link>
-				</div>
+						HOME
+					</NavLink>
 
-				<Image
-					className={classes['innerContainer__image']}
-					src={imageArrey[props.selectedImageIndex ?? 0]}
-					width={257}
-					height={144}
-					alt="Navigtion Menu"
-				/>
+					<NavLink
+						selectedImageIndex={props.selectedImageIndex}
+						isVisible={props.isVisible}
+						linkNumber={1}
+						animate={props.animate}
+						linkHoverIndex={props.linkHoverIndex}
+						onMouseEnter={props.onPortfolioLinkHover}
+						onMouseLeave={props.onLinkHoverLeave}
+					>
+						PORTFOLIO
+					</NavLink>
+
+					<NavLink
+						selectedImageIndex={props.selectedImageIndex}
+						isVisible={props.isVisible}
+						linkNumber={2}
+						animate={props.animate}
+						linkHoverIndex={props.linkHoverIndex}
+						onMouseEnter={props.onAboutLinkHover}
+						onMouseLeave={props.onLinkHoverLeave}
+					>
+						ABOUT
+					</NavLink>
+
+					<NavLink
+						selectedImageIndex={props.selectedImageIndex}
+						isVisible={props.isVisible}
+						linkNumber={3}
+						animate={props.animate}
+						linkHoverIndex={props.linkHoverIndex}
+						onMouseEnter={props.onContactLinkHover}
+						onMouseLeave={props.onLinkHoverLeave}
+					>
+						CONTACT
+					</NavLink>
+
+					<Image
+						className={`${classes['linksContainer__mobileImage']} ${classes['animateImage']}`}
+						src={imageArrey[props.selectedImageIndex ?? 0]}
+						width={257}
+						height={144}
+						alt="Navigtion Menu"
+					/>
+				</div>
 			</div>
 		</section>
 	);

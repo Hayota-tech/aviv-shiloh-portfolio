@@ -1,0 +1,67 @@
+@use 'sass:map';
+
+@import '@/styles/variables.scss';
+
+.linkContainer {
+    position: relative;
+
+    &__image {
+        position: absolute;
+        right: 500px;
+        display: block;
+    }
+
+    &__link {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 11rem;
+        font-weight: 600;
+    }
+}
+
+
+.animateImage {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+    .linkContainer {
+        &__link {
+            font-size: 6rem;
+        }
+    }
+}

@@ -1,49 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap');
+@use 'sass:map';
 
+@import '@/styles/variables.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap');
 
 .container {
 
     font-family: 'Mulish', sans-serif;
-    background-color: black;
+    background-color: #000000;
     width: 100vw;
     height: 100vh;
 
     .innerContainer {
-        height: 100vh;
         display: flex;
-        flex-direction: row-reverse;
+        height: 100vh;
         justify-content: center;
         align-items: center;
         margin-inline-end: 90px;
 
         .linksContainer {
+            &__mobileImage {
+                display: none;
+            }
 
             display: flex;
             flex-direction: column;
-
-            &__link {
-                color: white;
-                text-decoration: none;
-                font-size: 110px;
-                font-weight: 600;
-
-            }
-
-
-        }
-
-        &__image {
-            margin-top: 416px;
-            margin-inline-end: 46px;
         }
     }
-
-
 }
 
+.animateImage {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
 
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
 
-@media (max-width: 400px) {
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
     .container {
         max-width: 390px;
 
@@ -56,21 +79,19 @@
             .linksContainer {
                 margin-top: 128px;
 
-                &__link {
-                    font-size: 58px;
+                .linkContainer {
+                    &__link {
+                        font-size: 6rem;
+                    }
+                }
 
-
+                &__mobileImage {
+                    display: block;
+                    margin-top: 72px;
+                    width: 326px;
+                    height: 184px;
                 }
             }
-
-            &__image {
-                margin-top: 72px;
-                margin-inline-end: 0;
-                width: 326px;
-                height: 184px;
-            }
         }
-
-
     }
 }
