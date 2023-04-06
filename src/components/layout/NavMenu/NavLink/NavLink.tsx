@@ -3,28 +3,22 @@ import React from 'react';
 import NavLinkView from './NavLink.view';
 
 interface IProps {
-	readonly selectedImageIndex?: number;
-	readonly isVisible?: boolean;
-	readonly linkHoverIndex?: number;
-	readonly linkNumber?: number;
-	readonly onMouseLeave?: () => void;
-	readonly onMouseEnter?: () => void;
-	readonly animate?: boolean;
+	readonly index: number;
+	readonly selectedLinkIndex: number | null;
+	readonly title: string;
+	readonly randomImage: string | null;
+	readonly onHover: (index: number) => void;
 }
 
 const NavLink: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<NavLinkView
-			selectedImageIndex={props.selectedImageIndex}
-			isVisible={props.isVisible}
-			linkNumber={props.linkNumber}
-			animate={props.animate}
-			linkHoverIndex={props.linkHoverIndex}
-			onMouseEnter={props.onMouseEnter}
-			onMouseLeave={props.onMouseLeave}
-		>
-			{props.children}
-		</NavLinkView>
+			index={props.index}
+			selectedLinkIndex={props.selectedLinkIndex}
+			title={props.title}
+			randomImage={props.randomImage}
+			onHover={props.onHover}
+		/>
 	);
 };
 

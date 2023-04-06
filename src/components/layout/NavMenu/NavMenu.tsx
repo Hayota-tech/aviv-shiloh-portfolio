@@ -7,10 +7,6 @@ import NavMenuView from './NavMenu.view';
 interface IProps {}
 
 const NavMenu: React.FC<IProps> = () => {
-	const [animateState, setAnimateState] = useState<boolean>(false);
-	const [linkHoverIndexState, setLinkHoverIndexState] = useState<number>(0);
-	const [isVibisleState, setIsVisibleState] = useState<boolean>(false);
-
 	const imageArrey = [
 		'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
 		'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png',
@@ -20,9 +16,12 @@ const NavMenu: React.FC<IProps> = () => {
 	const randomIndex = Math.floor(Math.random() * imageArrey.length);
 
 	const [selectedImageIndexState, setSelectedImageIndexState] = useState<number>(randomIndex);
+	const [selectedLinkIndexState, setSelectedLinkIndexState] = useState<number | null>(null);
+	const [randomImageState, setRandomImageState] = useState<string | null>(null);
 
-	const onLinkHover = () => {
-		setTimeout(() => {
+	const onLinkHover = (index: number) => {
+		if (index !== -1) {
+			setSelectedLinkIndexState(() => index);
 			setSelectedImageIndexState((prev) => {
 				if (prev === imageArrey.length - 1) {
 					return 0;
@@ -30,60 +29,18 @@ const NavMenu: React.FC<IProps> = () => {
 					return prev + 1;
 				}
 			});
-
-			setAnimateState(() => true);
-		}, 50);
-
-		setAnimateState(() => false);
-	};
-
-	const onHomeLinkHover = () => {
-		setTimeout(() => {
-			setLinkHoverIndexState(() => 0);
-			setIsVisibleState(() => true);
-		}, 50);
-		onLinkHover();
-	};
-
-	const onPortfolioLinkHover = () => {
-		setTimeout(() => {
-			setLinkHoverIndexState(() => 1);
-			setIsVisibleState(() => true);
-		}, 50);
-		onLinkHover();
-	};
-
-	const onAboutLinkHover = () => {
-		setTimeout(() => {
-			setLinkHoverIndexState(() => 2);
-			setIsVisibleState(() => true);
-		}, 50);
-		onLinkHover();
-	};
-
-	const onContactLinkHover = () => {
-		setTimeout(() => {
-			setLinkHoverIndexState(() => 3);
-			setIsVisibleState(() => true);
-		}, 50);
-		onLinkHover();
-	};
-
-	const onLinkHoverLeaveState = () => {
-		setIsVisibleState(() => false);
+			setRandomImageState(() => imageArrey[selectedImageIndexState] ?? null);
+		} else {
+			setSelectedLinkIndexState(null);
+		}
 	};
 
 	return (
 		<NavMenuView
 			selectedImageIndex={selectedImageIndexState}
-			animate={animateState}
-			linkHoverIndex={linkHoverIndexState}
-			isVisible={isVibisleState}
-			onContactLinkHover={onContactLinkHover}
-			onAboutLinkHover={onAboutLinkHover}
-			onPortfolioLinkHover={onPortfolioLinkHover}
-			onHomeLinkHover={onHomeLinkHover}
-			onLinkHoverLeave={onLinkHoverLeaveState}
+			selectedLinkIndex={selectedLinkIndexState}
+			randomImage={randomImageState}
+			onLinkHover={onLinkHover}
 		/>
 	);
 };

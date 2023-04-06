@@ -4,18 +4,24 @@ import Link from 'next/link';
 import classes from './Header.module.scss';
 import { concatClasses } from '@/utils/component';
 import SSvg from '@/ui/SSvg';
+import NavMenu from '../NavMenu';
 
 interface IProps {
+	readonly isMenuOpen: boolean;
 	readonly theme?: string;
 	readonly float?: boolean;
+	readonly onToggleMenu: () => void;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const containerClass = concatClasses(classes, 'container', props.float ? 'container--float' : '');
 
+	console.log(props.isMenuOpen, 'isMenuOpen');
+
 	const menuClass = concatClasses(
 		classes,
 		'container__menu',
+		props.isMenuOpen ? 'container__menu--active' : '',
 		props.theme === 'dark' ? 'container__menu--dark' : 'container__menu--light',
 	);
 
@@ -44,13 +50,14 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					<SSvg name="humburger" className={mobileBurgerClass} />
 				</button>
 			</div>
-			<Link className={menuClass} href="/about">
+			<button className={menuClass} type="button" onClick={props.onToggleMenu}>
 				MENU
-			</Link>
+			</button>
 			<Link className={logoClass} href="/">
 				Aviv Shiloh
 			</Link>
 			<span className={textClass}>©2023</span>
+			{props.isMenuOpen && <NavMenu />}
 		</header>
 	);
 };

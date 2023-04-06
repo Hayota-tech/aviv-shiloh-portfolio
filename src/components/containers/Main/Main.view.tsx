@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import NavMenu from '@/layout/NavMenu';
 import classes from './Main.module.scss';
 
 import intro from '../../../../public/images/intro.png';
