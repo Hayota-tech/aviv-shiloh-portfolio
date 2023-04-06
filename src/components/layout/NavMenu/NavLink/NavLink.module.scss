@@ -11,15 +11,6 @@
 	}
 }
 
-@keyframes fadeOut {
-	0% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
-}
-
 .container {
 	position: relative;
 
@@ -29,10 +20,6 @@
 
 		&--visible {
 			animation: fadeIn 0.7s ease-in-out;
-		}
-
-		&--hidden {
-			animation: fadeOut 0.7s ease-in-out;
 		}
 	}
 

@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState } from 'react';
 
 import NavMenuView from './NavMenu.view';
@@ -22,13 +20,7 @@ const NavMenu: React.FC<IProps> = () => {
 	const onLinkHover = (index: number) => {
 		if (index !== -1) {
 			setSelectedLinkIndexState(() => index);
-			setSelectedImageIndexState((prev) => {
-				if (prev === imageArrey.length - 1) {
-					return 0;
-				} else {
-					return prev + 1;
-				}
-			});
+			setSelectedImageIndexState((prev) => (prev === imageArrey.length - 1 ? 0 : prev + 1));
 			setRandomImageState(() => imageArrey[selectedImageIndexState] ?? null);
 		} else {
 			setSelectedLinkIndexState(null);
@@ -37,7 +29,6 @@ const NavMenu: React.FC<IProps> = () => {
 
 	return (
 		<NavMenuView
-			selectedImageIndex={selectedImageIndexState}
 			selectedLinkIndex={selectedLinkIndexState}
 			randomImage={randomImageState}
 			onLinkHover={onLinkHover}

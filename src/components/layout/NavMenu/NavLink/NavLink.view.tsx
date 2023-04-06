@@ -16,10 +16,11 @@ interface IProps {
 
 const NavLinkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const isImageVisible = props.index === props.selectedLinkIndex;
+
 	const imageClasses = concatClasses(
 		classes,
 		'container__image',
-		isImageVisible ? 'container__image--visible' : 'container__image--hidden',
+		isImageVisible ? 'container__image--visible' : '',
 	);
 
 	return (

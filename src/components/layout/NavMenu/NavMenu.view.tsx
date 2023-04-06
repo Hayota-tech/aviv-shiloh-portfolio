@@ -1,14 +1,12 @@
-'use client';
-
 import React from 'react';
 
-import classes from './NavMenu.module.scss';
+import Header from '../Header';
 import NavLink from './NavLink';
 import { navList } from '../../../data/nav-list';
-import Header from '../Header';
+
+import classes from './NavMenu.module.scss';
 
 interface IProps {
-	readonly selectedImageIndex: number;
 	readonly selectedLinkIndex: number | null;
 	readonly randomImage: string | null;
 	readonly onLinkHover: (index: number) => void;
