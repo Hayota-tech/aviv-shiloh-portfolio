@@ -1,6 +1,3 @@
-//use client side rendering
-'use client';
-
 import React from 'react';
 
 import AboutView from './About.view';

@@ -27,6 +27,30 @@ const AboutView: React.FC<IProps> = () => {
 			exhibition: 'International Photography Festival',
 			startDate: 'NOVEMBER 28 - 2019',
 		},
+		{
+			title: 'Big Apple',
+			exhibition: 'International Photography Festival',
+			startDate: 'NOVEMBER 28 - 2019',
+			endDate: 'DECEMBER 7 - 2019',
+		},
+		{
+			title: 'Big Apple',
+			exhibition: 'International Photography Festival',
+			startDate: 'NOVEMBER 28 - 2019',
+			endDate: 'DECEMBER 7 - 2019',
+		},
+		{
+			title: 'Big Apple',
+			exhibition: 'International Photography Festival',
+			startDate: 'NOVEMBER 28 - 2019',
+			endDate: 'DECEMBER 7 - 2019',
+		},
+		{
+			title: 'Big Apple',
+			exhibition: 'International Photography Festival',
+			startDate: 'NOVEMBER 28 - 2019',
+			endDate: 'DECEMBER 7 - 2019',
+		},
 	];
 
 	const dummyText = [
@@ -46,13 +70,7 @@ const AboutView: React.FC<IProps> = () => {
 
 	return (
 		<section className={classes['container']}>
-			<Image
-				src={portrait}
-				height={527}
-				width={1384}
-				alt="Aviv Portrait"
-				className={classes['mainImage']}
-			/>
+			<Image className={classes['container__image']} src={portrait} alt="Aviv Shiloh" />
 
 			<div className={classes['innerContainer']}>
 				<div className={classes['infoContainer']}>
@@ -62,7 +80,7 @@ const AboutView: React.FC<IProps> = () => {
 					</h1>
 
 					{dummyText.map((textItem, key) => (
-						<p className={classes['infoContainer__text']} key={key}>
+						<p key={key} className={classes['infoContainer__text']}>
 							{textItem.text}
 						</p>
 					))}
@@ -71,15 +89,17 @@ const AboutView: React.FC<IProps> = () => {
 				<div className={classes['exhibitionsContainer']}>
 					<h1 className={classes['exhibitionsContainer__title']}>Exhibitions</h1>
 
-					{dummyData.map((exhibition, key) => (
-						<AboutExhibit
-							key={key}
-							title={exhibition.title}
-							exhibition={exhibition.exhibition}
-							startDate={exhibition.startDate}
-							endDate={exhibition.endDate}
-						/>
-					))}
+					<div className={classes['innerExihitions']}>
+						{dummyData.map((exhibition, key) => (
+							<AboutExhibit
+								key={key}
+								title={exhibition.title}
+								exhibition={exhibition.exhibition}
+								startDate={exhibition.startDate}
+								endDate={exhibition.endDate}
+							/>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

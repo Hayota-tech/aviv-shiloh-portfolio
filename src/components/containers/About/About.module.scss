@@ -7,25 +7,28 @@
 	flex-direction: column;
 	align-items: center;
 	margin-top: 56px;
+	padding: 0 map.get($sizes, minimal-web-padding) 116px map.get($sizes, minimal-web-padding);
+
+	&__image {
+		width: 100%;
+		height: 527px;
+		object-fit: scale-down;
+	}
 
 	.innerContainer {
 		display: flex;
-		flex-direction: row;
-		max-width: 1384px;
-		padding-top: 64px;
-		align-items: center;
+		align-items: flex-start;
+		margin-top: 64px;
+		height: 608px;
 
 		.infoContainer {
 			display: flex;
 			flex-direction: column;
 			width: 50%;
 
-
-
 			&__title {
 				font-size: 3.2rem;
 				font-weight: 600;
-
 			}
 
 			&__text {
@@ -34,51 +37,53 @@
 			}
 		}
 
-
 		.divider {
-			border: 1px solid #1E1E1E;
+			border: 1px solid #1e1e1e;
 			height: 97px;
 			margin: auto 34px;
-
-
 		}
-
 
 		.exhibitionsContainer {
 			display: flex;
 			flex-direction: column;
-			gap: 38px 0;
-
+			width: 50%;
+			height: 100%;
 
 			&__title {
 				font-size: 3.2rem;
 				font-weight: 400;
+				margin-bottom: 32px;
+			}
+
+			.innerExihitions {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				overflow-y: auto;
 			}
 		}
 	}
 }
 
-
-
-
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
-		max-width: map.get($sizes, main-mobile-width);
+		padding: 0 0 104px 0;
 
-		.mainImage {
+		&__image {
 			width: 100%;
 			height: 100%;
 		}
 
 		.innerContainer {
 			flex-direction: column;
-			padding-top: 42.5px;
-			margin-bottom: 100px;
+			height: 100%;
+			width: 100%;
+			padding: 0 map.get($sizes, minimal-mobile-padding);
 
 			.infoContainer {
-				padding-inline-end: 0;
-				width: initial;
-				padding: 0 16px;
+				width: 100%;
+				padding: 0 map.get($sizes, minimal-mobile-padding);
+
 				&__title {
 					font-size: 2.4rem;
 				}
@@ -87,10 +92,25 @@
 					font-size: 2rem;
 				}
 			}
+
 			.divider {
 				height: 0;
 				width: 97px;
 				margin: 42px auto;
+			}
+
+			.exhibitionsContainer {
+				width: 100%;
+				align-items: center;
+
+				&__title {
+					font-size: 2.4rem;
+				}
+
+				.innerExihitions {
+					padding: 0 map.get($sizes, minimal-mobile-padding);
+					height: 432px;
+				}
 			}
 		}
 	}

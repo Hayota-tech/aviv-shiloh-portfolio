@@ -16,10 +16,10 @@ const ExhibitView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	return (
 		<div className={classes['container']}>
 			<span className={classes['container__title']}>{props.title}</span>
-			<span className={classes['container__exhibition']}>{props.exhibition} </span>
+			<span className={classes['container__exhibition']}>{props.exhibition}</span>
 			<div className={classes['dateContainer']}>
-				<span className={classes['dateContainer__startDate']}>{props.startDate}</span>
-				<span className={classes['dateContainer__endDate']}>{endDateWithSpace}</span>
+				<span className={classes['dateContainer__date']}>{props.startDate}</span>
+				<span className={classes['dateContainer__date']}>{endDateWithSpace}</span>
 			</div>
 		</div>
 	);
