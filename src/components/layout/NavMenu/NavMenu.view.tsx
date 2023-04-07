@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
+import { concatClasses } from '@/utils/component';
 import NavLink from './NavLink';
 import { navList } from '../../../data/nav-list';
 
@@ -8,6 +9,7 @@ import classes from './NavMenu.module.scss';
 import Header from '../Header';
 
 interface IProps {
+	readonly isMenuVisible: boolean;
 	readonly selectedLinkIndex: number | null;
 	readonly randomImage: string | null;
 	readonly onLinkHover: (index: number) => void;
@@ -16,8 +18,14 @@ interface IProps {
 }
 
 const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const containerClasses = concatClasses(
+		classes,
+		'container',
+		props.isMenuVisible ? '' : 'container--fadeOut',
+	);
+
 	return (
-		<section className={classes['container']}>
+		<section className={containerClasses}>
 			<Header theme="light" />
 
 			<div className={classes['innerContainer']}>

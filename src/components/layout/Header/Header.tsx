@@ -10,8 +10,17 @@ interface IProps {
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { route } = useRouter();
 	const [isMenuOpenState, setIsMenuOpenState] = useState<boolean>(false);
+	const [isMenuVisibleState, setIsMenuVisibleState] = useState<boolean>(false);
 
-	const onToggleMenu = () => setIsMenuOpenState((prev) => !prev);
+	const onToggleMenu = () => {
+		if (isMenuOpenState) {
+			setIsMenuVisibleState(() => false);
+			setTimeout(() => setIsMenuOpenState(false), 500);
+		} else {
+			setIsMenuOpenState(() => true);
+			setIsMenuVisibleState(() => true);
+		}
+	};
 
 	const onCloseMenu = (linkName: string) => {
 		const lowerCaseLinkName = linkName.toLowerCase();
@@ -24,6 +33,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<HeaderView
 			isMenuOpen={isMenuOpenState}
+			isMenuVisible={isMenuVisibleState}
 			theme={props.theme}
 			onToggleMenu={onToggleMenu}
 			onCloseMenu={onCloseMenu}

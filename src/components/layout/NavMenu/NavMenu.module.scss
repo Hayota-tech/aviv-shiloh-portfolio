@@ -42,12 +42,10 @@
 	z-index: -1;
 	animation: bottomToTop 1s;
 
-	&--fadeout {
+	&--fadeOut {
 		opacity: 0;
 		animation: fadeOut 0.5s;
 	}
-
-	//fadeout the .container class name when unmouting the component
 
 	.innerContainer {
 		display: flex;

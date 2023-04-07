@@ -8,6 +8,7 @@ import NavMenu from '../NavMenu';
 
 interface IProps {
 	readonly isMenuOpen: boolean;
+	readonly isMenuVisible: boolean;
 	readonly theme?: string;
 	readonly onToggleMenu: () => void;
 	readonly onCloseMenu: (linkName: string) => void;
@@ -66,7 +67,11 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 			</Link>
 			<span className={textClass}>©2023</span>
 			{props.isMenuOpen && (
-				<NavMenu onToggleMenu={props.onToggleMenu} onCloseMenu={props.onCloseMenu} />
+				<NavMenu
+					isMenuVisible={props.isMenuVisible}
+					onToggleMenu={props.onToggleMenu}
+					onCloseMenu={props.onCloseMenu}
+				/>
 			)}
 		</header>
 	);

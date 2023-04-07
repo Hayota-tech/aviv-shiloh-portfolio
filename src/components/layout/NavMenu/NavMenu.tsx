@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import NavMenuView from './NavMenu.view';
 
 interface IProps {
+	readonly isMenuVisible: boolean;
 	readonly onToggleMenu: () => void;
 	readonly onCloseMenu: (linkName: string) => void;
 }
@@ -32,6 +33,7 @@ const NavMenu: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	return (
 		<NavMenuView
+			isMenuVisible={props.isMenuVisible}
 			selectedLinkIndex={selectedLinkIndexState}
 			randomImage={randomImageState}
 			onLinkHover={onLinkHover}
