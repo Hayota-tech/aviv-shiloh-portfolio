@@ -98,6 +98,10 @@
 	.container {
 		padding: 16px 16px 0 16px;
 
+		&--slideUp {
+			animation: none;
+		}
+
 		.mobileBurger {
 			display: block;
 

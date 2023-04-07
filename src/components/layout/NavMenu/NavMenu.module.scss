@@ -29,6 +29,15 @@
 	}
 }
 
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 .container {
 	position: fixed;
 	top: 0;
@@ -69,7 +78,13 @@
 
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
-		animation: slidein 0.9s;
+		opacity: 1;
+		animation: fadeIn 0.9s;
+
+		&--fadeOut {
+			opacity: 0;
+			animation: fadeOut 0.5s;
+		}
 
 		.innerContainer {
 			flex-direction: column;
