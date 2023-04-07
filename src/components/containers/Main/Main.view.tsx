@@ -13,6 +13,7 @@ const MainView: React.FC<IProps> = () => {
 		<main className={classes['container']}>
 			<Image className={classes['container__image']} src={intro} alt="Intro image" />
 			<div className={classes['bioContainer']}>
+				<span className={classes['fadeBackground']} />
 				<span className={classes['bioContainer__bio']}>Bio</span>
 				<p className={classes['bioContainer__description']}>
 					Aviv Shiloh is a photographer focusing on the humane
