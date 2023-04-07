@@ -5,17 +5,21 @@ import NavLink from './NavLink';
 import { navList } from '../../../data/nav-list';
 
 import classes from './NavMenu.module.scss';
+import Header from '../Header';
 
 interface IProps {
 	readonly selectedLinkIndex: number | null;
 	readonly randomImage: string | null;
 	readonly onLinkHover: (index: number) => void;
 	readonly onToggleMenu: () => void;
+	readonly onCloseMenu: (linkName: string) => void;
 }
 
 const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<section className={classes['container']}>
+			<Header theme="light" />
+
 			<div className={classes['innerContainer']}>
 				<div className={classes['linksContainer']}>
 					{navList.map((navItem, index) => (
@@ -28,6 +32,7 @@ const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							randomImage={props.randomImage}
 							onHover={props.onLinkHover}
 							onToggleMenu={props.onToggleMenu}
+							onCloseMenu={props.onCloseMenu}
 						/>
 					))}
 				</div>

@@ -9,12 +9,12 @@ import NavMenu from '../NavMenu';
 interface IProps {
 	readonly isMenuOpen: boolean;
 	readonly theme?: string;
-	readonly float?: boolean;
 	readonly onToggleMenu: () => void;
+	readonly onCloseMenu: (linkName: string) => void;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const containerClass = concatClasses(classes, 'container', props.float ? 'container--float' : '');
+	const containerClass = concatClasses(classes, 'container', props.isMenuOpen ? 'container--slideUp' : '');
 
 	const menuClass = concatClasses(
 		classes,
@@ -27,12 +27,14 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		classes,
 		'container__logo',
 		props.theme === 'dark' ? 'container__logo--dark' : 'container__logo--light',
+		props.isMenuOpen ? 'container__logo--inMenu' : '',
 	);
 
 	const textClass = concatClasses(
 		classes,
 		'container__text',
 		props.theme === 'dark' ? 'container__text--dark' : 'container__text--light',
+		props.isMenuOpen ? 'container__text--inMenu' : '',
 	);
 
 	const mobileBurgerClass = concatClasses(
@@ -55,11 +57,17 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 			<button className={menuClass} type="button" onClick={props.onToggleMenu}>
 				MENU
 			</button>
-			<Link className={logoClass} href="/">
+			<Link
+				className={logoClass}
+				href="/"
+				onClick={() => (props.isMenuOpen ? props.onCloseMenu('home') : null)}
+			>
 				Aviv Shiloh
 			</Link>
 			<span className={textClass}>©2023</span>
-			{props.isMenuOpen && <NavMenu onToggleMenu={props.onToggleMenu} />}
+			{props.isMenuOpen && (
+				<NavMenu onToggleMenu={props.onToggleMenu} onCloseMenu={props.onCloseMenu} />
+			)}
 		</header>
 	);
 };

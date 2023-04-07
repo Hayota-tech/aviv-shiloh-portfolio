@@ -4,6 +4,7 @@ import NavMenuView from './NavMenu.view';
 
 interface IProps {
 	readonly onToggleMenu: () => void;
+	readonly onCloseMenu: (linkName: string) => void;
 }
 
 const NavMenu: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -35,6 +36,7 @@ const NavMenu: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			randomImage={randomImageState}
 			onLinkHover={onLinkHover}
 			onToggleMenu={props.onToggleMenu}
+			onCloseMenu={props.onCloseMenu}
 		/>
 	);
 };

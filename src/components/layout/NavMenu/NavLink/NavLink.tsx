@@ -10,6 +10,7 @@ interface IProps {
 	readonly randomImage: string | null;
 	readonly onHover: (index: number) => void;
 	readonly onToggleMenu: () => void;
+	readonly onCloseMenu: (linkName: string) => void;
 }
 
 const NavLink: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -22,6 +23,7 @@ const NavLink: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			randomImage={props.randomImage}
 			onHover={props.onHover}
 			onToggleMenu={props.onToggleMenu}
+			onCloseMenu={props.onCloseMenu}
 		/>
 	);
 };

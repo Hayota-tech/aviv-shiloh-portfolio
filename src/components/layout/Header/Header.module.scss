@@ -2,20 +2,28 @@
 
 @import '../../../styles/variables.scss';
 
+@keyframes slideUp {
+	from {
+		top: 64px;
+	}
+	to {
+		top: -64px;
+	}
+}
+
 .container {
+	position: relative;
+	top: 64px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	padding: 64px 64px 0 64px;
-	z-index: 2;
+	padding: 0 64px 0 64px;
+	z-index: 1;
+	margin-bottom: -64px;
 
-	&--float {
-		position: relative;
-		top: 64px;
-		padding-top: 0;
-		z-index: 1;
-		margin-bottom: -64px;
+	&--slideUp {
+		animation: slideUp 1s;
 	}
 
 	.mobileBurger {
@@ -60,6 +68,11 @@
 		&--light {
 			color: #f5f5f5;
 		}
+
+		&--inMenu {
+			color: #f5f5f5;
+			transition: color 1.2s ease-in-out;
+		}
 	}
 
 	&__text {
@@ -72,6 +85,11 @@
 
 		&--light {
 			color: #f5f5f5;
+		}
+
+		&--inMenu {
+			color: #f5f5f5;
+			transition: color 1.2s ease-in-out;
 		}
 	}
 }

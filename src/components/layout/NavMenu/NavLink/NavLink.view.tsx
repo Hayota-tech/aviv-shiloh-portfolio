@@ -14,6 +14,7 @@ interface IProps {
 	readonly randomImage: string | null;
 	readonly onHover: (index: number) => void;
 	readonly onToggleMenu: () => void;
+	readonly onCloseMenu: (linkName: string) => void;
 }
 
 const NavLinkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -41,7 +42,7 @@ const NavLinkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				href={props.url}
 				onMouseEnter={() => props.onHover(props.index)}
 				onMouseLeave={() => props.onHover(-1)}
-				onClick={() => props.title === 'HOME' && props.onToggleMenu()}
+				onClick={() => props.onCloseMenu(props.title)}
 			>
 				{props.title}
 			</Link>

@@ -2,12 +2,12 @@
 
 @import '../../../styles/variables.scss';
 
-@keyframes fadein {
+@keyframes bottomToTop {
 	from {
-		opacity: 0;
+		transform: translateY(100%);
 	}
 	to {
-		opacity: 1;
+		transform: translateY(0);
 	}
 }
 
@@ -20,12 +20,12 @@
 	}
 }
 
-@keyframes slideout {
+@keyframes fadeOut {
 	from {
-		transform: translateX(0);
+		opacity: 1;
 	}
 	to {
-		transform: translateX(-100%);
+		opacity: 0;
 	}
 }
 
@@ -40,7 +40,14 @@
 	width: 100vw;
 	height: 100vh;
 	z-index: -1;
-	animation: fadein 0.7s;
+	animation: bottomToTop 1s;
+
+	&--fadeout {
+		opacity: 0;
+		animation: fadeOut 0.5s;
+	}
+
+	//fadeout the .container class name when unmouting the component
 
 	.innerContainer {
 		display: flex;

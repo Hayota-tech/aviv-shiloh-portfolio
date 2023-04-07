@@ -2,9 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import classes from './Main.module.scss';
-
 import intro from '../../../../public/images/intro.png';
+import Carousel from './Carousel';
+
+import classes from './Main.module.scss';
 
 interface IProps {}
 
@@ -24,6 +25,7 @@ const MainView: React.FC<IProps> = () => {
 					Read More
 				</Link>
 			</div>
+			<Carousel />
 		</main>
 	);
 };
