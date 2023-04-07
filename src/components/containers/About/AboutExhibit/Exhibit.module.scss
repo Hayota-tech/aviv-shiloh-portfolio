@@ -1,0 +1,86 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #C8C8C8;
+    border-radius: 12px;
+    padding: 16px;
+    gap: 8px;
+    width: 658px;
+    height: 131px;
+
+    &__title {
+        font-size: 2.4rem;
+        color: #000000;
+        margin: 0;
+        padding: 0;
+
+
+    }
+
+    &__exhibition {
+        margin: 0;
+
+        font-size: 2.4rem;
+        color: #000000;
+        text-decoration-line: underline;
+    }
+
+    .dateContainer {
+        padding-top: 8px;
+
+        &__startDate {
+            font-weight: 600;
+            color: #268741;
+            font-size: 1.6rem;
+
+        }
+
+        &__endDate {
+
+            font-weight: 600;
+            color: #268741;
+            font-size: 1.6rem;
+        }
+    }
+
+
+}
+
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+    .container {
+        max-width: map.get($sizes, main-mobile-width);
+        width: 358px;
+
+        &__title {
+            font-size: 2rem;
+        }
+
+        &__exhibition {
+            font-size: 2rem;
+
+        }
+
+        .dateContainer {
+
+            &__startDate {
+                font-size: 1.4rem;
+            }
+
+            &__endDate {
+                font-size: 1.4rem;
+
+            }
+        }
+
+
+    }
+
+
+
+}
