@@ -59,7 +59,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 				Aviv Shiloh
 			</Link>
 			<span className={textClass}>©2023</span>
-			{props.isMenuOpen && <NavMenu />}
+			{props.isMenuOpen && <NavMenu onToggleMenu={props.onToggleMenu} />}
 		</header>
 	);
 };

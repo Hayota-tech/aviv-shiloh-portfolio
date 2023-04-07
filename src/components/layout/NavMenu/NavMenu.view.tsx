@@ -10,6 +10,7 @@ interface IProps {
 	readonly selectedLinkIndex: number | null;
 	readonly randomImage: string | null;
 	readonly onLinkHover: (index: number) => void;
+	readonly onToggleMenu: () => void;
 }
 
 const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -26,6 +27,7 @@ const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							url={navItem.url}
 							randomImage={props.randomImage}
 							onHover={props.onLinkHover}
+							onToggleMenu={props.onToggleMenu}
 						/>
 					))}
 				</div>

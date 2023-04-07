@@ -8,11 +8,10 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [isMenuOpenState, setIsMenuOpenState] = useState(false);
+	const [isMenuOpenState, setIsMenuOpenState] = useState<boolean>(false);
 
-	const onToggleMenu = () => {
-		setIsMenuOpenState((prev) => !prev);
-	};
+	const onToggleMenu = () => setIsMenuOpenState((prev) => !prev);
+
 	return (
 		<HeaderView
 			isMenuOpen={isMenuOpenState}

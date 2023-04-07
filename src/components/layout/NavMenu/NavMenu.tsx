@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 
 import NavMenuView from './NavMenu.view';
 
-interface IProps {}
+interface IProps {
+	readonly onToggleMenu: () => void;
+}
 
-const NavMenu: React.FC<IProps> = () => {
+const NavMenu: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const imageArrey = [
 		'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
 		'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png',
@@ -32,6 +34,7 @@ const NavMenu: React.FC<IProps> = () => {
 			selectedLinkIndex={selectedLinkIndexState}
 			randomImage={randomImageState}
 			onLinkHover={onLinkHover}
+			onToggleMenu={props.onToggleMenu}
 		/>
 	);
 };
