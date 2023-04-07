@@ -20,10 +20,11 @@ const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<div className={classes['linksContainer']}>
 					{navList.map((navItem, index) => (
 						<NavLink
-							key={navItem}
+							key={navItem.title}
 							index={index}
 							selectedLinkIndex={props.selectedLinkIndex}
-							title={navItem}
+							title={navItem.title}
+							url={navItem.url}
 							randomImage={props.randomImage}
 							onHover={props.onLinkHover}
 						/>

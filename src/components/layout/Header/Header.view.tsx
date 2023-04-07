@@ -16,8 +16,6 @@ interface IProps {
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const containerClass = concatClasses(classes, 'container', props.float ? 'container--float' : '');
 
-	console.log(props.isMenuOpen, 'isMenuOpen');
-
 	const menuClass = concatClasses(
 		classes,
 		'container__menu',

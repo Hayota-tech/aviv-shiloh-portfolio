@@ -10,6 +10,7 @@ interface IProps {
 	readonly index: number;
 	readonly selectedLinkIndex: number | null;
 	readonly title: string;
+	readonly url: string;
 	readonly randomImage: string | null;
 	readonly onHover: (index: number) => void;
 }
@@ -36,9 +37,10 @@ const NavLinkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			)}
 			<Link
 				className={classes['container__link']}
-				href="/about"
+				href={props.url}
 				onMouseEnter={() => props.onHover(props.index)}
 				onMouseLeave={() => props.onHover(-1)}
+				onClick={props.title === 'Home' ? () => props.onHover(-1) : undefined}
 			>
 				{props.title}
 			</Link>
