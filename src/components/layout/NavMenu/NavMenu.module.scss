@@ -11,6 +11,24 @@
 	}
 }
 
+@keyframes slidein {
+	from {
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideout {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}
+
 .container {
 	position: fixed;
 	top: 0;
@@ -29,7 +47,7 @@
 		flex-direction: row-reverse;
 		height: fit-content;
 		width: 100%;
-		margin-bottom: 90px;
+		margin: 200px 0 90px 0;
 
 		.linksContainer {
 			display: flex;
@@ -37,8 +55,29 @@
 			height: fit-content;
 			margin-inline-end: 216px;
 		}
+
+		&__mobileImage {
+			display: none;
+		}
 	}
 }
 
 @media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		animation: slidein 0.9s;
+
+		.innerContainer {
+			flex-direction: column;
+			margin: 200px 16px 0 16px;
+
+			.linksContainer {
+				margin-inline-end: 0;
+			}
+
+			&__mobileImage {
+				display: block;
+				margin-top: 62px;
+			}
+		}
+	}
 }

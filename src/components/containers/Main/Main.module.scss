@@ -1,3 +1,7 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
 .container {
 	background-color: #000000;
 	height: 100%;
@@ -38,6 +42,21 @@
 			font-size: 2rem;
 			font-weight: 400;
 			color: #ffffff;
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		&__image {
+			top: -55px;
+		}
+
+		.bioContainer {
+			&__description {
+				font-size: 2.4rem;
+				margin: 24px 0 24px 0;
+			}
 		}
 	}
 }

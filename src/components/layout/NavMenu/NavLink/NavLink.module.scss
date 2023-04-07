@@ -32,4 +32,16 @@
 }
 
 @media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		&__image {
+			display: none;
+		}
+
+		&__link {
+			color: #ffffff;
+			text-decoration: none;
+			font-size: 5.2rem;
+			font-weight: 600;
+		}
+	}
 }

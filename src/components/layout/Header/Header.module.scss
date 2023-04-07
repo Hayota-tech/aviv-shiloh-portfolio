@@ -15,6 +15,7 @@
 		top: 64px;
 		padding-top: 0;
 		z-index: 1;
+		margin-bottom: -64px;
 	}
 
 	.mobileBurger {
@@ -78,10 +79,6 @@
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
 		padding: 16px 16px 0 16px;
-
-		&--float {
-			top: 16px;
-		}
 
 		.mobileBurger {
 			display: block;

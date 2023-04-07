@@ -44,7 +44,11 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 	return (
 		<header className={containerClass}>
 			<div className={classes['mobileBurger']}>
-				<button className={classes['mobileBurger__button']} type="button">
+				<button
+					className={classes['mobileBurger__button']}
+					type="button"
+					onClick={props.onToggleMenu}
+				>
 					<SSvg name="humburger" className={mobileBurgerClass} />
 				</button>
 			</div>

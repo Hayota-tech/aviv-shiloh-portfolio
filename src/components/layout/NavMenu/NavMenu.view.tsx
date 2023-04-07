@@ -1,6 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
 
-import Header from '../Header';
 import NavLink from './NavLink';
 import { navList } from '../../../data/nav-list';
 
@@ -15,7 +15,6 @@ interface IProps {
 const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<section className={classes['container']}>
-			<Header theme="light" />
 			<div className={classes['innerContainer']}>
 				<div className={classes['linksContainer']}>
 					{navList.map((navItem, index) => (
@@ -30,6 +29,13 @@ const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 						/>
 					))}
 				</div>
+				<Image
+					className={classes['innerContainer__mobileImage']}
+					src={props.randomImage ?? '/images/placeholder.png'}
+					width={326}
+					height={184}
+					alt="Navigtion Menu"
+				/>
 			</div>
 		</section>
 	);
