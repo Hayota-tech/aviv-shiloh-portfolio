@@ -7,7 +7,7 @@ import About from '@/containers/About';
 const AboutPage: NextPage = () => {
 	return (
 		<>
-			<Header theme="dark" />
+			<Header theme="dark" float />
 			<About />
 		</>
 	);

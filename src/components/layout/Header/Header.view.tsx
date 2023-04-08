@@ -10,12 +10,18 @@ interface IProps {
 	readonly isMenuOpen: boolean;
 	readonly isMenuVisible: boolean;
 	readonly theme?: string;
+	readonly float?: boolean;
 	readonly onToggleMenu: () => void;
 	readonly onCloseMenu: (linkName: string) => void;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const containerClass = concatClasses(classes, 'container', props.isMenuOpen ? 'container--slideUp' : '');
+	const containerClass = concatClasses(
+		classes,
+		'container',
+		props.isMenuOpen ? 'container--slideUp' : '',
+		props.float ? 'container--float' : '',
+	);
 
 	const menuClass = concatClasses(
 		classes,

@@ -20,10 +20,13 @@
 	width: 100%;
 	padding: 0 64px 0 64px;
 	z-index: 1;
-	margin-bottom: -64px;
 
 	&--slideUp {
 		animation: slideUp 1s;
+	}
+
+	&--float {
+		margin-bottom: -64px;
 	}
 
 	.mobileBurger {

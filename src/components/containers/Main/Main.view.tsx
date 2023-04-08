@@ -28,7 +28,7 @@ const MainView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 					Read More
 				</Link>
 			</div>
-			<Carousel projectsList={props.projectsList} />
+			{props.projectsList && <Carousel projectsList={props.projectsList} />}
 		</main>
 	);
 };

@@ -5,28 +5,34 @@ import type { IProject } from '../../../../interfaces/responses';
 
 import classes from './Carousel.module.scss';
 import { imageUrl } from '@/utils/image-url';
+import Link from 'next/link';
 
 interface IProps {
-	readonly selectedProject: IProject | undefined;
+	readonly projectsList: IProject[];
+	readonly selectedImageIndex: number;
 	readonly onNextImageClick: () => void;
 	readonly onPreviousImageClick: () => void;
 }
 
 const CarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const projectImage = props.selectedProject?.attributes?.media?.data[0]?.attributes?.url;
+	const projectId = props.projectsList[props.selectedImageIndex]?.id;
+	const projectImage =
+		props.projectsList[props.selectedImageIndex]?.attributes?.media?.data[0]?.attributes?.url;
 	const projectImageUrl = projectImage ? imageUrl(projectImage) : '/public/images/placeholder.png';
-	const projectName = props.selectedProject?.attributes?.name;
-	const projectDate = props.selectedProject?.attributes?.date;
+	const projectName = props.projectsList[props.selectedImageIndex]?.attributes?.name;
+	const projectDate = props.projectsList[props.selectedImageIndex]?.attributes?.date.split('-')[0] ?? '';
 
 	return (
 		<section className={classes['container']}>
-			<Image
-				className={classes['container__image']}
-				src={projectImageUrl}
-				width={1384}
-				height={778}
-				alt="Carousel Image"
-			/>
+			<Link className={classes['carouselImage']} href={`/project/${projectId}`}>
+				<Image
+					className={classes['carouselImage__image']}
+					src={projectImageUrl}
+					width={1384}
+					height={778}
+					alt="Carousel Image"
+				/>
+			</Link>
 			<div className={classes['infoContainer']}>
 				<div className={classes['leftSide']}>
 					<span className={classes['leftSide__title']}>{projectName}</span>

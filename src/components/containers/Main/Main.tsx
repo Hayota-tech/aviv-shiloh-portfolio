@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AxiosResponse } from 'axios';
+import type { AxiosResponse } from 'axios';
 
 import type { IProject } from 'src/interfaces/responses';
 import { backendApi } from '@/utils/http';
@@ -12,7 +12,7 @@ const Main: React.FC<IProps> = () => {
 	useEffect(() => {
 		backendApi
 			.get(
-				`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?fields[0]=name&fields[1]=description&&fields[3]=date&&fields[4]=country&&fields[5]=city&populate[0]=media`,
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?fields[0]=name&fields[1]=description&&fields[3]=date&&fields[4]=country&fields[5]=city&populate[0]=media`,
 			)
 			.then((response: AxiosResponse) => {
 				setProjectsListState(() => response.data.data);

@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import type { NextPage } from 'next';
 
@@ -9,7 +7,7 @@ import Main from '@/containers/Main';
 const MainPage: NextPage = () => {
 	return (
 		<>
-			<Header theme="light" />
+			<Header theme="light" float />
 			<Main />
 		</>
 	);

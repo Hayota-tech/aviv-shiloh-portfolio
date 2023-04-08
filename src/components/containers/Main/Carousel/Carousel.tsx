@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import type { IProject } from '../../../../interfaces/responses';
 import CarouselView from './Carousel.view';
@@ -8,15 +8,10 @@ interface IProps {
 }
 
 const Carousel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [selectedProjectState, setSelectedProjectState] = useState<IProject | undefined>(undefined);
 	const [selectedImageIndexState, setSelectedImageIndexState] = useState<number>(0);
 
 	const onNextImageClick = () => {
 		setSelectedImageIndexState((prev) => {
-			// if (prev === null) {
-			// 	return null;
-			// }
-
 			if (prev === props.projectsList.length - 1) {
 				return 0;
 			}
@@ -27,10 +22,6 @@ const Carousel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	const onPreviousImageClick = () => {
 		setSelectedImageIndexState((prev) => {
-			// if (prev === null) {
-			// 	return null;
-			// }
-
 			if (prev === 0) {
 				return props.projectsList.length - 1;
 			}
@@ -39,13 +30,10 @@ const Carousel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		});
 	};
 
-	useEffect(() => {
-		props.projectsList && setSelectedProjectState(() => props.projectsList[selectedImageIndexState]);
-	}, [selectedImageIndexState]);
-
 	return (
 		<CarouselView
-			selectedProject={selectedProjectState}
+			projectsList={props.projectsList}
+			selectedImageIndex={selectedImageIndexState}
 			onNextImageClick={onNextImageClick}
 			onPreviousImageClick={onPreviousImageClick}
 		/>
