@@ -1,30 +1,36 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { ICarouselImage } from '../../../../interfaces/carousel-image';
+import type { IProject } from '../../../../interfaces/responses';
 
 import classes from './Carousel.module.scss';
+import { imageUrl } from '@/utils/image-url';
 
 interface IProps {
-	readonly selectedProject: ICarouselImage | undefined;
+	readonly selectedProject: IProject | undefined;
 	readonly onNextImageClick: () => void;
 	readonly onPreviousImageClick: () => void;
 }
 
 const CarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const projectImage = props.selectedProject?.attributes?.media?.data[0]?.attributes?.url;
+	const projectImageUrl = projectImage ? imageUrl(projectImage) : '/public/images/placeholder.png';
+	const projectName = props.selectedProject?.attributes?.name;
+	const projectDate = props.selectedProject?.attributes?.date;
+
 	return (
 		<section className={classes['container']}>
 			<Image
 				className={classes['container__image']}
-				src={props.selectedProject?.url ?? '/images/placeholder.png'}
+				src={projectImageUrl}
 				width={1384}
 				height={778}
 				alt="Carousel Image"
 			/>
 			<div className={classes['infoContainer']}>
 				<div className={classes['leftSide']}>
-					<span className={classes['leftSide__title']}>{props.selectedProject?.title}</span>
-					<span className={classes['leftSide_date']}>{props.selectedProject?.date}</span>
+					<span className={classes['leftSide__title']}>{projectName}</span>
+					<span className={classes['leftSide_date']}>{projectDate}</span>
 				</div>
 				<div className={classes['rightSide']}>
 					<button

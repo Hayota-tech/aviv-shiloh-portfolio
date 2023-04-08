@@ -1,36 +1,23 @@
 import React, { useEffect, useState } from 'react';
 
+import type { IProject } from '../../../../interfaces/responses';
 import CarouselView from './Carousel.view';
-import { ICarouselImage } from '../../../../interfaces/carousel-image';
 
-interface IProps {}
+interface IProps {
+	readonly projectsList: IProject[];
+}
 
-const Carousel: React.FC<IProps> = () => {
-	const imagesDummy: ICarouselImage[] = [
-		{
-			url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmy.alfred.edu%2Fzoom%2F_images%2Ffoster-lake.jpg&f=1&nofb=1&ipt=bd7b953c190eb28583c4100a502a447b8a5ecee9b079af6157cc6d6a90c0bb49&ipo=images',
-			title: 'Foster Lake',
-			date: '2021-01-01',
-		},
-		{
-			url: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages4.alphacoders.com%2F115%2Fthumb-1920-115716.jpg&f=1&nofb=1&ipt=c1f58c6e5b7be411ecd2ea0bdde5d22f4905eeca610198e93701d75e2451abe5&ipo=images',
-			title: 'Doza Lake',
-			date: '2021-01-01',
-		},
-	];
-
-	const [selectedImageIndexState, setSelectedImageIndexState] = useState<number | null>(null);
-	const [selectedProjectState, setSelectedProjectState] = useState<ICarouselImage | undefined>(undefined);
+const Carousel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const [selectedProjectState, setSelectedProjectState] = useState<IProject | undefined>(undefined);
+	const [selectedImageIndexState, setSelectedImageIndexState] = useState<number>(0);
 
 	const onNextImageClick = () => {
 		setSelectedImageIndexState((prev) => {
-			if (prev === null) {
-				console.log('in');
+			// if (prev === null) {
+			// 	return null;
+			// }
 
-				return null;
-			}
-
-			if (prev === imagesDummy.length - 1) {
+			if (prev === props.projectsList.length - 1) {
 				return 0;
 			}
 
@@ -40,12 +27,12 @@ const Carousel: React.FC<IProps> = () => {
 
 	const onPreviousImageClick = () => {
 		setSelectedImageIndexState((prev) => {
-			if (prev === null) {
-				return null;
-			}
+			// if (prev === null) {
+			// 	return null;
+			// }
 
 			if (prev === 0) {
-				return imagesDummy.length - 1;
+				return props.projectsList.length - 1;
 			}
 
 			return prev - 1;
@@ -53,11 +40,7 @@ const Carousel: React.FC<IProps> = () => {
 	};
 
 	useEffect(() => {
-		setSelectedImageIndexState(() => 0);
-	}, []);
-
-	useEffect(() => {
-		setSelectedProjectState(() => imagesDummy[selectedImageIndexState ?? 0]);
+		props.projectsList && setSelectedProjectState(() => props.projectsList[selectedImageIndexState]);
 	}, [selectedImageIndexState]);
 
 	return (
