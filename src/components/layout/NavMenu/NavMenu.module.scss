@@ -1,0 +1,103 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+@keyframes bottomToTop {
+	from {
+		transform: translateY(100%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes slidein {
+	from {
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #000000;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
+	animation: bottomToTop 1s;
+
+	&--fadeOut {
+		opacity: 0;
+		animation: fadeOut 0.5s;
+	}
+
+	.innerContainer {
+		display: flex;
+		flex-direction: row-reverse;
+		height: fit-content;
+		width: 100%;
+		margin: 200px 0 90px 0;
+
+		.linksContainer {
+			display: flex;
+			flex-direction: column;
+			height: fit-content;
+			margin-inline-end: 216px;
+		}
+
+		&__mobileImage {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		opacity: 1;
+		animation: fadeIn 0.9s;
+
+		&--fadeOut {
+			opacity: 0;
+			animation: fadeOut 0.5s;
+		}
+
+		.innerContainer {
+			flex-direction: column;
+			margin: 200px 16px 0 16px;
+
+			.linksContainer {
+				margin-inline-end: 0;
+			}
+
+			&__mobileImage {
+				display: block;
+				margin-top: 62px;
+			}
+		}
+	}
+}

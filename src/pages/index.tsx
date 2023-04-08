@@ -9,7 +9,7 @@ import Main from '@/containers/Main';
 const MainPage: NextPage = () => {
 	return (
 		<>
-			<Header theme="light" float />
+			<Header theme="light" />
 			<Main />
 		</>
 	);
