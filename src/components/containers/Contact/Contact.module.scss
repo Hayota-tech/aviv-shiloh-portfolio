@@ -1,0 +1,183 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin-top: 286px;
+    width: 80%;
+    //change to global varible after update to main
+    padding: 0 64px;
+
+    &__bigTitle {
+        font-size: 11rem;
+        align-self: flex-end;
+        color: #ffffff;
+        margin-bottom: 42px;
+    }
+
+
+    .innerContainer {
+        display: flex;
+        justify-content: space-between;
+
+        .leftContainer {
+            display: flex;
+            flex-direction: column;
+
+            &__title {
+                font-size: 2.4rem;
+                font-weight: 500;
+                color: #ffffff;
+                margin-bottom: 32px;
+            }
+
+
+
+            &__adressText {
+                font-size: 3.2rem;
+                font-weight: 600;
+                color: #ffffff;
+            }
+
+            .mailDesktop {
+                display: flex;
+                flex-direction: column;
+                margin-top: 56px;
+
+                &__title {
+                    font-size: 2.4rem;
+                    font-weight: 500;
+                    color: #ffffff;
+                    margin-bottom: 32px;
+                }
+
+                &__mail {
+                    font-size: 3.2rem;
+                    font-weight: 400;
+                    color: #ffffff;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .rightContainer {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            margin-inline-end: 380px;
+
+            &__title {
+                font-size: 2.4rem;
+                font-weight: 500;
+                color: #ffffff;
+                margin-bottom: 32px;
+            }
+
+            &__socialButton {
+                font-size: 3.2rem;
+                font-weight: 400;
+                color: #ffffff;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .mailMobile {
+        display: none;
+    }
+}
+
+@media (max-width: 390px) {
+    .container {
+        max-width: map.get($sizes, main-mobile-width);
+        margin-top: 94px;
+        width: 100%;
+        padding: 0 32px;
+
+        &__bigTitle {
+            align-self: initial;
+            font-size: 6.4rem;
+            margin-bottom: 48px;
+        }
+
+        .innerContainer {
+            flex-direction: column;
+
+            .leftContainer {
+
+                &__title {
+                    font-size: 2.4rem;
+                    font-weight: 500;
+                    color: #ffffff;
+                    margin-bottom: 32px;
+                }
+
+                &__adressText {
+                    font-size: 3.2rem;
+                    font-weight: 600;
+                    color: #ffffff;
+                }
+
+                .mailDesktop {
+                    display: none;
+
+
+                }
+
+            }
+
+            .rightContainer {
+                align-items: flex-end;
+                margin-inline-end: 0px;
+                margin-top: 48px;
+
+                &__title {
+                    font-size: 2.4rem;
+                    font-weight: 500;
+                    color: #ffffff;
+                    margin-bottom: 32px;
+                }
+
+                &__socialButton {
+                    font-size: 3.2rem;
+                    font-weight: 400;
+                    color: #ffffff;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .mailMobile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 48px;
+
+            &__title {
+                font-size: 2.4rem;
+                font-weight: 500;
+                color: #ffffff;
+                margin-bottom: 32px;
+            }
+
+            &__mail {
+                font-size: 3.2rem;
+                font-weight: 400;
+                color: #ffffff;
+                text-decoration: none;
+            }
+
+            .mobileSignature {
+                font-size: 2rem;
+                color: #FFFFFF;
+                font-weight: 700;
+                margin: 71px 0 7px 0;
+            }
+        }
+
+    }
+}
