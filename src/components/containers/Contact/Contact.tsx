@@ -4,8 +4,11 @@ import ContactView from './Contact.view';
 
 interface IProps {}
 
-const Contact: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-  return <ContactView />;
+const Contact: React.FC<IProps> = () => {
+	const onSocialNavigate = (url: string) => {
+		window.open(url, '_blank');
+	};
+	return <ContactView onSocialNavigate={onSocialNavigate} />;
 };
 
 Contact.displayName = 'Contact';

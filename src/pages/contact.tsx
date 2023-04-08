@@ -9,13 +9,6 @@ const ContactPage: NextPage = () => {
 		<>
 			<Header theme="light" />
 			<Contact />
-			<style jsx global>
-				{`
-					body {
-						background: #268741;
-					}
-				`}
-			</style>
 		</>
 	);
 };

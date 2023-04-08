@@ -3,20 +3,16 @@ import React from 'react';
 import { socialMedia } from '../../../data/social-media';
 import { address } from '../../../data/address';
 
-import type { IContactContent } from '../../../interfaces/responses';
-
 import classes from './Contact.module.scss';
 
 interface IProps {
-	readonly contactContent: IContactContent | null;
-	readonly onMapsNavigate: () => void;
 	readonly onSocialNavigate: (_: string) => void;
 }
 
 const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<section className={classes['container']}>
-			<span className={classes['container__bigTitle']}>CONTACT</span>
+			<span className={classes['container__title']}>CONTACT</span>
 			<div className={classes['innerContainer']}>
 				<div className={classes['leftContainer']}>
 					<span className={classes['leftContainer__title']}>WHERE</span>

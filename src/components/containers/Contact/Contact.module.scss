@@ -12,13 +12,12 @@
     //change to global varible after update to main
     padding: 0 64px;
 
-    &__bigTitle {
+    &__title {
         font-size: 11rem;
         align-self: flex-end;
         color: #ffffff;
         margin-bottom: 42px;
     }
-
 
     .innerContainer {
         display: flex;
@@ -34,8 +33,6 @@
                 color: #ffffff;
                 margin-bottom: 32px;
             }
-
-
 
             &__adressText {
                 font-size: 3.2rem;
@@ -124,10 +121,7 @@
 
                 .mailDesktop {
                     display: none;
-
-
                 }
-
             }
 
             .rightContainer {
