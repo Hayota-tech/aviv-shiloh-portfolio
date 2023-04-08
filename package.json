@@ -17,6 +17,7 @@
 		"template:ui": "hygen component new-ui"
 	},
 	"dependencies": {
+		"axios": "^1.3.5",
 		"eslint": "8.37.0",
 		"eslint-config-next": "13.2.4",
 		"next": "13.2.4",
