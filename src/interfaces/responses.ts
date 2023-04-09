@@ -42,3 +42,28 @@ export interface IStillCategory {
 		readonly name: string;
 	};
 }
+
+export interface IVideoProject {
+	readonly id: number;
+	readonly attributes: {
+		readonly categories: {
+			readonly data: IVideoCategory[];
+		};
+		readonly media: {
+			readonly data: {
+				readonly id: number;
+				readonly attributes: {
+					readonly url: string;
+					readonly caption: string;
+				};
+			}[];
+		};
+	};
+}
+
+export interface IVideoCategory {
+	readonly id: number;
+	readonly attributes: {
+		readonly name: string;
+	};
+}
