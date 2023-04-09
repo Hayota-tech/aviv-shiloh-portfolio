@@ -27,13 +27,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<meta property="og:url" content="https://exlint.io/" />
 				<meta name="description" content="Aviv Shiloh Portfolio" />
 
-				<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-				<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+				{/* <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> */}
+				{/* <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> */}
 
 				<title>Aviv Shiloh Portfolio</title>
 
 				<link rel="canonical" href="https://www.exlint.io/" />
-				<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+				{/* <link rel="icon" href="/favicon.ico" type="image/x-icon" /> */}
 				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 			</Head>
 

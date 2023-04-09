@@ -15,7 +15,7 @@ interface IProps {
 const MainView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<main className={classes['container']}>
-			<Image className={classes['container__image']} src={intro} alt="Intro image" />
+			<Image className={classes['container__image']} src={intro} alt="Intro image" priority />
 			<div className={classes['bioContainer']}>
 				<span className={classes['fadeBackground']} />
 				<span className={classes['bioContainer__bio']}>Bio</span>

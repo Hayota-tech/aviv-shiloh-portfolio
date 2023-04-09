@@ -18,7 +18,7 @@
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	padding: 0 64px 0 64px;
+	padding-inline: 64px;
 	z-index: 1;
 
 	&--slideUp {
@@ -99,10 +99,15 @@
 
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
-		padding: 16px 16px 0 16px;
+		padding-inline: 16px;
+		top: 16px;
 
 		&--slideUp {
 			animation: none;
+		}
+
+		&--float {
+			margin-bottom: -16px;
 		}
 
 		.mobileBurger {
@@ -113,11 +118,11 @@
 				height: 32px;
 
 				&--dark {
-					fill: #333333;
+					stroke: #333333;
 				}
 
 				&--light {
-					fill: #f5f5f5;
+					stroke: #f5f5f5;
 				}
 			}
 		}
