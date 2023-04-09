@@ -2,7 +2,7 @@ import React from 'react';
 import type { NextPage } from 'next';
 
 import Header from '@/layout/Header';
-import Still from '@/containers/Still';
+import Still from '@/containers/Portfolio/Still';
 
 const stillPage: NextPage = () => {
 	return (

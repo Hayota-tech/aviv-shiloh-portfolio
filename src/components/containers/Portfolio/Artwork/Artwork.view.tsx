@@ -1,13 +1,19 @@
 import React from 'react';
 import SSvg from '@/ui/SSvg';
 
-import classes from './Artwork.module.scss';
+import type { IYear } from './interfaces/year';
 import { yearsList } from 'src/data/years-list';
 import { concatClasses } from '@/utils/component';
 
+import classes from './Artwork.module.scss';
+import { IProject } from 'src/interfaces/responses';
+import Project from './Project';
+
 interface IProps {
-	readonly selectedYearIndex: number;
-	readonly onSelectYear: (index: number) => void;
+	readonly projectsList: IProject[];
+	readonly selectedYears: IYear[];
+	readonly onSelectYear: (year: IYear) => void;
+	readonly onSelectAllYears: () => void;
 }
 
 const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -23,28 +29,40 @@ const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 					className={concatClasses(
 						classes,
 						'yearsList__item',
-						props.selectedYearIndex === -1 ? 'yearsList__item--selected' : '',
+						props.selectedYears.length === 0 ? 'yearsList__item--selected' : '',
 					)}
 					type="button"
-					onClick={() => props.onSelectYear(-1)}
+					onClick={props.onSelectAllYears}
 				>
 					All
 				</button>
-				{yearsList.map((year, index) => (
+				{yearsList.map((year) => (
 					<button
-						key={index}
+						key={year.year}
 						className={concatClasses(
 							classes,
 							'yearsList__item',
-							props.selectedYearIndex === index ? 'yearsList__item--selected' : '',
+							props.selectedYears.includes(year) ? 'yearsList__item--selected' : '',
 						)}
 						type="button"
-						onClick={() => props.onSelectYear(index)}
+						onClick={() => props.onSelectYear(year)}
 					>
-						{year}
+						{year.year}
 					</button>
 				))}
 			</div>
+
+			{props.projectsList.map((project, index) => {
+				const projectDate = project?.attributes?.date.split('-')[0] ?? '';
+
+				if (
+					props.selectedYears.length > 0 &&
+					!props.selectedYears.some((year) => year.year === projectDate)
+				)
+					return;
+
+				return <Project key={index} index={index} project={project} />;
+			})}
 		</section>
 	);
 };
