@@ -7,11 +7,12 @@ interface IProps {
 	readonly image: string;
 	readonly imageAlt: string;
 	readonly className?: string;
+	readonly onOpenModal: () => void;
 }
 
 const GalleryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<div className={props.className}>
+		<button className={props.className} onClick={props.onOpenModal}>
 			<Image
 				className={classes['container__image']}
 				src={props.image}
@@ -19,7 +20,7 @@ const GalleryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				width={100}
 				height={100}
 			/>
-		</div>
+		</button>
 	);
 };
 

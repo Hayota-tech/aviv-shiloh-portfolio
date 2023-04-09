@@ -7,12 +7,20 @@ interface IProps {
 	readonly image: string;
 	readonly imageAlt: string;
 	readonly className?: string;
+	readonly onOpenModal: () => void;
 }
 
 const Gallery: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const imageBackendUrl = imageUrl(props.image);
 
-	return <GalleryView className={props.className} image={imageBackendUrl} imageAlt={props.imageAlt} />;
+	return (
+		<GalleryView
+			className={props.className}
+			image={imageBackendUrl}
+			imageAlt={props.imageAlt}
+			onOpenModal={props.onOpenModal}
+		/>
+	);
 };
 
 Gallery.displayName = 'Gallery';

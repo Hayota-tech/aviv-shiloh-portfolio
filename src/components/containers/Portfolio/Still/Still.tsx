@@ -11,6 +11,8 @@ const Still: React.FC<IProps> = () => {
 	const [projectsListState, setProjectsListState] = useState<IStillProject[]>([]);
 	const [categoriesListState, setCategoriesListState] = useState<IStillCategory[]>([]);
 	const [selectedCategoriesState, setSelectedCategoriesState] = useState<IStillCategory[]>([]);
+	const [isModalOpenState, setIsModalOpenState] = useState<boolean>(false);
+	const [clickedImageState, setClickedImageState] = useState<string | null>('');
 
 	const onSelectCategory = (category: IStillCategory) => {
 		if (selectedCategoriesState.includes(category)) {
@@ -40,6 +42,15 @@ const Still: React.FC<IProps> = () => {
 			});
 	}, [backendApi]);
 
+	const onOpenModal = (image: string) => {
+		setIsModalOpenState(() => true);
+		setClickedImageState(() => image);
+	};
+
+	const onCloseModal = () => {
+		setIsModalOpenState(() => false);
+	};
+
 	return (
 		<StillView
 			projectsList={projectsListState}
@@ -47,6 +58,10 @@ const Still: React.FC<IProps> = () => {
 			selectedCategories={selectedCategoriesState}
 			onSelectAllCategoris={onSelectAllCategoris}
 			onSelectCategory={onSelectCategory}
+			onOpenModal={onOpenModal}
+			isModalOpen={isModalOpenState}
+			clickedImage={clickedImageState}
+			onCloseModal={onCloseModal}
 		/>
 	);
 };
