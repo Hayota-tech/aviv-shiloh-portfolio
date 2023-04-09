@@ -1,25 +1,23 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { galleryImages } from 'src/data/gallery-images';
-
 import classes from './Gallery.module.scss';
 
-interface IProps {}
+interface IProps {
+	readonly image: string;
+	readonly imageAlt: string;
+}
 
-const GalleryView: React.FC<IProps> = () => {
+const GalleryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<div className={classes['container']}>
-			{galleryImages.map((imageData, index) => (
-				<Image
-					key={index}
-					className={classes['container__image']}
-					src={imageData.url}
-					alt={imageData.alt}
-					width={100}
-					height={100}
-				/>
-			))}
+			<Image
+				className={classes['container__image']}
+				src={props.image}
+				alt={props.imageAlt}
+				width={100}
+				height={100}
+			/>
 		</div>
 	);
 };

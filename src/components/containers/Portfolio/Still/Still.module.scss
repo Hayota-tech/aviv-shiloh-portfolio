@@ -6,7 +6,7 @@
 	display: flex;
 	flex-direction: column;
 	margin-top: 117px;
-	padding: 0 64px;
+	padding: 0 64px 144px 64px;
 
 	.headerContainer {
 		display: flex;
@@ -24,25 +24,37 @@
 			height: 37px;
 			fill: #1e1e1e;
 		}
+	}
 
-		.categoriesContainer {
-			display: flex;
-			flex-direction: column;
+	.categoriesList {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin-bottom: 92px;
 
-			&__category {
+		&__item {
+			font-size: 3.6rem;
+			font-weight: 400;
 
-				font-size: 3.6rem;
-				color: #1E1E1E;
-
+			&--selected {
+				font-weight: 600;
+				color: #268741;
 			}
+		}
+
+		&__item:not(:last-child) {
+			margin-inline-end: 32px;
+		}
+
+		&__item:first-child {
+			text-decoration: underline;
 		}
 	}
 
 	.galleryContainer {
 		display: flex;
-		justify-content: center
+		justify-content: center;
 	}
-
 }
 
 @media (max-width: map.get($sizes, main-mobile-width)) {
