@@ -1,0 +1,72 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 117px;
+	padding: 0 64px;
+
+	.headerContainer {
+		display: flex;
+		align-items: center;
+		margin-top: 59px;
+
+		&__title {
+			font-size: 19rem;
+			font-weight: 500;
+			margin-inline-end: 64px;
+		}
+
+		&__icon {
+			width: 62px;
+			height: 37px;
+			fill: #1e1e1e;
+		}
+
+		.categoriesContainer {
+			display: flex;
+			flex-direction: column;
+
+			&__category {
+
+				font-size: 3.6rem;
+				color: #1E1E1E;
+
+			}
+		}
+	}
+
+	.galleryContainer {
+		display: flex;
+		justify-content: center
+	}
+
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		display: flex;
+		flex-direction: column;
+		margin-top: 48px;
+		padding: 0 0px 104px 0px;
+
+		.headerContainer {
+			display: flex;
+			align-items: center;
+			margin-top: 0px;
+			padding: 0 41px 0 16px;
+
+			&__title {
+				font-size: 64px;
+				margin-inline-end: 32px;
+			}
+
+			&__icon {
+				width: 24px;
+				height: 14px;
+			}
+		}
+	}
+}

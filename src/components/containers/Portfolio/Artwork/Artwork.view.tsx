@@ -15,7 +15,7 @@ const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		<section className={classes['container']}>
 			<div className={classes['headerContainer']}>
 				<h1 className={classes['headerContainer__title']}>Artworks</h1>
-				<SSvg className={classes['headerContainer__icon']} name="arrowDown" />
+				<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
 			</div>
 
 			<div className={classes['yearsList']}>
