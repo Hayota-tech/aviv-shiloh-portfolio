@@ -9,6 +9,12 @@ interface IProps {}
 
 const Artwork: React.FC<IProps> = () => {
 	const [projectsListState, setProjectsListState] = useState<IProject[]>([]);
+	const [selectedYearIndexState, setSelectedYearIndexState] = useState<number>(-1);
+
+	const onSelectYear = (index: number) => {
+		setSelectedYearIndexState(() => index);
+	};
+
 	useEffect(() => {
 		backendApi
 			.get(
@@ -18,7 +24,7 @@ const Artwork: React.FC<IProps> = () => {
 				setProjectsListState(() => response.data.data);
 			});
 	}, [backendApi]);
-	return <ArtworkView />;
+	return <ArtworkView selectedYearIndex={selectedYearIndexState} onSelectYear={onSelectYear} />;
 };
 
 Artwork.displayName = 'Artwork';
