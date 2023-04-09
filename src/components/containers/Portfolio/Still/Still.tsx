@@ -4,8 +4,8 @@ import StillView from './Still.view';
 
 interface IProps {}
 
-const Still: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-  return <StillView />;
+const Still: React.FC<IProps> = () => {
+	return <StillView />;
 };
 
 Still.displayName = 'Still';
