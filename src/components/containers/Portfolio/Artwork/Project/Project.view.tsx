@@ -30,6 +30,12 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		props.index % 2 !== 0 ? 'bigImageContainer--reverse' : '',
 	);
 
+	const infoContainerClasses = concatClasses(
+		classes,
+		'infoContainer',
+		props.index % 2 !== 0 ? 'infoContainer--reverse' : '',
+	);
+
 	return (
 		<section className={classes['container']}>
 			<div className={imagesContainerClasses}>
@@ -41,7 +47,7 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 						width={100}
 						height={100}
 					/>
-					<div className={classes['infoContainer']}>
+					<div className={infoContainerClasses}>
 						<span className={classes['infoContainer__name']}>{projectName}</span>
 						<div className={classes['locationContainer']}>
 							<span className={classes['locationContainer__date']}>{projectDate}</span>

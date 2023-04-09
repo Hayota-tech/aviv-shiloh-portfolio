@@ -1,13 +1,14 @@
 import React from 'react';
 import SSvg from '@/ui/SSvg';
 
+import Project from './Project';
+
 import type { IYear } from './interfaces/year';
+import type { IProject } from 'src/interfaces/responses';
 import { yearsList } from 'src/data/years-list';
 import { concatClasses } from '@/utils/component';
 
 import classes from './Artwork.module.scss';
-import { IProject } from 'src/interfaces/responses';
-import Project from './Project';
 
 interface IProps {
 	readonly projectsList: IProject[];
@@ -21,7 +22,9 @@ const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		<section className={classes['container']}>
 			<div className={classes['headerContainer']}>
 				<h1 className={classes['headerContainer__title']}>Artworks</h1>
-				<SSvg className={classes['headerContainer__icon']} name="arrowDown" />
+				<button type="button">
+					<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
+				</button>
 			</div>
 
 			<div className={classes['yearsList']}>

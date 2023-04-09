@@ -11,7 +11,7 @@ const StillView: React.FC<IProps> = () => {
 		<section className={classes['container']}>
 			<div className={classes['headerContainer']}>
 				<h1 className={classes['headerContainer__title']}>Still</h1>
-				<SSvg className={classes['headerContainer__icon']} name="arrowDown" />
+				<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
 			</div>
 		</section>
 	);
