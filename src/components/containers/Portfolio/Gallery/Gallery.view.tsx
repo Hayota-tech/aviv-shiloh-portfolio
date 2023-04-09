@@ -6,11 +6,12 @@ import classes from './Gallery.module.scss';
 interface IProps {
 	readonly image: string;
 	readonly imageAlt: string;
+	readonly className?: string;
 }
 
 const GalleryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<div className={classes['container']}>
+		<div className={props.className}>
 			<Image
 				className={classes['container__image']}
 				src={props.image}

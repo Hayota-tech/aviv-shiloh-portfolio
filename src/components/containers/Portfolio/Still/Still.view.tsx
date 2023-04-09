@@ -66,7 +66,14 @@ const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 					)
 						return;
 
-					return <Gallery key={index} image={image} imageAlt={imageAlt} />;
+					return (
+						<Gallery
+							className={classes['galleryContainer__innerContainer']}
+							key={index}
+							image={image}
+							imageAlt={imageAlt}
+						/>
+					);
 				})}
 			</div>
 		</section>

@@ -6,12 +6,13 @@ import { imageUrl } from '@/utils/image-url';
 interface IProps {
 	readonly image: string;
 	readonly imageAlt: string;
+	readonly className?: string;
 }
 
 const Gallery: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const imageBackendUrl = imageUrl(props.image);
 
-	return <GalleryView image={imageBackendUrl} imageAlt={props.imageAlt} />;
+	return <GalleryView className={props.className} image={imageBackendUrl} imageAlt={props.imageAlt} />;
 };
 
 Gallery.displayName = 'Gallery';
