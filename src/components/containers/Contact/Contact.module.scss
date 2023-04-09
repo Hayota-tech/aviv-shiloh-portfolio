@@ -96,18 +96,22 @@
 
 @media (max-width: 390px) {
 	.container {
-		max-width: map.get($sizes, main-mobile-width);
-		margin-top: 94px;
 		width: 100%;
 		padding: 0 32px;
+	
+		.innerContainer {
+			padding: 0;
+			padding-top: 94px;
 
-		&__bigTitle {
-			align-self: initial;
-			font-size: 6.4rem;
-			margin-bottom: 48px;
+			&__title {
+				align-self: initial;
+				font-size: 6.4rem;
+				margin-bottom: 48px;
+
+			}
 		}
 
-		.innerContainer {
+		.contactContainer {
 			flex-direction: column;
 
 			.leftSide {
@@ -124,12 +128,12 @@
 					color: #ffffff;
 				}
 
-				.mailDesktop {
+				.mailWeb {
 					display: none;
 				}
 			}
 
-			.rightContainer {
+			.rightSide {
 				align-items: flex-end;
 				margin-inline-end: 0px;
 				margin-top: 48px;
