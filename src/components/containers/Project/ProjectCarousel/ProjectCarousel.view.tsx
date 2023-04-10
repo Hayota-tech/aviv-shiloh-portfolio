@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
 import { concatClasses } from '@/utils/component';
 
@@ -47,6 +48,7 @@ const ProjectCarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 			selectedItem={props.selectedItemIndex}
 			showThumbs={false}
 			showStatus={false}
+			showArrows={false}
 			renderIndicator={renderIndicator}
 		>
 			{props.imagesList.map((image, index) => {

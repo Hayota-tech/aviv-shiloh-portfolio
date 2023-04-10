@@ -145,23 +145,10 @@
 		.imageSlideContainer {
 			display: flex;
 			flex-direction: column;
-			margin-top: 64px;
+			margin: 16px 0;
 
 			.imageContainer {
-				position: static;
-				width: 100vw;
-				height: 100%;
-				object-fit: cover;
-
-				&__image {
-					width: 100vw;
-					height: 100%;
-					object-fit: cover;
-				}
-
-				&__caption {
-					display: none;
-				}
+				display: none;
 			}
 		}
 	}
