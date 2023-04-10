@@ -9,12 +9,16 @@ import { yearsList } from 'src/data/years-list';
 import { concatClasses } from '@/utils/component';
 
 import classes from './Artwork.module.scss';
+import Menu from '../Menu';
 
 interface IProps {
 	readonly projectsList: IProject[];
 	readonly selectedYears: IYear[];
+	readonly isMenuOpen: boolean;
+	readonly isMenuVisible: boolean;
 	readonly onSelectYear: (year: IYear) => void;
 	readonly onSelectAllYears: () => void;
+	readonly onToggleMenu: () => void;
 }
 
 const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -22,9 +26,16 @@ const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		<section className={classes['container']}>
 			<div className={classes['headerContainer']}>
 				<h1 className={classes['headerContainer__title']}>Artworks</h1>
-				<button type="button">
+				<button type="button" onClick={props.onToggleMenu}>
 					<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
 				</button>
+				{props.isMenuOpen && (
+					<Menu
+						isMenuOpen={props.isMenuVisible}
+						lastLocation="/portfolio/artwork"
+						onToggleMenu={props.onToggleMenu}
+					/>
+				)}
 			</div>
 
 			<div className={classes['yearsList']}>

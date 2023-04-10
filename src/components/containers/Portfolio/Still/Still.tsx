@@ -11,6 +11,8 @@ const Still: React.FC<IProps> = () => {
 	const [projectsListState, setProjectsListState] = useState<IStillProject[]>([]);
 	const [categoriesListState, setCategoriesListState] = useState<IStillCategory[]>([]);
 	const [selectedCategoriesState, setSelectedCategoriesState] = useState<IStillCategory[]>([]);
+	const [isMenuOpenState, setIsMenuOpenState] = useState<boolean>(false);
+	const [isMenuVisibleState, setIsMenuVisibleState] = useState<boolean>(false);
 
 	const onSelectCategory = (category: IStillCategory) => {
 		if (selectedCategoriesState.includes(category)) {
@@ -22,6 +24,16 @@ const Still: React.FC<IProps> = () => {
 
 	const onSelectAllCategoris = () => {
 		setSelectedCategoriesState(() => []);
+	};
+
+	const onToggleMenu = () => {
+		if (isMenuOpenState) {
+			setIsMenuVisibleState(() => false);
+			setTimeout(() => setIsMenuOpenState(false), 500);
+		} else {
+			setIsMenuOpenState(() => true);
+			setIsMenuVisibleState(() => true);
+		}
 	};
 
 	useEffect(() => {
@@ -45,8 +57,11 @@ const Still: React.FC<IProps> = () => {
 			projectsList={projectsListState}
 			categoriesList={categoriesListState}
 			selectedCategories={selectedCategoriesState}
+			isMenuOpen={isMenuOpenState}
+			isMenuVisible={isMenuVisibleState}
 			onSelectAllCategoris={onSelectAllCategoris}
 			onSelectCategory={onSelectCategory}
+			onToggleMenu={onToggleMenu}
 		/>
 	);
 };

@@ -2,17 +2,22 @@ import React from 'react';
 
 import SSvg from '@/ui/SSvg';
 import type { IVideoCategory, IVideoProject } from 'src/interfaces/responses';
+import Menu from '../Menu';
 
-import classes from './Video.module.scss';
 import Gallery from '../Gallery';
 import { concatClasses } from '@/utils/component';
+
+import classes from './Video.module.scss';
 
 interface IProps {
 	readonly projectsList: IVideoProject[];
 	readonly categoriesList: IVideoCategory[];
 	readonly selectedCategories: IVideoCategory[];
+	readonly isMenuOpen: boolean;
+	readonly isMenuVisible: boolean;
 	readonly onSelectAllCategoris: () => void;
 	readonly onSelectCategory: (category: IVideoCategory) => void;
+	readonly onToggleMenu: () => void;
 }
 
 const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -20,7 +25,18 @@ const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		<section className={classes['container']}>
 			<div className={classes['headerContainer']}>
 				<h1 className={classes['headerContainer__title']}>Video</h1>
-				<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
+				<SSvg
+					className={classes['headerContainer__icon']}
+					name="arrowBold"
+					onClick={props.onToggleMenu}
+				/>
+				{props.isMenuOpen && (
+					<Menu
+						isMenuOpen={props.isMenuVisible}
+						lastLocation="/portfolio/video"
+						onToggleMenu={props.onToggleMenu}
+					/>
+				)}
 			</div>
 
 			<div className={classes['categoriesList']}>

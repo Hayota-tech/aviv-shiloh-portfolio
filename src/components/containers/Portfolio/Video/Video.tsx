@@ -11,6 +11,8 @@ const Video: React.FC<IProps> = () => {
 	const [projectsListState, setProjectsListState] = useState<IVideoProject[]>([]);
 	const [categoriesListState, setCategoriesListState] = useState<IVideoCategory[]>([]);
 	const [selectedCategoriesState, setSelectedCategoriesState] = useState<IVideoCategory[]>([]);
+	const [isMenuOpenState, setIsMenuOpenState] = useState<boolean>(false);
+	const [isMenuVisibleState, setIsMenuVisibleState] = useState<boolean>(false);
 
 	const onSelectCategory = (category: IVideoCategory) => {
 		if (selectedCategoriesState.includes(category)) {
@@ -22,6 +24,16 @@ const Video: React.FC<IProps> = () => {
 
 	const onSelectAllCategoris = () => {
 		setSelectedCategoriesState(() => []);
+	};
+
+	const onToggleMenu = () => {
+		if (isMenuOpenState) {
+			setIsMenuVisibleState(() => false);
+			setTimeout(() => setIsMenuOpenState(false), 500);
+		} else {
+			setIsMenuOpenState(() => true);
+			setIsMenuVisibleState(() => true);
+		}
 	};
 
 	useEffect(() => {
@@ -45,8 +57,11 @@ const Video: React.FC<IProps> = () => {
 			projectsList={projectsListState}
 			categoriesList={categoriesListState}
 			selectedCategories={selectedCategoriesState}
+			isMenuOpen={isMenuOpenState}
+			isMenuVisible={isMenuVisibleState}
 			onSelectAllCategoris={onSelectAllCategoris}
 			onSelectCategory={onSelectCategory}
+			onToggleMenu={onToggleMenu}
 		/>
 	);
 };

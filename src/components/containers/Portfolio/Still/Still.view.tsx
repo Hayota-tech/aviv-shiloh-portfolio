@@ -6,13 +6,17 @@ import type { IStillCategory, IStillProject } from 'src/interfaces/responses';
 import classes from './Still.module.scss';
 import Gallery from '../Gallery';
 import { concatClasses } from '@/utils/component';
+import Menu from '../Menu';
 
 interface IProps {
 	readonly projectsList: IStillProject[];
 	readonly categoriesList: IStillCategory[];
 	readonly selectedCategories: IStillCategory[];
+	readonly isMenuOpen: boolean;
+	readonly isMenuVisible: boolean;
 	readonly onSelectAllCategoris: () => void;
 	readonly onSelectCategory: (category: IStillCategory) => void;
+	readonly onToggleMenu: () => void;
 }
 
 const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -20,7 +24,18 @@ const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		<section className={classes['container']}>
 			<div className={classes['headerContainer']}>
 				<h1 className={classes['headerContainer__title']}>Still</h1>
-				<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
+				<SSvg
+					className={classes['headerContainer__icon']}
+					name="arrowBold"
+					onClick={props.onToggleMenu}
+				/>
+				{props.isMenuOpen && (
+					<Menu
+						isMenuOpen={props.isMenuVisible}
+						lastLocation="/portfolio/still"
+						onToggleMenu={props.onToggleMenu}
+					/>
+				)}
 			</div>
 
 			<div className={classes['categoriesList']}>

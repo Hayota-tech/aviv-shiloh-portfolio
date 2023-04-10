@@ -44,10 +44,6 @@ const NavMenu: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		}
 	};
 
-	// useEffect(() => {
-
-	// }, [projectsListState])
-
 	useEffect(() => {
 		backendApi
 			.get(
