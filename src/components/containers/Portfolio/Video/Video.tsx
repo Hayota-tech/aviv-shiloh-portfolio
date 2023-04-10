@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { AxiosResponse } from 'axios';
+import type { IImage } from 'src/interfaces/image';
 
 import VideoView from './Video.view';
 import { backendApi } from '@/utils/http';
@@ -13,6 +14,8 @@ const Video: React.FC<IProps> = () => {
 	const [selectedCategoriesState, setSelectedCategoriesState] = useState<IVideoCategory[]>([]);
 	const [isMenuOpenState, setIsMenuOpenState] = useState<boolean>(false);
 	const [isMenuVisibleState, setIsMenuVisibleState] = useState<boolean>(false);
+	const [isModalOpenState, setIsModalOpenState] = useState<boolean>(false);
+	const [selectedModalImageState, setSelecetedModalImageState] = useState<IImage | null>(null);
 
 	const onSelectCategory = (category: IVideoCategory) => {
 		if (selectedCategoriesState.includes(category)) {
@@ -33,6 +36,15 @@ const Video: React.FC<IProps> = () => {
 		} else {
 			setIsMenuOpenState(() => true);
 			setIsMenuVisibleState(() => true);
+		}
+	};
+
+	const onToggleModal = (image?: IImage) => {
+		if (isModalOpenState) {
+			setIsModalOpenState(() => false);
+		} else {
+			setIsModalOpenState(() => true);
+			setSelecetedModalImageState(() => image!);
 		}
 	};
 
@@ -62,6 +74,9 @@ const Video: React.FC<IProps> = () => {
 			onSelectAllCategoris={onSelectAllCategoris}
 			onSelectCategory={onSelectCategory}
 			onToggleMenu={onToggleMenu}
+			isModalOpen={isModalOpenState}
+			selectedModalImage={selectedModalImageState}
+			onToggleModal={onToggleModal}
 		/>
 	);
 };

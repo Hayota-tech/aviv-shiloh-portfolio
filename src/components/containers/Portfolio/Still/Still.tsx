@@ -4,6 +4,7 @@ import type { AxiosResponse } from 'axios';
 import StillView from './Still.view';
 import { backendApi } from '@/utils/http';
 import type { IStillCategory, IStillProject } from 'src/interfaces/responses';
+import { IImage } from 'src/interfaces/image';
 
 interface IProps {}
 
@@ -11,6 +12,8 @@ const Still: React.FC<IProps> = () => {
 	const [projectsListState, setProjectsListState] = useState<IStillProject[]>([]);
 	const [categoriesListState, setCategoriesListState] = useState<IStillCategory[]>([]);
 	const [selectedCategoriesState, setSelectedCategoriesState] = useState<IStillCategory[]>([]);
+	const [isModalOpenState, setIsModalOpenState] = useState<boolean>(false);
+	const [selectedModalImageState, setSelecetedModalImageState] = useState<IImage | null>(null);
 	const [isMenuOpenState, setIsMenuOpenState] = useState<boolean>(false);
 	const [isMenuVisibleState, setIsMenuVisibleState] = useState<boolean>(false);
 
@@ -33,6 +36,15 @@ const Still: React.FC<IProps> = () => {
 		} else {
 			setIsMenuOpenState(() => true);
 			setIsMenuVisibleState(() => true);
+		}
+	};
+
+	const onToggleModal = (image?: IImage) => {
+		if (isModalOpenState) {
+			setIsModalOpenState(() => false);
+		} else {
+			setIsModalOpenState(() => true);
+			setSelecetedModalImageState(() => image!);
 		}
 	};
 
@@ -61,6 +73,9 @@ const Still: React.FC<IProps> = () => {
 			isMenuVisible={isMenuVisibleState}
 			onSelectAllCategoris={onSelectAllCategoris}
 			onSelectCategory={onSelectCategory}
+			onToggleModal={onToggleModal}
+			isModalOpen={isModalOpenState}
+			selectedModalImage={selectedModalImageState}
 			onToggleMenu={onToggleMenu}
 		/>
 	);
