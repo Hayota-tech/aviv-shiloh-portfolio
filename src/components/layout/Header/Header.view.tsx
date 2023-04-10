@@ -47,6 +47,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 	const mobileBurgerClass = concatClasses(
 		classes,
 		'mobileBurger__icon',
+		props.isMenuOpen ? 'mobileBurger__icon--active' : '',
 		props.theme === 'dark' ? 'mobileBurger__icon--dark' : 'mobileBurger__icon--light',
 	);
 

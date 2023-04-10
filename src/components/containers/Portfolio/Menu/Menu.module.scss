@@ -1,0 +1,174 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+@keyframes slidein {
+	from {
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.container {
+	position: fixed;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	background-color: #000000;
+	width: 100vw;
+	height: 100vh;
+	padding: 64px 0 105px 64px;
+	z-index: -1;
+
+	&--active {
+		opacity: 1;
+		animation: fadeIn 0.5s;
+		z-index: 1;
+	}
+
+	&--fadeOut {
+		opacity: 0;
+		animation: fadeOut 0.5s;
+	}
+
+	.backButtonContainer {
+		display: flex;
+		align-items: center;
+
+		&__text {
+			text-decoration: none;
+			font-size: 32px;
+			font-weight: 700;
+			color: #ffffff;
+		}
+
+		&__icon {
+			display: none;
+		}
+	}
+
+	.linksContainer {
+		display: flex;
+		flex-direction: column;
+
+		.innerLink {
+			display: flex;
+			align-items: center;
+
+			&__title {
+				font-size: 16rem;
+				font-weight: 500;
+				color: #ffffff;
+				margin-inline-end: 64px;
+				text-decoration: none;
+
+				&--active {
+					color: #268741;
+				}
+			}
+
+			&__icon {
+				display: none;
+				width: 62px;
+				height: 37px;
+				transform: rotate(-90deg);
+				transition: fill 0.2s ease-in-out;
+				fill: #268741;
+
+				&--active {
+					display: block;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	.mobileImageContainer {
+		display: none;
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		padding: 16px;
+
+		.backButtonContainer {
+			&__icon {
+				display: flex;
+				cursor: pointer;
+				width: 20px;
+				height: 19px;
+				margin-inline-end: 8px;
+				fill: #ffffff;
+			}
+			&__text {
+				font-size: 2.4rem;
+			}
+		}
+
+		.linksContainer {
+			display: flex;
+			flex-direction: column;
+			margin-top: 16px;
+
+			.innerLink {
+				&__title {
+					font-size: 6.4rem;
+					margin-inline-end: 16px;
+				}
+
+				&__icon {
+					width: 24px;
+					height: 14px;
+				}
+			}
+		}
+
+		.mobileImageContainer {
+			display: flex;
+			flex-direction: column;
+			margin-top: 62px;
+			animation: slidein 0.5s;
+
+			&__image {
+				display: block;
+				width: 100%;
+			}
+
+			&__name {
+				font-size: 2.4rem;
+				font-weight: 500;
+				color: #ffffff;
+				margin: 16px 0 4px;
+			}
+
+			&__date {
+				font-size: 2rem;
+				font-weight: 400;
+				color: #ffffff;
+			}
+		}
+	}
+}

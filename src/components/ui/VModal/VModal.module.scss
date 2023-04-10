@@ -1,3 +1,13 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .backdrop {
     position: fixed;
     display: flex;
@@ -7,21 +17,10 @@
     height: 100vh;
     background: rgba(0, 0, 0, 0.8);
     z-index: 100;
-    animation: fadeInAnimation ease 0.7s;
-
-    @keyframes fadeInAnimation {
-        0% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
+    animation: fadeIn ease 0.7s;
 
     .modal {
         margin: 200px;
-        object-fit: contain;
         height: auto;
         width: 100%;
     }

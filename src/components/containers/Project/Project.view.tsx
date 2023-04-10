@@ -7,6 +7,7 @@ import { imageUrl } from '@/utils/image-url';
 import classes from './Project.module.scss';
 import { IProject } from 'src/interfaces/responses';
 import SSvg from '@/ui/SSvg';
+import ProjectCarousel from './ProjectCarousel';
 
 interface IProps {
 	readonly projectInfo: IProject | undefined;
@@ -20,9 +21,12 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	return (
 		<section className={classes['container']}>
 			<div className={classes['infoContainer']}>
-				<Link className={classes['infoContainer__backButton']} href="/">
-					Back
-				</Link>
+				<div className={classes['backButtonContainer']}>
+					<SSvg className={classes['backButtonContainer__icon']} name="arrowLeft" />
+					<Link className={classes['backButtonContainer__text']} href={'/'}>
+						Back
+					</Link>
+				</div>
 				<h2 className={classes['infoContainer__name']}>{projectName}</h2>
 				<span className={classes['infoContainer__date']}>{projectDate}</span>
 				<p className={classes['infoContainer__description']}>{projectDescription}</p>
@@ -32,6 +36,9 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				</div>
 			</div>
 			<div className={classes['imageSlideContainer']}>
+				<div className={classes['imageSlideContainer']}>
+					<ProjectCarousel imagesList={props.projectInfo?.attributes?.media?.data ?? []} />
+				</div>
 				{props.projectInfo?.attributes?.media?.data.map((image, i) => {
 					const imageSrc = imageUrl(image.attributes.url);
 					return (

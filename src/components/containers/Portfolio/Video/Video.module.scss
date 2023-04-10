@@ -20,6 +20,7 @@
 		}
 
 		&__icon {
+			cursor: pointer;
 			width: 62px;
 			height: 37px;
 			fill: #1e1e1e;
@@ -35,6 +36,8 @@
 		&__item {
 			font-size: 3.6rem;
 			font-weight: 400;
+			margin-bottom: 8px;
+			white-space: nowrap;
 
 			&--selected {
 				font-weight: 600;
@@ -89,7 +92,6 @@
 			margin-top: 0px;
 			padding-bottom: 8px;
 
-
 			&__title {
 				font-size: 64px;
 				margin-inline-end: 32px;
@@ -102,7 +104,19 @@
 		}
 
 		.categoriesList {
-			margin-bottom: 48px;
+			flex-wrap: nowrap;
+			overflow-x: auto;
+			margin-bottom: 20px;
+			padding-bottom: 20px;
+
+			&__item {
+				font-size: 24px;
+				margin-bottom: 0px;
+			}
+
+			&__item:not(:last-child) {
+				margin-inline-end: 16px;
+			}
 		}
 
 		.galleryContainer {
@@ -128,7 +142,6 @@
 					height: 100px;
 				}
 			}
-
 		}
 	}
 }

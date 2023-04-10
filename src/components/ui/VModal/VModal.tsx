@@ -1,14 +1,15 @@
 import React from 'react';
 
+import type { IImage } from 'src/interfaces/image';
 import VModalView from './VModal.view';
 
 interface IProps {
-	readonly onCloseModal: () => void;
-	readonly url: string;
+	readonly image: IImage | null;
+	readonly onToggleModal: () => void;
 }
 
 const VModal: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	return <VModalView onCloseModal={props.onCloseModal} url={props.url} />;
+	return <VModalView image={props.image} onCloseModal={props.onToggleModal} />;
 };
 
 VModal.displayName = 'VModal';

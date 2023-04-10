@@ -1,11 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 
+import { imageUrl } from '@/utils/image-url';
+import type { IImage } from 'src/interfaces/image';
+
 import classes from './VModal.module.scss';
 
 interface IProps {
+	readonly image: IImage | null;
 	readonly onCloseModal: () => void;
-	readonly url: string;
 }
 
 const VModalView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -15,8 +18,8 @@ const VModalView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 				width={100}
 				height={100}
 				className={classes['modal']}
-				src={props.url}
-				alt={''}
+				src={props.image ? imageUrl(props.image.attributes.url) : 'public/images/placeholder.png'}
+				alt={props.image ? props.image.attributes.caption : 'Project Image'}
 				onClick={(e) => e.stopPropagation()}
 			/>
 		</div>

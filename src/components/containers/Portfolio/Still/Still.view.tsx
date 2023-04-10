@@ -1,34 +1,52 @@
 import React from 'react';
 
 import SSvg from '@/ui/SSvg';
+import VModal from '@/ui/VModal';
+import { concatClasses } from '@/utils/component';
+
+import Gallery from '../Gallery';
+import Menu from '../Menu';
 import type { IStillCategory, IStillProject } from 'src/interfaces/responses';
+import type { IImage } from 'src/interfaces/image';
 
 import classes from './Still.module.scss';
-import Gallery from '../Gallery';
-import { concatClasses } from '@/utils/component';
-import VModal from '@/ui/VModal';
-import { imageUrl } from '@/utils/image-url';
 
 interface IProps {
 	readonly projectsList: IStillProject[];
 	readonly categoriesList: IStillCategory[];
 	readonly selectedCategories: IStillCategory[];
-	readonly onSelectAllCategoris: () => void;
-	readonly onSelectCategory: (category: IStillCategory) => void;
-	readonly onCloseModal: () => void;
-	readonly onOpenModal: (string) => void;
+	readonly isMenuOpen: boolean;
+	readonly isMenuVisible: boolean;
 	readonly isModalOpen: boolean;
-	readonly clickedImage: string | null;
+	readonly selectedModalImage: IImage | null;
+	readonly onToggleModal: (image?: IImage) => void;
+	readonly onSelectCategory: (category: IStillCategory) => void;
+	readonly onToggleMenu: () => void;
+	readonly onSelectAllCategoris: () => void;
 }
 
 const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<>
-			{props.isModalOpen && <VModal onCloseModal={props.onCloseModal} url={props.clickedImage ?? ''} />}
+			{props.isModalOpen && (
+				<VModal image={props.selectedModalImage} onToggleModal={props.onToggleModal} />
+			)}
+
 			<section className={classes['container']}>
 				<div className={classes['headerContainer']}>
 					<h1 className={classes['headerContainer__title']}>Still</h1>
-					<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
+					<SSvg
+						className={classes['headerContainer__icon']}
+						name="arrowBold"
+						onClick={props.onToggleMenu}
+					/>
+					{props.isMenuOpen && (
+						<Menu
+							isMenuOpen={props.isMenuVisible}
+							lastLocation="/portfolio/still"
+							onToggleMenu={props.onToggleMenu}
+						/>
+					)}
 				</div>
 
 				<div className={classes['categoriesList']}>
@@ -65,6 +83,7 @@ const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						const image = project.attributes.media.data[0]?.attributes.url ?? '';
 						const imageAlt = project.attributes.media.data[0]?.attributes.caption ?? '';
 						const projectCategory = project?.attributes.categories.data;
+						const imageDetails = project.attributes.media.data[0];
 
 						if (
 							props.selectedCategories.length > 0 &&
@@ -80,11 +99,10 @@ const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 							<Gallery
 								className={classes['galleryContainer__innerContainer']}
 								key={index}
-								image={image}
-								imageAlt={imageAlt}
+								url={image}
+								alt={imageAlt}
 								onOpenModal={() => {
-									console.log(imageUrl(image));
-									props.onOpenModal(imageUrl(image));
+									props.onToggleModal(imageDetails as IImage);
 								}}
 							/>
 						);

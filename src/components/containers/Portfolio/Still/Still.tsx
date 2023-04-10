@@ -4,6 +4,7 @@ import type { AxiosResponse } from 'axios';
 import StillView from './Still.view';
 import { backendApi } from '@/utils/http';
 import type { IStillCategory, IStillProject } from 'src/interfaces/responses';
+import { IImage } from 'src/interfaces/image';
 
 interface IProps {}
 
@@ -12,7 +13,9 @@ const Still: React.FC<IProps> = () => {
 	const [categoriesListState, setCategoriesListState] = useState<IStillCategory[]>([]);
 	const [selectedCategoriesState, setSelectedCategoriesState] = useState<IStillCategory[]>([]);
 	const [isModalOpenState, setIsModalOpenState] = useState<boolean>(false);
-	const [clickedImageState, setClickedImageState] = useState<string | null>('');
+	const [selectedModalImageState, setSelecetedModalImageState] = useState<IImage | null>(null);
+	const [isMenuOpenState, setIsMenuOpenState] = useState<boolean>(false);
+	const [isMenuVisibleState, setIsMenuVisibleState] = useState<boolean>(false);
 
 	const onSelectCategory = (category: IStillCategory) => {
 		if (selectedCategoriesState.includes(category)) {
@@ -24,6 +27,25 @@ const Still: React.FC<IProps> = () => {
 
 	const onSelectAllCategoris = () => {
 		setSelectedCategoriesState(() => []);
+	};
+
+	const onToggleMenu = () => {
+		if (isMenuOpenState) {
+			setIsMenuVisibleState(() => false);
+			setTimeout(() => setIsMenuOpenState(false), 500);
+		} else {
+			setIsMenuOpenState(() => true);
+			setIsMenuVisibleState(() => true);
+		}
+	};
+
+	const onToggleModal = (image?: IImage) => {
+		if (isModalOpenState) {
+			setIsModalOpenState(() => false);
+		} else {
+			setIsModalOpenState(() => true);
+			setSelecetedModalImageState(() => image!);
+		}
 	};
 
 	useEffect(() => {
@@ -42,26 +64,19 @@ const Still: React.FC<IProps> = () => {
 			});
 	}, [backendApi]);
 
-	const onOpenModal = (image: string) => {
-		setIsModalOpenState(() => true);
-		setClickedImageState(() => image);
-	};
-
-	const onCloseModal = () => {
-		setIsModalOpenState(() => false);
-	};
-
 	return (
 		<StillView
 			projectsList={projectsListState}
 			categoriesList={categoriesListState}
 			selectedCategories={selectedCategoriesState}
+			isMenuOpen={isMenuOpenState}
+			isMenuVisible={isMenuVisibleState}
 			onSelectAllCategoris={onSelectAllCategoris}
 			onSelectCategory={onSelectCategory}
-			onOpenModal={onOpenModal}
+			onToggleModal={onToggleModal}
 			isModalOpen={isModalOpenState}
-			clickedImage={clickedImageState}
-			onCloseModal={onCloseModal}
+			selectedModalImage={selectedModalImageState}
+			onToggleMenu={onToggleMenu}
 		/>
 	);
 };

@@ -11,6 +11,18 @@ interface IProps {}
 const Artwork: React.FC<IProps> = () => {
 	const [projectsListState, setProjectsListState] = useState<IProject[]>([]);
 	const [selectedYearsState, setSelectedYearsState] = useState<IYear[]>([]);
+	const [isMenuOpenState, setIsMenuOpenState] = useState<boolean>(false);
+	const [isMenuVisibleState, setIsMenuVisibleState] = useState<boolean>(false);
+
+	const onToggleMenu = () => {
+		if (isMenuOpenState) {
+			setIsMenuVisibleState(() => false);
+			setTimeout(() => setIsMenuOpenState(false), 500);
+		} else {
+			setIsMenuOpenState(() => true);
+			setIsMenuVisibleState(() => true);
+		}
+	};
 
 	const onSelectYear = (year: IYear) => {
 		if (selectedYearsState.includes(year)) {
@@ -37,8 +49,11 @@ const Artwork: React.FC<IProps> = () => {
 		<ArtworkView
 			projectsList={projectsListState}
 			selectedYears={selectedYearsState}
+			isMenuOpen={isMenuOpenState}
+			isMenuVisible={isMenuVisibleState}
 			onSelectYear={onSelectYear}
 			onSelectAllYears={onSelectAllYears}
+			onToggleMenu={onToggleMenu}
 		/>
 	);
 };

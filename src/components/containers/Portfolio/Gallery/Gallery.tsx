@@ -4,20 +4,20 @@ import GalleryView from './Gallery.view';
 import { imageUrl } from '@/utils/image-url';
 
 interface IProps {
-	readonly image: string;
-	readonly imageAlt: string;
+	readonly url: string;
+	readonly alt: string;
 	readonly className?: string;
 	readonly onOpenModal: () => void;
 }
 
 const Gallery: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const imageBackendUrl = imageUrl(props.image);
+	const imageBackendUrl = imageUrl(props.url);
 
 	return (
 		<GalleryView
 			className={props.className}
-			image={imageBackendUrl}
-			imageAlt={props.imageAlt}
+			url={imageBackendUrl}
+			alt={props.alt}
 			onOpenModal={props.onOpenModal}
 		/>
 	);
