@@ -18,6 +18,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			setIsMenuVisibleState(() => false);
 			setTimeout(() => setIsMenuOpenState(false), 500);
 		} else {
+			setTimeout(() => document.body?.scrollTo(0, 0), 1000);
 			setIsMenuOpenState(() => true);
 			setIsMenuVisibleState(() => true);
 		}
