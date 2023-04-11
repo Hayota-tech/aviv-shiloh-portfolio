@@ -65,7 +65,7 @@ const CarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 				<span className={classes['mobileImageInfo_date']}>{secondProjectDate}</span>
 			</div>
 
-			<Link className={classes['mobileMoreWorks']} href={'/portfolio'}>
+			<Link className={classes['mobileMoreWorks']} href={'/portfolio/artwork'}>
 				More Works {'>'}
 			</Link>
 			<div className={classes['infoContainer']}>

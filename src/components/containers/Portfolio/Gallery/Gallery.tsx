@@ -7,6 +7,7 @@ interface IProps {
 	readonly url: string;
 	readonly alt: string;
 	readonly className?: string;
+	readonly isVideo?: boolean;
 	readonly onOpenModal: () => void;
 }
 
@@ -18,6 +19,7 @@ const Gallery: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			className={props.className}
 			url={imageBackendUrl}
 			alt={props.alt}
+			isVideo={props.isVideo}
 			onOpenModal={props.onOpenModal}
 		/>
 	);

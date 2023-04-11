@@ -29,7 +29,7 @@ const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	return (
 		<>
 			{props.isModalOpen && (
-				<VModal image={props.selectedModalImage} onToggleModal={props.onToggleModal} />
+				<VModal image={props.selectedModalImage} isVideo onToggleModal={props.onToggleModal} />
 			)}
 			<section className={classes['container']}>
 				<div className={classes['headerContainer']}>
@@ -100,6 +100,7 @@ const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 								key={index}
 								url={image}
 								alt={imageAlt}
+								isVideo
 								onOpenModal={() => {
 									props.onToggleModal(imageDetails as IImage);
 								}}
