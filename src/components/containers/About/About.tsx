@@ -2,12 +2,17 @@
 'use client';
 
 import React from 'react';
+import { useEffect } from 'react';
 
 import AboutView from './About.view';
 
 interface IProps {}
 
 const About: React.FC<IProps> = () => {
+	useEffect(() => {
+		document.body?.scrollTo(0, 0);
+	}, []);
+
 	return <AboutView />;
 };
 
