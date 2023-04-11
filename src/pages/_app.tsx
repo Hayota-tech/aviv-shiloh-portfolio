@@ -6,10 +6,11 @@
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import React from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 import '../styles/custom.scss';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
 	return (
 		<>
 			<Head>
@@ -37,7 +38,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 			</Head>
 
-			<Component {...pageProps} />
+			<AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
+				<Component {...pageProps} key={router.asPath} />
+			</AnimatePresence>
 		</>
 	);
 }
