@@ -16,6 +16,7 @@ interface IProps {
 }
 
 const CarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const mobileSecondImageIndex = props.selectedImageIndex === 0 ? 1 : 0;
 	const projectId = props.projectsList[props.selectedImageIndex]?.id;
 	const projectImage =
 		props.projectsList[props.selectedImageIndex]?.attributes?.media?.data[0]?.attributes?.url;
@@ -23,15 +24,15 @@ const CarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	const projectName = props.projectsList[props.selectedImageIndex]?.attributes?.name;
 	const projectDate = props.projectsList[props.selectedImageIndex]?.attributes?.date.split('-')[0] ?? '';
 
-	const secondProjectId = props.projectsList[props.selectedImageIndex + 1]?.id;
+	const secondProjectId = props.projectsList[mobileSecondImageIndex]?.id;
 	const secondProjectImage =
-		props.projectsList[props.selectedImageIndex + 1]?.attributes?.media?.data[0]?.attributes?.url;
+		props.projectsList[mobileSecondImageIndex]?.attributes?.media?.data[0]?.attributes?.url;
 	const secondProjectImageUrl = secondProjectImage
 		? imageUrl(secondProjectImage)
 		: '/public/images/placeholder.png';
-	const secondProjectName = props.projectsList[props.selectedImageIndex + 1]?.attributes?.name;
+	const secondProjectName = props.projectsList[mobileSecondImageIndex]?.attributes?.name;
 	const secondProjectDate =
-		props.projectsList[props.selectedImageIndex + 1]?.attributes?.date.split('-')[0] ?? '';
+		props.projectsList[mobileSecondImageIndex]?.attributes?.date.split('-')[0] ?? '';
 
 	return (
 		<section className={classes['container']}>

@@ -99,10 +99,10 @@
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
 		margin-top: 0px;
+		height: 100%;
 
 		.imagesContainer {
-			height: 100%;
-			margin-top: 55px;
+			height: 290px;
 
 			&--reverse {
 				flex-direction: row;
@@ -110,7 +110,7 @@
 
 			.bigImageContainer {
 				width: 100%;
-				height: 219px;
+				height: 250px;
 				margin: 0px;
 
 				&--reverse {
@@ -155,6 +155,10 @@
 			.lineImagesContainer {
 				display: none;
 			}
+		}
+
+		.imagesContainer:not(:first-child) {
+			margin-top: 55px;
 		}
 	}
 }
