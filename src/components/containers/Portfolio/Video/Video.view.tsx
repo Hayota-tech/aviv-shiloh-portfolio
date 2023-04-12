@@ -3,13 +3,13 @@ import React from 'react';
 import SSvg from '@/ui/SSvg';
 import type { IVideoCategory, IVideoProject } from 'src/interfaces/responses';
 import Menu from '../Menu';
-
+import Transition from '@/layout/Transition';
 import Gallery from '../Gallery';
 import { concatClasses } from '@/utils/component';
-
-import classes from './Video.module.scss';
 import { IImage } from 'src/interfaces/image';
 import VModal from '@/ui/VModal';
+
+import classes from './Video.module.scss';
 
 interface IProps {
 	readonly projectsList: IVideoProject[];
@@ -27,7 +27,7 @@ interface IProps {
 
 const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<>
+		<Transition>
 			{props.isModalOpen && (
 				<VModal image={props.selectedModalImage} isVideo onToggleModal={props.onToggleModal} />
 			)}
@@ -109,7 +109,7 @@ const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 					})}
 				</div>
 			</section>
-		</>
+		</Transition>
 	);
 };
 

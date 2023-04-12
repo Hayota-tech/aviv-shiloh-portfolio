@@ -3,6 +3,7 @@ import React from 'react';
 import SSvg from '@/ui/SSvg';
 import VModal from '@/ui/VModal';
 import { concatClasses } from '@/utils/component';
+import Transition from '@/layout/Transition';
 
 import Gallery from '../Gallery';
 import Menu from '../Menu';
@@ -27,7 +28,7 @@ interface IProps {
 
 const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<>
+		<Transition>
 			{props.isModalOpen && (
 				<VModal image={props.selectedModalImage} onToggleModal={props.onToggleModal} />
 			)}
@@ -109,7 +110,7 @@ const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 					})}
 				</div>
 			</section>
-		</>
+		</Transition>
 	);
 };
 

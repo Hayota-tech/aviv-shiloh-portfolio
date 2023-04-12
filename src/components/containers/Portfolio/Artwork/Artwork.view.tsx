@@ -2,14 +2,14 @@ import React from 'react';
 import SSvg from '@/ui/SSvg';
 
 import Project from './Project';
-
+import Transition from '@/layout/Transition';
 import type { IYear } from './interfaces/year';
 import type { IProject } from 'src/interfaces/responses';
 import { yearsList } from 'src/data/years-list';
 import { concatClasses } from '@/utils/component';
+import Menu from '../Menu';
 
 import classes from './Artwork.module.scss';
-import Menu from '../Menu';
 
 interface IProps {
 	readonly projectsList: IProject[];
@@ -23,61 +23,63 @@ interface IProps {
 
 const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<section className={classes['container']}>
-			<div className={classes['headerContainer']}>
-				<h1 className={classes['headerContainer__title']}>Artworks</h1>
-				<button type="button" onClick={props.onToggleMenu}>
-					<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
-				</button>
-				{props.isMenuOpen && (
-					<Menu
-						isMenuOpen={props.isMenuVisible}
-						lastLocation="/portfolio/artwork"
-						onToggleMenu={props.onToggleMenu}
-					/>
-				)}
-			</div>
-
-			<div className={classes['yearsList']}>
-				<button
-					className={concatClasses(
-						classes,
-						'yearsList__item',
-						props.selectedYears.length === 0 ? 'yearsList__item--selected' : '',
+		<Transition>
+			<section className={classes['container']}>
+				<div className={classes['headerContainer']}>
+					<h1 className={classes['headerContainer__title']}>Artworks</h1>
+					<button type="button" onClick={props.onToggleMenu}>
+						<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
+					</button>
+					{props.isMenuOpen && (
+						<Menu
+							isMenuOpen={props.isMenuVisible}
+							lastLocation="/portfolio/artwork"
+							onToggleMenu={props.onToggleMenu}
+						/>
 					)}
-					type="button"
-					onClick={props.onSelectAllYears}
-				>
-					All
-				</button>
-				{yearsList.map((year) => (
+				</div>
+
+				<div className={classes['yearsList']}>
 					<button
-						key={year.year}
 						className={concatClasses(
 							classes,
 							'yearsList__item',
-							props.selectedYears.includes(year) ? 'yearsList__item--selected' : '',
+							props.selectedYears.length === 0 ? 'yearsList__item--selected' : '',
 						)}
 						type="button"
-						onClick={() => props.onSelectYear(year)}
+						onClick={props.onSelectAllYears}
 					>
-						{year.year}
+						All
 					</button>
-				))}
-			</div>
+					{yearsList.map((year) => (
+						<button
+							key={year.year}
+							className={concatClasses(
+								classes,
+								'yearsList__item',
+								props.selectedYears.includes(year) ? 'yearsList__item--selected' : '',
+							)}
+							type="button"
+							onClick={() => props.onSelectYear(year)}
+						>
+							{year.year}
+						</button>
+					))}
+				</div>
 
-			{props.projectsList.map((project, index) => {
-				const projectDate = project?.attributes?.date.split('-')[0] ?? '';
+				{props.projectsList.map((project, index) => {
+					const projectDate = project?.attributes?.date.split('-')[0] ?? '';
 
-				if (
-					props.selectedYears.length > 0 &&
-					!props.selectedYears.some((year) => year.year === projectDate)
-				)
-					return;
+					if (
+						props.selectedYears.length > 0 &&
+						!props.selectedYears.some((year) => year.year === projectDate)
+					)
+						return;
 
-				return <Project key={index} index={index} project={project} />;
-			})}
-		</section>
+					return <Project key={index} index={index} project={project} />;
+				})}
+			</section>
+		</Transition>
 	);
 };
 
