@@ -15,7 +15,7 @@
 	position: relative;
 	top: 64px;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	justify-content: space-between;
 	width: 100%;
 	padding-inline: 64px;
@@ -35,7 +35,7 @@
 
 	&__menu {
 		text-decoration: none;
-		font-size: 4rem;
+		font-size: 3.2rem;
 		font-weight: 700;
 		transition: color 0.2s ease-in-out;
 		white-space: nowrap;
