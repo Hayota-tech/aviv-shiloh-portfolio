@@ -7,7 +7,7 @@ import Transition from '@/layout/Transition';
 const ContactPage: NextPage = () => {
 	return (
 		<Transition>
-			<Contact />;
+			<Contact />
 		</Transition>
 	);
 };
