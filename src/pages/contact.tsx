@@ -1,20 +1,14 @@
 import React from 'react';
 import type { NextPage } from 'next';
 
-import Header from '@/layout/Header';
 import Contact from '@/containers/Contact';
+import Transition from '@/layout/Transition';
 
 const ContactPage: NextPage = () => {
 	return (
-		<>
-			<Header theme="light" />
+		<Transition>
 			<Contact />
-			<style jsx global>{`
-				body {
-					background-color: #268741;
-				}
-			`}</style>
-		</>
+		</Transition>
 	);
 };
 

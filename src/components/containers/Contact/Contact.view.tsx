@@ -4,6 +4,7 @@ import { socialMedia } from '../../../data/social-media';
 import { address } from '../../../data/address';
 
 import classes from './Contact.module.scss';
+import Header from '@/layout/Header';
 
 interface IProps {
 	readonly onSocialNavigate: (url: string) => void;
@@ -12,6 +13,8 @@ interface IProps {
 const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<section className={classes['container']}>
+			<Header theme="light" />
+
 			<div className={classes['innerContainer']}>
 				<h3 className={classes['innerContainer__title']}>CONTACT</h3>
 				<div className={classes['contactContainer']}>

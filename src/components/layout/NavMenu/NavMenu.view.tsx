@@ -5,13 +5,14 @@ import { concatClasses } from '@/utils/component';
 import NavLink from './NavLink';
 import { navList } from '../../../data/nav-list';
 
-import classes from './NavMenu.module.scss';
+import type { ICarouselImage } from 'src/interfaces/carousel-image';
 import Header from '../Header';
+import classes from './NavMenu.module.scss';
 
 interface IProps {
 	readonly isMenuVisible: boolean;
 	readonly selectedLinkIndex: number | null;
-	readonly randomImage: string | null;
+	readonly randomImage: ICarouselImage | null;
 	readonly onLinkHover: (index: number) => void;
 	readonly onToggleMenu: () => void;
 	readonly onCloseMenu: (linkName: string) => void;
@@ -37,20 +38,29 @@ const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							selectedLinkIndex={props.selectedLinkIndex}
 							title={navItem.title}
 							url={navItem.url}
-							randomImage={props.randomImage}
+							randomImage={props.randomImage?.url ?? '/images/placeholder.png'}
 							onHover={props.onLinkHover}
 							onToggleMenu={props.onToggleMenu}
 							onCloseMenu={props.onCloseMenu}
 						/>
 					))}
 				</div>
-				<Image
-					className={classes['innerContainer__mobileImage']}
-					src={props.randomImage ?? '/images/placeholder.png'}
-					width={326}
-					height={184}
-					alt="Navigtion Menu"
-				/>
+				<div className={classes['mobileImageContainer']}>
+					<Image
+						className={classes['mobileImageContainer__image']}
+						src={props.randomImage?.url ?? '/images/placeholder.png'}
+						width={326}
+						height={184}
+						alt={props.randomImage?.name ?? 'Random image'}
+					/>
+					<span className={classes['mobileImageContainer__name']}>
+						{props.randomImage?.name ?? 'Carnival of Venice'}
+					</span>
+
+					<span className={classes['mobileImageContainer__date']}>
+						{props.randomImage?.date ?? '2023'}
+					</span>
+				</div>
 			</div>
 		</section>
 	);

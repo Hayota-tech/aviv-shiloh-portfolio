@@ -1,0 +1,164 @@
+@use 'sass:map';
+
+@import '../../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	margin-top: 108px;
+
+	.imagesContainer {
+		display: flex;
+		margin-top: 49px;
+		height: 666px;
+		width: 100%;
+
+		&--reverse {
+			flex-direction: row-reverse;
+		}
+
+		.bigImageContainer {
+			display: flex;
+			flex-direction: column;
+			width: 66%;
+			height: 90%;
+			margin-inline-end: 8px;
+
+			&--reverse {
+				margin: 0 0 0 8px;
+			}
+
+			&__image {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.infoContainer {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 100%;
+				height: 10%;
+
+				&--reverse {
+					align-items: center;
+				}
+
+				&__name {
+					font-size: 5rem;
+					font-weight: 500;
+					color: #1e1e1e;
+					white-space: nowrap;
+				}
+
+				.locationContainer {
+					display: flex;
+					align-items: center;
+
+					&__date {
+						font-size: 3.3rem;
+						font-weight: 400;
+						color: #1e1e1e;
+					}
+
+					&__city {
+						font-size: 3.3rem;
+						font-weight: 400;
+						color: #1e1e1e;
+					}
+
+					&__country {
+						font-size: 3.3rem;
+						font-weight: 400;
+						color: #1e1e1e;
+						margin: 0 5px;
+					}
+				}
+			}
+		}
+
+		.lineImagesContainer {
+			display: flex;
+			flex-direction: column;
+			width: 34%;
+			height: 100%;
+
+			&__image {
+				width: 100%;
+				height: 26.2%;
+				object-fit: cover;
+			}
+
+			&__image:not(:last-child) {
+				margin-bottom: 8px;
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		margin-top: 0px;
+		height: 100%;
+
+		.imagesContainer {
+			height: 290px;
+
+			&--reverse {
+				flex-direction: row;
+			}
+
+			.bigImageContainer {
+				width: 100%;
+				height: 250px;
+				margin: 0px;
+
+				&--reverse {
+					margin: 0px;
+				}
+
+				.infoContainer {
+					flex-direction: column;
+					align-items: flex-start;
+					margin-top: 10px;
+					padding-inline: 16px;
+
+					&--reverse {
+						align-items: flex-end;
+					}
+
+					&__name {
+						font-size: 24px;
+					}
+
+					.locationContainer {
+						display: flex;
+						align-items: center;
+
+						&__date {
+							font-size: 20px;
+						}
+
+						&__city {
+							font-size: 20px;
+						}
+
+						&__country {
+							font-size: 20px;
+
+							margin: 0 5px;
+						}
+					}
+				}
+			}
+
+			.lineImagesContainer {
+				display: none;
+			}
+		}
+
+		.imagesContainer:not(:first-child) {
+			margin-top: 55px;
+		}
+	}
+}

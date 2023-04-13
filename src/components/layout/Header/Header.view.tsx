@@ -10,12 +10,18 @@ interface IProps {
 	readonly isMenuOpen: boolean;
 	readonly isMenuVisible: boolean;
 	readonly theme?: string;
+	readonly float?: boolean;
 	readonly onToggleMenu: () => void;
 	readonly onCloseMenu: (linkName: string) => void;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const containerClass = concatClasses(classes, 'container', props.isMenuOpen ? 'container--slideUp' : '');
+	const containerClass = concatClasses(
+		classes,
+		'container',
+		props.isMenuOpen ? 'container--slideUp' : '',
+		props.float ? 'container--float' : '',
+	);
 
 	const menuClass = concatClasses(
 		classes,
@@ -41,6 +47,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 	const mobileBurgerClass = concatClasses(
 		classes,
 		'mobileBurger__icon',
+		props.isMenuOpen ? 'mobileBurger__icon--active' : '',
 		props.theme === 'dark' ? 'mobileBurger__icon--dark' : 'mobileBurger__icon--light',
 	);
 
@@ -63,7 +70,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 				href="/"
 				onClick={() => (props.isMenuOpen ? props.onCloseMenu('home') : null)}
 			>
-				Aviv Shiloh
+				AVIV SHILOH
 			</Link>
 			<span className={textClass}>©2023</span>
 			{props.isMenuOpen && (

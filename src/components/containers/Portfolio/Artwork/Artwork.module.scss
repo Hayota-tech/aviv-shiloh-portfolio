@@ -1,0 +1,101 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 117px;
+	padding: 0 64px 144px 64px;
+
+	.headerContainer {
+		display: flex;
+		align-items: center;
+		margin-top: 59px;
+
+		&__title {
+			font-size: 190px;
+			font-weight: 500;
+			margin-inline-end: 64px;
+		}
+
+		&__icon {
+			cursor: pointer;
+			width: 62px;
+			height: 37px;
+			fill: #1e1e1e;
+		}
+	}
+
+	.yearsList {
+		display: flex;
+		align-items: center;
+		margin-top: 10px;
+
+		&__item {
+			font-size: 36px;
+			font-weight: 400;
+
+			&--selected {
+				font-weight: 600;
+				color: #268741;
+			}
+		}
+
+		&__item:not(:last-child) {
+			margin-inline-end: 32px;
+		}
+
+		&__item:first-child {
+			text-decoration: underline;
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		display: flex;
+		flex-direction: column;
+		margin-top: 48px;
+		padding: 0 0px 104px 0px;
+
+		.headerContainer {
+			display: flex;
+			align-items: center;
+			margin-top: 0px;
+			padding: 0 41px 0 16px;
+
+			&__title {
+				font-size: 64px;
+				margin-inline-end: 16px;
+			}
+
+			&__icon {
+				width: 24px;
+				height: 14px;
+			}
+		}
+
+		.yearsList {
+			padding: 41px 20px 16px;
+			margin-top: 0px;
+			flex-wrap: nowrap;
+			overflow-x: auto;
+
+			&__item {
+				font-size: 24px;
+				font-weight: 400;
+				margin-bottom: 8px;
+
+				&--selected {
+					font-weight: 600;
+					color: #268741;
+				}
+			}
+
+			&__item:not(:last-child) {
+				margin-inline-end: 16px;
+			}
+		}
+	}
+}
