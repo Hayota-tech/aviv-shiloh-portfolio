@@ -1,20 +1,10 @@
 {
-  "extends": "./tsconfig.base.json",
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "./node_modules"
-  ],
-  "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "jsx": "preserve",
-    "strictNullChecks": true
-  }
+	"extends": "./tsconfig.base.json",
+	"include": ["./src/**/*.ts", "./src/**/*.tsx", ".next/types/**/*.ts"],
+	"exclude": ["./node_modules"],
+	"compilerOptions": {
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"jsx": "preserve",
+		"strictNullChecks": true
+	}
 }

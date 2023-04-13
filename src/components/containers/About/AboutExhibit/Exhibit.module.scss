@@ -3,84 +3,60 @@
 @import '../../../../styles/variables.scss';
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid #C8C8C8;
-    border-radius: 12px;
-    padding: 16px;
-    gap: 8px;
-    width: 658px;
-    height: 131px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 1px solid #c8c8c8;
+	border-radius: 12px;
+	padding: 16px;
+	width: 100%;
 
-    &__title {
-        font-size: 2.4rem;
-        color: #000000;
-        margin: 0;
-        padding: 0;
+	&__title {
+		font-size: 2.4rem;
+		color: #000000;
+	}
 
+	&__exhibition {
+		margin: 4px 0 8px 0;
+		font-size: 2.4rem;
+		color: #000000;
+		text-decoration-line: underline;
+	}
 
-    }
+	.dateContainer {
+		display: flex;
+		align-items: center;
 
-    &__exhibition {
-        margin: 0;
-
-        font-size: 2.4rem;
-        color: #000000;
-        text-decoration-line: underline;
-    }
-
-    .dateContainer {
-        padding-top: 8px;
-
-        &__startDate {
-            font-weight: 600;
-            color: #268741;
-            font-size: 1.6rem;
-
-        }
-
-        &__endDate {
-
-            font-weight: 600;
-            color: #268741;
-            font-size: 1.6rem;
-        }
-    }
-
-
+		&__date {
+			font-size: 1.6rem;
+			font-weight: 600;
+			color: #268741;
+		}
+	}
 }
 
+.container:not(:last-child) {
+	margin-bottom: 32px;
+}
 
 @media (max-width: map.get($sizes, main-mobile-width)) {
-    .container {
-        max-width: map.get($sizes, main-mobile-width);
-        width: 358px;
+	.container {
+		&__title {
+			font-size: 2rem;
+		}
 
-        &__title {
-            font-size: 2rem;
-        }
+		&__exhibition {
+			font-size: 2rem;
+		}
 
-        &__exhibition {
-            font-size: 2rem;
+		.dateContainer {
+			&__startDate {
+				font-size: 1.4rem;
+			}
 
-        }
-
-        .dateContainer {
-
-            &__startDate {
-                font-size: 1.4rem;
-            }
-
-            &__endDate {
-                font-size: 1.4rem;
-
-            }
-        }
-
-
-    }
-
-
-
+			&__endDate {
+				font-size: 1.4rem;
+			}
+		}
+	}
 }

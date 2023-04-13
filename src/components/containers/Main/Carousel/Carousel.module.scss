@@ -1,0 +1,163 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	padding: 48px 64px 126px 64px;
+
+	.carouselImage {
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		&__image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.mobileImageInfo {
+		display: none;
+	}
+
+	.carouselImageMobile {
+		display: none;
+	}
+
+	.mobileMoreWorks {
+		display: none;
+	}
+
+	.infoContainer {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-top: 24px;
+
+		.leftSide {
+			display: flex;
+			flex-direction: column;
+
+			&__title {
+				font-size: 2.4rem;
+				font-weight: 500;
+				color: #1e1e1e;
+				margin-bottom: 4px;
+			}
+
+			&__date {
+				font-size: 2rem;
+				font-weight: 400;
+				color: #1e1e1e;
+			}
+		}
+
+		.rightSide {
+			display: flex;
+			align-items: center;
+
+			&__button {
+				font-size: 2rem;
+				font-weight: 400;
+				color: #1e1e1e;
+			}
+
+			&__button:not(:last-child) {
+				margin-inline-end: 36px;
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		display: flex;
+		flex-direction: column;
+		height: fit-content;
+		width: 100%;
+		padding: 0 0 60px 0;
+
+		.carouselImage {
+			position: relative;
+			width: 100%;
+			height: 610px;
+
+			&__image {
+				width: 100%;
+				height: 610px;
+
+				object-fit: cover;
+			}
+		}
+
+		.mobileImageInfo {
+			display: flex;
+			flex-direction: column;
+			margin: 16px 0 48px 0;
+			padding-inline-start: 16px;
+
+			&--second {
+				align-items: flex-end;
+				padding: 0 16px 0 0;
+			}
+
+			&__title {
+				font-size: 2.4rem;
+				font-weight: 500;
+				color: #1e1e1e;
+			}
+
+			&__date {
+				font-size: 2rem;
+				font-weight: 400;
+				color: #1e1e1e;
+				margin-top: 4px;
+			}
+		}
+
+		.mobileMoreWorks {
+			display: flex;
+			justify-content: flex-end;
+			padding-inline-end: 16px;
+			width: 100%;
+			font-size: 2.4rem;
+			font-weight: 600;
+			color: #268741;
+			text-decoration: none;
+		}
+
+		.carouselImageMobile {
+			display: block;
+			position: relative;
+			width: 100%;
+			height: 610px;
+
+			&__image {
+				width: 100%;
+				height: 610px;
+
+				object-fit: cover;
+			}
+		}
+
+		.infoContainer {
+			display: none;
+		}
+	}
+}

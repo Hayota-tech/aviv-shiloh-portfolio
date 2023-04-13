@@ -3,13 +3,14 @@ import type { NextPage } from 'next';
 
 import Header from '@/layout/Header';
 import About from '@/containers/About';
+import Transition from '@/layout/Transition';
 
 const AboutPage: NextPage = () => {
 	return (
-		<>
-			<Header theme="dark" />
+		<Transition>
+			<Header theme="dark" float />
 			<About />
-		</>
+		</Transition>
 	);
 };
 

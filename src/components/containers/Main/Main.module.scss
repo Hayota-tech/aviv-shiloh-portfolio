@@ -1,3 +1,7 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
 .container {
 	background-color: #000000;
 	height: 100%;
@@ -13,12 +17,23 @@
 	}
 
 	.bioContainer {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		background-color: #000000;
 		padding: 24px 0 48px 0;
+
+		.fadeBackground {
+			position: absolute;
+			top: -150px;
+			left: 0;
+			width: 100%;
+			height: 150px;
+			background: linear-gradient(180deg, #000000 50%, rgba(0, 0, 0, 0) 97.1%);
+			transform: rotate(180deg);
+		}
 
 		&__bio {
 			font-size: 2rem;
@@ -38,6 +53,21 @@
 			font-size: 2rem;
 			font-weight: 400;
 			color: #ffffff;
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-mobile-width)) {
+	.container {
+		&__image {
+			top: -55px;
+		}
+
+		.bioContainer {
+			&__description {
+				font-size: 2.4rem;
+				margin: 24px 0 24px 0;
+			}
 		}
 	}
 }

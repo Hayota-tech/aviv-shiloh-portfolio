@@ -6,10 +6,11 @@
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import React from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 import '../styles/custom.scss';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
 	return (
 		<>
 			<Head>
@@ -27,17 +28,19 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<meta property="og:url" content="https://exlint.io/" />
 				<meta name="description" content="Aviv Shiloh Portfolio" />
 
-				<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-				<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+				{/* <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> */}
+				{/* <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> */}
 
 				<title>Aviv Shiloh Portfolio</title>
 
 				<link rel="canonical" href="https://www.exlint.io/" />
-				<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+				{/* <link rel="icon" href="/favicon.ico" type="image/x-icon" /> */}
 				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 			</Head>
 
-			<Component {...pageProps} />
+			<AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
+				<Component {...pageProps} key={router.asPath} />
+			</AnimatePresence>
 		</>
 	);
 }

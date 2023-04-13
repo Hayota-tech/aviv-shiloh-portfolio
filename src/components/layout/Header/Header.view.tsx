@@ -4,18 +4,29 @@ import Link from 'next/link';
 import classes from './Header.module.scss';
 import { concatClasses } from '@/utils/component';
 import SSvg from '@/ui/SSvg';
+import NavMenu from '../NavMenu';
 
 interface IProps {
+	readonly isMenuOpen: boolean;
+	readonly isMenuVisible: boolean;
 	readonly theme?: string;
 	readonly float?: boolean;
+	readonly onToggleMenu: () => void;
+	readonly onCloseMenu: (linkName: string) => void;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const containerClass = concatClasses(classes, 'container', props.float ? 'container--float' : '');
+	const containerClass = concatClasses(
+		classes,
+		'container',
+		props.isMenuOpen ? 'container--slideUp' : '',
+		props.float ? 'container--float' : '',
+	);
 
 	const menuClass = concatClasses(
 		classes,
 		'container__menu',
+		props.isMenuOpen ? 'container__menu--active' : '',
 		props.theme === 'dark' ? 'container__menu--dark' : 'container__menu--light',
 	);
 
@@ -23,34 +34,52 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		classes,
 		'container__logo',
 		props.theme === 'dark' ? 'container__logo--dark' : 'container__logo--light',
+		props.isMenuOpen ? 'container__logo--inMenu' : '',
 	);
 
 	const textClass = concatClasses(
 		classes,
 		'container__text',
 		props.theme === 'dark' ? 'container__text--dark' : 'container__text--light',
+		props.isMenuOpen ? 'container__text--inMenu' : '',
 	);
 
 	const mobileBurgerClass = concatClasses(
 		classes,
 		'mobileBurger__icon',
+		props.isMenuOpen ? 'mobileBurger__icon--active' : '',
 		props.theme === 'dark' ? 'mobileBurger__icon--dark' : 'mobileBurger__icon--light',
 	);
 
 	return (
 		<header className={containerClass}>
 			<div className={classes['mobileBurger']}>
-				<button className={classes['mobileBurger__button']} type="button">
+				<button
+					className={classes['mobileBurger__button']}
+					type="button"
+					onClick={props.onToggleMenu}
+				>
 					<SSvg name="humburger" className={mobileBurgerClass} />
 				</button>
 			</div>
-			<Link className={menuClass} href="/about">
+			<button className={menuClass} type="button" onClick={props.onToggleMenu}>
 				MENU
-			</Link>
-			<Link className={logoClass} href="/">
+			</button>
+			<Link
+				className={logoClass}
+				href="/"
+				onClick={() => (props.isMenuOpen ? props.onCloseMenu('home') : null)}
+			>
 				Aviv Shiloh
 			</Link>
 			<span className={textClass}>©2023</span>
+			{props.isMenuOpen && (
+				<NavMenu
+					isMenuVisible={props.isMenuVisible}
+					onToggleMenu={props.onToggleMenu}
+					onCloseMenu={props.onCloseMenu}
+				/>
+			)}
 		</header>
 	);
 };
