@@ -70,7 +70,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 				href="/"
 				onClick={() => (props.isMenuOpen ? props.onCloseMenu('home') : null)}
 			>
-				Aviv Shiloh
+				AVIV SHILOH
 			</Link>
 			<span className={textClass}>©2023</span>
 			{props.isMenuOpen && (

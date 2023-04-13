@@ -48,7 +48,7 @@ const CarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 
 			<div className={classes['mobileImageInfo']}>
 				<span className={classes['mobileImageInfo__title']}>{projectName}</span>
-				<span className={classes['mobileImageInfo_date']}>{projectDate}</span>
+				<span className={classes['mobileImageInfo__date']}>{projectDate}</span>
 			</div>
 
 			<Link className={classes['carouselImageMobile']} href={`/project/${secondProjectId}`}>
@@ -63,7 +63,7 @@ const CarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 
 			<div className={concatClasses(classes, 'mobileImageInfo', 'mobileImageInfo--second')}>
 				<span className={classes['mobileImageInfo__title']}>{secondProjectName}</span>
-				<span className={classes['mobileImageInfo_date']}>{secondProjectDate}</span>
+				<span className={classes['mobileImageInfo__date']}>{secondProjectDate}</span>
 			</div>
 
 			<Link className={classes['mobileMoreWorks']} href={'/portfolio/artwork'}>
@@ -72,7 +72,7 @@ const CarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			<div className={classes['infoContainer']}>
 				<div className={classes['leftSide']}>
 					<span className={classes['leftSide__title']}>{projectName}</span>
-					<span className={classes['leftSide_date']}>{projectDate}</span>
+					<span className={classes['leftSide__date']}>{projectDate}</span>
 				</div>
 				<div className={classes['rightSide']}>
 					<button
