@@ -7,8 +7,8 @@ import classes from './About.module.scss';
 import AboutExhibit from './AboutExhibit';
 
 interface IProps {
-	readonly handleScroll: (e: React.UIEvent<HTMLElement>) => void;
 	readonly bottomExhibionsPrecent: number;
+	readonly handleScroll: (e: React.UIEvent<HTMLElement>) => void;
 }
 
 const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -98,7 +98,7 @@ const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 				<div className={classes['exhibitionsContainer']}>
 					<h1 className={classes['exhibitionsContainer__title']}>Exhibitions</h1>
 
-					<div className={classes['innerExihitions']} onScroll={props.handleScroll} style={style}>
+					<div className={classes['innerExihitions']} style={style} onScroll={props.handleScroll}>
 						{dummyData.map((exhibition, key) => (
 							<AboutExhibit
 								key={key}
