@@ -26,7 +26,13 @@ const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		<Transition>
 			<section className={classes['container']}>
 				<div className={classes['headerContainer']}>
-					<h1 className={classes['headerContainer__title']}>Artworks</h1>
+					<button
+						className={classes['headerContainer__title']}
+						type="button"
+						onClick={props.onToggleMenu}
+					>
+						Artworks
+					</button>
 					<button type="button" onClick={props.onToggleMenu}>
 						<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
 					</button>

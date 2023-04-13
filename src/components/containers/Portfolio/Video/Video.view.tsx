@@ -33,7 +33,13 @@ const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			)}
 			<section className={classes['container']}>
 				<div className={classes['headerContainer']}>
-					<h1 className={classes['headerContainer__title']}>Video</h1>
+					<button
+						className={classes['headerContainer__title']}
+						type="button"
+						onClick={props.onToggleMenu}
+					>
+						Video
+					</button>
 					<SSvg
 						className={classes['headerContainer__icon']}
 						name="arrowBold"
