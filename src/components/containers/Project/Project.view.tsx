@@ -16,6 +16,8 @@ interface IProps {
 const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const projectName = props.projectInfo?.attributes.name;
 	const projectDate = props.projectInfo?.attributes.date.split('-')[0] ?? '';
+	const projectCity = props.projectInfo?.attributes.city;
+	const projectCountry = props.projectInfo?.attributes.country;
 	const projectDescription = props.projectInfo?.attributes.description;
 
 	return (
@@ -24,11 +26,18 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<div className={classes['backButtonContainer']}>
 					<SSvg className={classes['backButtonContainer__icon']} name="arrowLeft" />
 					<Link className={classes['backButtonContainer__text']} href={'/'}>
-						Back
+						BACK
 					</Link>
 				</div>
 				<h2 className={classes['infoContainer__name']}>{projectName}</h2>
 				<span className={classes['infoContainer__date']}>{projectDate}</span>
+				<div className={classes['locationContainer']}>
+					<span className={classes['locationContainer__text']}>
+						{projectCity}
+						{','}
+					</span>
+					<span className={classes['locationContainer__text']}>{projectCountry}</span>
+				</div>
 				<p className={classes['infoContainer__description']}>{projectDescription}</p>
 				<div className={classes['scrollContainer']}>
 					<span className={classes['scrollContainer__text']}>Scroll</span>
