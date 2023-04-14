@@ -6,9 +6,12 @@ import portrait from '../../../../public/images/aviv-portrait.png';
 import classes from './About.module.scss';
 import AboutExhibit from './AboutExhibit';
 
-interface IProps {}
+interface IProps {
+	readonly lastExhibionPosition: number;
+	readonly handleScroll: (e: React.UIEvent<HTMLElement>) => void;
+}
 
-const AboutView: React.FC<IProps> = () => {
+const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const dummyData = [
 		{
 			title: 'Big Apple',
@@ -68,6 +71,12 @@ const AboutView: React.FC<IProps> = () => {
 		},
 	];
 
+	const style = {
+		WebkitMaskImage: `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) ${
+			100 - props.lastExhibionPosition + '%'
+		})`,
+	};
+
 	return (
 		<section className={classes['container']}>
 			<Image className={classes['container__image']} src={portrait} alt="Aviv Shiloh" />
@@ -89,7 +98,7 @@ const AboutView: React.FC<IProps> = () => {
 				<div className={classes['exhibitionsContainer']}>
 					<h1 className={classes['exhibitionsContainer__title']}>Exhibitions</h1>
 
-					<div className={classes['innerExihitions']}>
+					<div className={classes['innerExihitions']} style={style} onScroll={props.handleScroll}>
 						{dummyData.map((exhibition, key) => (
 							<AboutExhibit
 								key={key}
