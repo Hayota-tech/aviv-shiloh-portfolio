@@ -34,7 +34,7 @@ const MenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 					href={props.lastLocation}
 					onClick={props.onToggleMenu}
 				>
-					Back
+					BACK
 				</Link>
 			</div>
 			<div className={classes['linksContainer']}>
