@@ -100,6 +100,7 @@
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
 		width: 100%;
+		height: auto;
 
 		.innerContainer {
 			padding: 94px 32px 0 32px;
