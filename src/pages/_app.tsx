@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 				<meta property="og:image:width" content="685" />
 				<meta property="og:image:height" content="685" />
 				<meta property="og:image:alt" content="Aviv Shiloh Portfolio" />
-				<meta property="og:url" content="https://exlint.io/" />
 				<meta
 					name="description"
 					content="Aviv Shiloh is a photographer focusing on the humane aspects of social and cultural issues."
