@@ -7,7 +7,7 @@ import classes from './About.module.scss';
 import AboutExhibit from './AboutExhibit';
 
 interface IProps {
-	readonly bottomExhibionsPrecent: number;
+	readonly lastExhibionPosition: number;
 	readonly handleScroll: (e: React.UIEvent<HTMLElement>) => void;
 }
 
@@ -73,7 +73,7 @@ const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const style = {
 		WebkitMaskImage: `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) ${
-			100 - props.bottomExhibionsPrecent + '%'
+			100 - props.lastExhibionPosition + '%'
 		})`,
 	};
 

@@ -8,18 +8,18 @@ import AboutView from './About.view';
 interface IProps {}
 
 const About: React.FC<IProps> = () => {
-	const [bottomExhibionsPrecentState, setBottomExhibionsPrecentState] = useState<number>(0);
+	const [lastExhibionPositionState, setLastExhibionPositionState] = useState<number>(0);
 	const handleScroll = (e: React.UIEvent<HTMLElement>) => {
 		const target = e.target as HTMLElement;
-		const bottomPrecent = (target.scrollTop / target.scrollHeight) * 200;
-		setBottomExhibionsPrecentState(bottomPrecent);
+		const lastExhibionPosition = (target.scrollTop / target.scrollHeight) * 200;
+		setLastExhibionPositionState(() => lastExhibionPosition);
 	};
 
 	useEffect(() => {
 		document.body?.scrollTo(0, 0);
 	}, []);
 
-	return <AboutView handleScroll={handleScroll} bottomExhibionsPrecent={bottomExhibionsPrecentState} />;
+	return <AboutView handleScroll={handleScroll} lastExhibionPosition={lastExhibionPositionState} />;
 };
 
 About.displayName = 'About';
