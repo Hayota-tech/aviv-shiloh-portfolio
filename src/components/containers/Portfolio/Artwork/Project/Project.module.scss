@@ -27,10 +27,15 @@
 				margin: 0 0 0 8px;
 			}
 
-			&__image {
+			.bigImageLinkContainer {
 				width: 100%;
-				height: 100%;
-				object-fit: cover;
+				height: 90%;
+
+				&__image {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
 			}
 
 			.infoContainer {
@@ -83,13 +88,17 @@
 			width: 34%;
 			height: 100%;
 
-			&__image {
+			.lineImagesLinkContainer {
 				width: 100%;
 				height: 26.2%;
-				object-fit: cover;
-			}
 
-			&__image:not(:last-child) {
+				&__image {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+			.lineImagesLinkContainer:not(:last-child) {
 				margin-bottom: 8px;
 			}
 		}

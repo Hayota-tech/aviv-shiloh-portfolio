@@ -17,7 +17,6 @@ const MainView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		<main className={classes['container']}>
 			<Image className={classes['container__image']} src={intro} alt="Intro image" priority />
 			<div className={classes['bioContainer']}>
-				<span className={classes['fadeBackground']} />
 				<span className={classes['bioContainer__bio']}>Bio</span>
 				<p className={classes['bioContainer__description']}>
 					Aviv Shiloh is a photographer focusing on the humane
@@ -27,6 +26,7 @@ const MainView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				<Link className={classes['bioContainer__readMore']} href="/about">
 					Read More
 				</Link>
+				<span className={classes['fadeBackground']} />
 			</div>
 			{props.projectsList && <Carousel projectsList={props.projectsList} />}
 		</main>

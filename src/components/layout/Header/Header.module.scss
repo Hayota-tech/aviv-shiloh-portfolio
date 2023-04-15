@@ -52,8 +52,10 @@
 			color: #268741;
 		}
 
-		&:hover {
-			color: #268741;
+		&--hover {
+			&:hover {
+				color: #268741;
+			}
 		}
 	}
 

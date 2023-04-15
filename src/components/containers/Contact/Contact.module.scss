@@ -17,6 +17,8 @@
 		padding: 172px 315px 16px 64px;
 
 		&__title {
+			position: relative;
+			left: -15px;
 			font-size: 11rem;
 			align-self: flex-end;
 			color: #ffffff;
@@ -106,6 +108,7 @@
 			padding: 94px 32px 0 32px;
 
 			&__title {
+				position: static;
 				align-self: initial;
 				font-size: 6.4rem;
 				margin-bottom: 48px;

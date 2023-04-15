@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import classes from './Header.module.scss';
 import { concatClasses } from '@/utils/component';
@@ -16,11 +17,15 @@ interface IProps {
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { route } = useRouter();
+
 	const containerClass = concatClasses(
 		classes,
 		'container',
 		props.isMenuOpen ? 'container--slideUp' : '',
 		props.float ? 'container--float' : '',
+		//check if url container 'contact'
+		route.includes('contact') ? 'container--contact' : '',
 	);
 
 	const menuClass = concatClasses(
@@ -28,6 +33,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		'container__menu',
 		props.isMenuOpen ? 'container__menu--active' : '',
 		props.theme === 'dark' ? 'container__menu--dark' : 'container__menu--light',
+		route !== '/contact' ? 'container__menu--hover' : '',
 	);
 
 	const logoClass = concatClasses(

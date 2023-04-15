@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 
 import { imageUrl } from '@/utils/image-url';
@@ -11,6 +10,7 @@ import ProjectCarousel from './ProjectCarousel';
 
 interface IProps {
 	readonly projectInfo: IProject | undefined;
+	readonly onNavigateBack: () => void;
 }
 
 const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -25,9 +25,9 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			<div className={classes['infoContainer']}>
 				<div className={classes['backButtonContainer']}>
 					<SSvg className={classes['backButtonContainer__icon']} name="arrowLeft" />
-					<Link className={classes['backButtonContainer__text']} href={'/'}>
+					<button className={classes['backButtonContainer__text']} onClick={props.onNavigateBack}>
 						BACK
-					</Link>
+					</button>
 				</div>
 				<h2 className={classes['infoContainer__name']}>{projectName}</h2>
 				<span className={classes['infoContainer__date']}>{projectDate}</span>

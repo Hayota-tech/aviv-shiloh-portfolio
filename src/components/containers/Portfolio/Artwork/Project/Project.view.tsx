@@ -6,6 +6,7 @@ import { concatClasses } from '@/utils/component';
 import type { IProject } from 'src/interfaces/responses';
 
 import classes from './Project.module.scss';
+import Link from 'next/link';
 
 interface IProps {
 	readonly index: number;
@@ -40,13 +41,15 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		<section className={classes['container']}>
 			<div className={imagesContainerClasses}>
 				<div className={bigImageContainerClasses}>
-					<Image
-						className={classes['bigImageContainer__image']}
-						src={projectImageUrl}
-						alt={projectName}
-						width={100}
-						height={100}
-					/>
+					<Link className={classes['bigImageLinkContainer']} href={`/project/${props.project?.id}`}>
+						<Image
+							className={classes['bigImageLinkContainer__image']}
+							src={projectImageUrl}
+							alt={projectName}
+							width={100}
+							height={100}
+						/>
+					</Link>
 					<div className={infoContainerClasses}>
 						<span className={classes['infoContainer__name']}>{projectName}</span>
 						<div className={classes['locationContainer']}>
@@ -68,14 +71,19 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							? imageUrl(media.attributes.url)
 							: '/public/images/placeholder.png';
 						return (
-							<Image
+							<Link
 								key={index}
-								className={classes['lineImagesContainer__image']}
-								src={projectImageUrl}
-								alt={media.attributes.caption}
-								width={100}
-								height={100}
-							/>
+								href={`/project/${props.project?.id}`}
+								className={classes['lineImagesLinkContainer']}
+							>
+								<Image
+									className={classes['lineImagesLinkContainer__image']}
+									src={projectImageUrl}
+									alt={media.attributes.caption}
+									width={100}
+									height={100}
+								/>
+							</Link>
 						);
 					})}
 				</div>

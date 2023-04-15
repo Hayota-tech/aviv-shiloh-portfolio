@@ -15,6 +15,8 @@ const Project: React.FC<IProps> = () => {
 	const [projectsListState, setProjectsListState] = useState<IProject[]>([]);
 	const [projectInfoState, setProjectInfoState] = useState<IProject | undefined>(undefined);
 
+	const onNavigateBack = () => router.back();
+
 	useEffect(() => {
 		backendApi
 			.get(
@@ -32,7 +34,7 @@ const Project: React.FC<IProps> = () => {
 		}
 	}, [projectsListState]);
 
-	return <ProjectView projectInfo={projectInfoState} />;
+	return <ProjectView projectInfo={projectInfoState} onNavigateBack={onNavigateBack} />;
 };
 
 Project.displayName = 'Project';
