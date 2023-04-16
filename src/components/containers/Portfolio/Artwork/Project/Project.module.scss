@@ -50,7 +50,7 @@
 				}
 
 				&__name {
-					font-size: 5rem;
+					font-size: 4.8rem;
 					font-weight: 500;
 					color: #1e1e1e;
 					white-space: nowrap;
@@ -61,19 +61,19 @@
 					align-items: center;
 
 					&__date {
-						font-size: 3.3rem;
+						font-size: 3.6rem;
 						font-weight: 400;
 						color: #1e1e1e;
 					}
 
 					&__city {
-						font-size: 3.3rem;
+						font-size: 3.6rem;
 						font-weight: 400;
 						color: #1e1e1e;
 					}
 
 					&__country {
-						font-size: 3.3rem;
+						font-size: 3.6rem;
 						font-weight: 400;
 						color: #1e1e1e;
 						margin: 0 5px;
@@ -98,6 +98,7 @@
 					object-fit: cover;
 				}
 			}
+
 			.lineImagesLinkContainer:not(:last-child) {
 				margin-bottom: 8px;
 			}
