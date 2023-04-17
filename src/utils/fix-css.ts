@@ -1,35 +1,61 @@
-import Router from 'next/router'
+import * as React from 'react';
 
-export const fixTimeoutTransition = (timeout: number): void => {
-    Router.events.on('beforeHistoryChange', () => {
-      // Create a clone of every <style> and <link> that currently affects the page. It doesn't matter
-      // if Next.js is going to remove them or not since we are going to remove the copies ourselves
-      // later on when the transition finishes.
-      const nodes = document.querySelectorAll('link[rel=stylesheet], style:not([media=x])')
-      const copies = [...nodes].map((el) => el.cloneNode(true) as HTMLElement)
-  
-      for (let copy of copies) {
-        // Remove Next.js' data attributes so the copies are not removed from the DOM in the route
-        // change process.
-        copy.removeAttribute('data-n-p')
-        copy.removeAttribute('data-n-href')
-  
-        // Add duplicated nodes to the DOM.
-        document.head.appendChild(copy)
-      }
-  
-      const handler = () => {
-        // Emulate a `.once` method using `.on` and `.off`
-        Router.events.off('routeChangeComplete', handler)
-  
-        window.setTimeout(() => {
-          for (let copy of copies) {
-            // Remove previous page's styles after the transition has finalized.
-            document.head.removeChild(copy)
-          }
-        }, timeout)
-      }
-  
-      Router.events.on('routeChangeComplete', handler)
-    })
-  }
+export const useNextCssRemovalPrevention = () => {
+    React.useEffect(() => {
+        // Remove data-n-p attribute from all link nodes.
+        // This prevents Next.js from removing server rendered stylesheets.
+        document.querySelectorAll('head > link[data-n-p]').forEach(linkNode => {
+            linkNode.removeAttribute('data-n-p');
+        });
+
+        const mutationHandler = (mutations: MutationRecord[]) => {
+            mutations.forEach(({ target, addedNodes }: MutationRecord) => {
+                if (target.nodeName === 'HEAD') {
+                    // Add data-n-href-perm attribute to all style nodes with attribute data-n-href,
+                    // and remove data-n-href and media attributes from those nodes.
+                    // This prevents Next.js from removing or disabling dynamic stylesheets.
+                    addedNodes.forEach(node => {
+                        const el = node as Element;
+                        if (el.nodeName === 'STYLE' && el.hasAttribute('data-n-href')) {
+                            const href = el.getAttribute('data-n-href');
+                            if (href) {
+                                el.setAttribute('data-n-href-perm', href);
+                                el.removeAttribute('data-n-href');
+                                el.removeAttribute('media');
+                            }
+                        }
+                    });
+
+                    // Remove all stylesheets that we don't need anymore
+                    // (all except the two that were most recently added).
+                    const styleNodes = document.querySelectorAll('head > style[data-n-href-perm]');
+                    const requiredHrefs = new Set<string>();
+                    for (let i = styleNodes.length - 1; i >= 0; i--) {
+                        const el = styleNodes[i];
+                        if (requiredHrefs.size < 2) {
+                            const href = el!.getAttribute('data-n-href-perm');
+                            if (href) {
+                                if (requiredHrefs.has(href)) {
+                                    el!.parentNode!.removeChild(el!);
+                                } else {
+                                    requiredHrefs.add(href);
+                                }
+                            }
+                        } else {
+                            el!.parentNode!.removeChild(el!);
+                        }
+                    }
+                }
+            });
+        };
+
+        // Observe changes to the head element and its descendents.
+        const observer = new MutationObserver(mutationHandler);
+        observer.observe(document.head, { childList: true, subtree: true });
+
+        return () => {
+            // Disconnect the observer when the component unmounts.
+            observer.disconnect();
+        };
+    }, []);
+};
