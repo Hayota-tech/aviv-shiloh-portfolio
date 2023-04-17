@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
+		"start": "next",
 		"start:dev": "next dev -p 80",
 		"build": "next build && next export",
 		"lint": "next lint",
