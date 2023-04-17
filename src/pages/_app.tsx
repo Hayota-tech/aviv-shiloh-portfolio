@@ -12,7 +12,7 @@ import '../styles/custom.scss';
 import { fixTimeoutTransition } from '@/utils/fix-css';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-	fixTimeoutTransition(1000)
+	fixTimeoutTransition(600)
 
 	return (
 		<>
