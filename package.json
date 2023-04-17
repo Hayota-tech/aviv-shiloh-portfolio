@@ -4,9 +4,9 @@
 	"private": true,
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
-		"start": "next",
 		"start:dev": "next dev -p 80",
-		"build": "next build && next export",
+		"start": "next start",
+		"build": "next build",
 		"lint": "next lint",
 		"lint:fix": "next lint --fix",
 		"format": "prettier --write \"**/*.{ts,tsx,scss,js,json}\"",
