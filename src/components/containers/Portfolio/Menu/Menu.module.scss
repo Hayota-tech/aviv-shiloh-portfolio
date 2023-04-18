@@ -113,6 +113,7 @@
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
 		padding: 16px;
+		z-index: 7;
 
 		.backButtonContainer {
 			&__icon {
