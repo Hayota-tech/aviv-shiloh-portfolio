@@ -108,6 +108,8 @@
 	.container {
 		padding-inline: 16px;
 		top: 16px;
+		z-index: 5;
+		align-items: center;
 
 		&--slideUp {
 			animation: none;
@@ -119,6 +121,11 @@
 
 		.mobileBurger {
 			display: block;
+			z-index: 6;
+
+			&--fromNavMenu {
+				z-index: 1;
+			}
 
 			&__icon {
 				width: 32px;
