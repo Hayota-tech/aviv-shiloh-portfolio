@@ -53,7 +53,13 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		props.isMenuOpen ? 'container__text--inMenu' : '',
 	);
 
-	const mobileBurgerClass = concatClasses(
+	const mobileBurgerContainerClasses = concatClasses(
+		classes,
+		'mobileBurger',
+		props.fromNavMenu ? 'mobileBurger--fromNavMenu' : '',
+	);
+
+	const mobileBurgerIconClasses = concatClasses(
 		classes,
 		'mobileBurger__icon',
 		props.isMenuOpen ? 'mobileBurger__icon--active' : '',
@@ -62,13 +68,13 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 
 	return (
 		<header className={containerClass}>
-			<div className={classes['mobileBurger']}>
+			<div className={mobileBurgerContainerClasses}>
 				<button
 					className={classes['mobileBurger__button']}
 					type="button"
 					onClick={props.onToggleMenu}
 				>
-					<SSvg name="humburger" className={mobileBurgerClass} />
+					<SSvg name="humburger" className={mobileBurgerIconClasses} />
 				</button>
 			</div>
 			<button className={menuClass} type="button" onClick={props.onToggleMenu}>
