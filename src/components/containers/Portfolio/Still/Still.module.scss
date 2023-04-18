@@ -38,6 +38,8 @@
 			font-weight: 400;
 			margin-bottom: 8px;
 			white-space: nowrap;
+			color: #1e1e1e;
+
 
 			&--selected {
 				font-weight: 600;
@@ -95,6 +97,8 @@
 			&__title {
 				font-size: 64px;
 				margin-inline-end: 32px;
+				color: #1E1E1E;
+
 			}
 
 			&__icon {
@@ -109,9 +113,11 @@
 			margin-bottom: 20px;
 			padding-bottom: 20px;
 
+
 			&__item {
 				font-size: 24px;
 				margin-bottom: 0px;
+
 			}
 
 			&__item:not(:last-child) {
