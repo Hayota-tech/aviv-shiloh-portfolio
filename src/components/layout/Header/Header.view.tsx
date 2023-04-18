@@ -12,6 +12,7 @@ interface IProps {
 	readonly isMenuVisible: boolean;
 	readonly theme?: string;
 	readonly float?: boolean;
+	readonly fromNavMenu?: boolean;
 	readonly onToggleMenu: () => void;
 	readonly onCloseMenu: (linkName: string) => void;
 }
@@ -31,8 +32,9 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 	const menuClass = concatClasses(
 		classes,
 		'container__menu',
-		props.isMenuOpen ? 'container__menu--active' : '',
+		props.isMenuOpen || props.fromNavMenu ? 'container__menu--active' : '',
 		props.theme === 'dark' ? 'container__menu--dark' : 'container__menu--light',
+		props.fromNavMenu ? 'container__menu--fromNavMenu' : '',
 		route !== '/contact' ? 'container__menu--hover' : '',
 	);
 
@@ -40,6 +42,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		classes,
 		'container__logo',
 		props.theme === 'dark' ? 'container__logo--dark' : 'container__logo--light',
+		props.fromNavMenu ? 'container__logo--fromNavMenu' : '',
 		props.isMenuOpen ? 'container__logo--inMenu' : '',
 	);
 

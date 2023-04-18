@@ -27,7 +27,7 @@ const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 
 	return (
 		<section className={containerClasses}>
-			<Header theme="light" />
+			<Header theme="light" fromNavMenu />
 
 			<div className={classes['innerContainer']}>
 				<div className={classes['linksContainer']}>

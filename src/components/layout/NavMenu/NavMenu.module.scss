@@ -50,6 +50,7 @@
 	height: 100vh;
 	z-index: -1;
 	animation: bottomToTop 1s;
+	padding-inline-end: 17.5px;
 
 	&--fadeOut {
 		opacity: 0;
