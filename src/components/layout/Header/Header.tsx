@@ -6,6 +6,7 @@ import HeaderView from './Header.view';
 interface IProps {
 	readonly theme?: string;
 	readonly float?: boolean;
+	readonly fromNavMenu?: boolean;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -38,6 +39,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			isMenuVisible={isMenuVisibleState}
 			theme={props.theme}
 			float={props.float}
+			fromNavMenu={props.fromNavMenu}
 			onToggleMenu={onToggleMenu}
 			onCloseMenu={onCloseMenu}
 		/>
