@@ -5,9 +5,11 @@ import portrait from '../../../../public/images/aviv-portrait.png';
 
 import classes from './About.module.scss';
 import AboutExhibit from './AboutExhibit';
+import { IVAboutText } from 'src/interfaces/responses';
 
 interface IProps {
 	readonly lastExhibionPosition: number;
+	readonly textList: IVAboutText | undefined;
 	readonly handleScroll: (e: React.UIEvent<HTMLElement>) => void;
 }
 
@@ -56,21 +58,6 @@ const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		},
 	];
 
-	const dummyText = [
-		{
-			text: 'He studied at the School of Photography at the Israel',
-		},
-		{
-			text: 'Institute of Technology (Technion) and at the Faculty of Arts film school at Beit Berl Collage.',
-		},
-		{
-			text: 'Shiloh is currently based in Tel-Aviv and works around the world as a commercial photographer and cinematographer, shooting ads, music videos and live shows both as a cameraman and as a video producer.',
-		},
-		{
-			text: 'Traveling the world in an ongoing journey, Shiloh observes and documents human behaviour and relationships and brings his own emotions into his work.',
-		},
-	];
-
 	const style = {
 		WebkitMaskImage: `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) ${
 			100 - props.lastExhibionPosition + '%'
@@ -83,16 +70,9 @@ const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 			<div className={classes['innerContainer']}>
 				<div className={classes['infoContainer']}>
-					<h1 className={classes['infoContainer__title']}>
-						Aviv Shiloh is a photographer focusing on the humane aspects of social and cultural
-						issues.
-					</h1>
+					<h1 className={classes['infoContainer__title']}>{props.textList?.attributes.title}</h1>
 
-					{dummyText.map((textItem, key) => (
-						<p key={key} className={classes['infoContainer__text']}>
-							{textItem.text}
-						</p>
-					))}
+					<p className={classes['infoContainer__text']}>{props.textList?.attributes.description}</p>
 				</div>
 				<hr className={classes['divider']} />
 				<div className={classes['exhibitionsContainer']}>
