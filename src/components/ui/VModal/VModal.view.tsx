@@ -28,6 +28,7 @@ const VModalView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					preload="auto"
 					playsinline
 					onContextMenu={(e: any) => e.preventDefault()}
+					onClick={(e) => e.stopPropagation()}
 				/>
 			) : (
 				<Image

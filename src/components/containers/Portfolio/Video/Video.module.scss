@@ -38,6 +38,8 @@
 			font-weight: 400;
 			margin-bottom: 8px;
 			white-space: nowrap;
+			color: #1e1e1e;
+
 
 			&--selected {
 				font-weight: 600;
@@ -95,6 +97,7 @@
 			&__title {
 				font-size: 64px;
 				margin-inline-end: 32px;
+				color: #1e1e1e;
 			}
 
 			&__icon {
@@ -112,6 +115,7 @@
 			&__item {
 				font-size: 24px;
 				margin-bottom: 0px;
+
 			}
 
 			&__item:not(:last-child) {
@@ -125,6 +129,7 @@
 			height: 100%;
 			grid-gap: 16px;
 			padding-bottom: 0;
+			
 
 			&__innerContainer {
 				width: 100%;
@@ -137,7 +142,7 @@
 					height: 200px;
 				}
 
-				&:nth-child(3n-1),
+				&:nth-child(3n-3),
 				:nth-child(3n) {
 					height: 100px;
 				}
