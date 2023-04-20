@@ -67,6 +67,10 @@
 			height: auto;
 			grid-column: span 2 / auto;
 			object-fit: cover;
+
+			video {
+				object-fit: cover;
+			}
 		}
 
 		&__innerContainer:nth-child(4),
@@ -129,7 +133,7 @@
 			height: 100%;
 			grid-gap: 16px;
 			padding-bottom: 0;
-			
+
 
 			&__innerContainer {
 				width: 100%;
