@@ -19,7 +19,7 @@
 	flex-direction: column;
 	height: 100%;
 	width: 100%;
-	padding: 48px 64px 126px 64px;
+	padding: 48px 64px 0 64px;
 	background-color: #ffffff;
 
 	.carouselImage {
@@ -51,6 +51,7 @@
 		align-items: flex-end;
 		justify-content: space-between;
 		margin-top: 24px;
+		padding-bottom: 43px;
 
 		.leftSide {
 			display: flex;
@@ -117,6 +118,7 @@
 			&--second {
 				align-items: flex-end;
 				padding: 0 16px 0 0;
+				margin-bottom: 24px;
 			}
 
 			&__title {
