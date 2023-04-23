@@ -6,6 +6,7 @@
 	from {
 		transform: translateX(-100%);
 	}
+
 	to {
 		transform: translateX(0);
 	}
@@ -15,6 +16,7 @@
 	from {
 		opacity: 1;
 	}
+
 	to {
 		opacity: 0;
 	}
@@ -24,6 +26,7 @@
 	from {
 		opacity: 0;
 	}
+
 	to {
 		opacity: 1;
 	}
@@ -70,6 +73,7 @@
 	}
 
 	.linksContainer {
+		margin-top: 56px;
 		display: flex;
 		flex-direction: column;
 
@@ -124,6 +128,7 @@
 				margin-inline-end: 8px;
 				fill: #ffffff;
 			}
+
 			&__text {
 				font-size: 2.4rem;
 			}
@@ -150,7 +155,7 @@
 		.mobileImageContainer {
 			display: flex;
 			flex-direction: column;
-			margin-top: 62px;
+			margin-top: 128px;
 			animation: slidein 0.5s;
 
 			&__image {

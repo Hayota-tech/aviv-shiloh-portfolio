@@ -6,6 +6,7 @@
 	from {
 		top: 64px;
 	}
+
 	to {
 		top: -64px;
 	}
@@ -42,7 +43,7 @@
 		z-index: 2;
 
 		&--dark {
-			color: #333333;
+			color: #1e1e1e;
 		}
 
 		&--light {
@@ -90,7 +91,7 @@
 		font-weight: 700;
 
 		&--dark {
-			color: #333333;
+			color: #1e1e1e;
 		}
 
 		&--light {
@@ -128,11 +129,11 @@
 			}
 
 			&__icon {
-				width: 32px;
-				height: 32px;
+				width: 20.5px;
+				height: 20.5px;
 
 				&--dark {
-					stroke: #333333;
+					stroke: #1e1e1e;
 				}
 
 				&--light {
