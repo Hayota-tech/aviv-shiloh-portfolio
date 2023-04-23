@@ -79,10 +79,10 @@
 		}
 
 		.yearsList {
-			flex-wrap: nowrap;
 			padding: 0 16px 8px 16px;
 			margin-top: 8px;
 			overflow-x: auto;
+			gap: 8px 0;
 			
 
 			&__item {

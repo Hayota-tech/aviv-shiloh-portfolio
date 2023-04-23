@@ -67,3 +67,11 @@ export interface IVideoCategory {
 		readonly name: string;
 	};
 }
+
+export interface IVAboutText {
+	readonly id: number;
+	readonly attributes: {
+		readonly title: string;
+		readonly description: string;
+	};
+}

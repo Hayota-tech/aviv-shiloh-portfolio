@@ -67,6 +67,10 @@
 			height: auto;
 			grid-column: span 2 / auto;
 			object-fit: cover;
+
+			video {
+				object-fit: cover;
+			}
 		}
 
 		&__innerContainer:nth-child(4),
@@ -107,10 +111,10 @@
 		}
 
 		.categoriesList {
-			flex-wrap: nowrap;
 			overflow-x: auto;
 			margin-bottom: 20px;
 			padding-bottom: 20px;
+			gap: 8px 0;
 
 			&__item {
 				font-size: 24px;
@@ -129,7 +133,7 @@
 			height: 100%;
 			grid-gap: 16px;
 			padding-bottom: 0;
-			
+
 
 			&__innerContainer {
 				width: 100%;
