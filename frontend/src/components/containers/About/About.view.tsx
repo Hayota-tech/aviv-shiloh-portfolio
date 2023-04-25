@@ -64,8 +64,6 @@ const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		})`,
 	};
 
-	let lastExhibionPosition = props.lastExhibionPosition;
-
 	return (
 		<section className={classes['container']}>
 			<Image className={classes['container__image']} src={portrait} alt="Aviv Shiloh" />
