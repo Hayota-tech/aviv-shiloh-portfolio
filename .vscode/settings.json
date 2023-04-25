@@ -35,31 +35,4 @@
 	},
 	"material-icon-theme.activeIconPack": "nest",
 	"task.allowAutomaticTasks": "on",
-	"[terraform]": {
-		"editor.defaultFormatter": "hashicorp.terraform",
-		"editor.formatOnSave": true,
-		"editor.formatOnSaveMode": "file"
-	},
-	"[terraform-vars]": {
-		"editor.defaultFormatter": "hashicorp.terraform",
-		"editor.formatOnSave": true,
-		"editor.formatOnSaveMode": "file"
-	},
-	"terraform.experimentalFeatures.validateOnSave": true,
-	"terraform.languageServer.rootModules": ["/terraform"],
-	"[shellscript]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format"
-	},
-	"[dockerfile]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format"
-	},
-	"[ignore]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format"
-	},
-	"[dotenv]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format"
-	},
-	"[properties]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format"
-	}
 }
