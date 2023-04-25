@@ -1,0 +1,7 @@
+node_modules
+tsconfig.tsbuildinfo
+.volumes
+.terraform
+playwright-report
+auth-state.json
+tests/.env
