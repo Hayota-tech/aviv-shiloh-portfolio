@@ -2,3 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 # yarn depcheck:all && yarn exec lint-staged
+yarn exec lint-staged
+
