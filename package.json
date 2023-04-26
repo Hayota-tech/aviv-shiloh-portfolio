@@ -1,9 +1,9 @@
 {
-	"name": "exlint.io",
-	"version": "1.23.0",
+	"name": "aviv-shiloh-portfolio",
+	"version": "1.0.0",
 	"private": true,
-	"description": "Exlint dashboard",
-	"author": "Exlint <dev@exlint.io> (https://exlint.io)",
+	"description": "Aviv Shiloh Portfolio",
+	"author": "Hayota Studio <hayota.studio@gmail.com> (https://hayota.studio)",
 	"license": "UNLICENSED",
 	"scripts": {
 		"husky:install": "husky install",
@@ -11,12 +11,6 @@
 		"setdev": "run-p husky:install git:config",
 		"onboarding": "node ./scripts/onboarding.cjs",
 		"prepare": "is-ci || is-docker || run-s setdev onboarding",
-		"prisma-format": "prisma format",
-		"prisma-push:dev": "dotenv -e ./prisma/.env.development prisma db push --schema ./prisma/schema.prisma",
-		"prisma-push:prod": "dotenv -e ./prisma/.env.production prisma db push --schema ./prisma/schema.prisma",
-		"cluster:start": "pnpm exec ./docker/scripts/start-cluster.sh",
-		"cluster:stop": "pnpm exec ./docker/scripts/stop-cluster.sh",
-		"cluster:restart": "pnpm exec ./docker/scripts/restart-cluster.sh",
 		"lint:root": "eslint -c ./.eslintrc.cjs --ignore-pattern \"apps\" --ignore-pattern \"packages\" \"**/*.{ts,js,cjs}\" --resolve-plugins-relative-to .",
 		"lint:nested": "nx run-many --target=lint --nx-bail",
 		"lint:all": "run-p lint:root lint:nested",
@@ -27,11 +21,7 @@
 		"depcheck:root": "depcheck --config ./.depcheckrc.json",
 		"depcheck:nested": "nx run-many --target=depcheck --nx-bail",
 		"depcheck:all": "run-p depcheck:root",
-		"prettier": "prettier --check **/*.{ts,js,cjs,json,yaml}",
-		"test:ci": "playwright test -c ./playwright.config.ts",
-		"test:local": "dotenv -e ./tests/.env playwright test -c ./playwright.config.ts",
-		"test:debug": "dotenv -e ./tests/.env -- playwright test -c ./playwright.config.ts --debug",
-		"build:nested": "nx run-many --target=build --nx-bail"
+		"prettier": "prettier --check **/*.{ts,js,cjs,json,yaml}"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "17.6.1",
