@@ -1,10 +1,9 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import type { IImage } from 'src/interfaces/image';
 import { concatClasses } from '@/utils/component';
-
 
 import ProjectCarouselItem from '../ProjectCarouselItem';
 
@@ -27,7 +26,6 @@ const ProjectCarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 				<button
 					className={concatClasses(classes, 'indicator', 'indicator--selected')}
 					type="button"
-					role="button"
 				/>
 			);
 		}
@@ -36,7 +34,6 @@ const ProjectCarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 			<button
 				className={classes['indicator']}
 				type="button"
-				role="button"
 				onClick={() => props.setSelectedItemIndex(index)}
 			/>
 		);

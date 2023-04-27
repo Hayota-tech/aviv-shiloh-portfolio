@@ -25,17 +25,18 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			<div className={classes['infoContainer']}>
 				<div className={classes['backButtonContainer']}>
 					<SSvg className={classes['backButtonContainer__icon']} name="arrowLeft" />
-					<button className={classes['backButtonContainer__text']} onClick={props.onNavigateBack}>
+					<button
+						className={classes['backButtonContainer__text']}
+						type="button"
+						onClick={props.onNavigateBack}
+					>
 						BACK
 					</button>
 				</div>
 				<h2 className={classes['infoContainer__name']}>{projectName}</h2>
 				<span className={classes['infoContainer__date']}>{projectDate}</span>
 				<div className={classes['locationContainer']}>
-					<span className={classes['locationContainer__text']}>
-						{projectCity}
-						,
-					</span>
+					<span className={classes['locationContainer__text']}>{`${projectCity},`}</span>
 					<span className={classes['locationContainer__text']}>{projectCountry}</span>
 				</div>
 				<p className={classes['infoContainer__description']}>{projectDescription}</p>

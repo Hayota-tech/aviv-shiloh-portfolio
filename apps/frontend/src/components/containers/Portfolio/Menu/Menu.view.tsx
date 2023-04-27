@@ -56,14 +56,14 @@ const MenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 							<Link
 								className={linkClasses}
 								href={element.url}
-								onClick={props.lastLocation === element.url ? props.onToggleMenu : () => {}}
+								onClick={props.lastLocation === element.url ? props.onToggleMenu : () => 0}
 							>
 								{element.title}
 							</Link>
 							<SSvg
 								className={linkIconClasses}
 								name="arrowBold"
-								onClick={props.lastLocation === element.url ? props.onToggleMenu : () => {}}
+								onClick={props.lastLocation === element.url ? props.onToggleMenu : () => 0}
 							/>
 						</div>
 					);

@@ -27,8 +27,8 @@ const VModalView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					disablePictureInPicture
 					preload="auto"
 					playsinline
-					onContextMenu={(e: any) => e.preventDefault()}
-					onClick={(e) => e.stopPropagation()}
+					onContextMenu={(e: React.MouseEvent) => e.preventDefault()}
+					onClick={(e: React.MouseEvent) => e.stopPropagation()}
 				/>
 			) : (
 				<Image
@@ -37,7 +37,7 @@ const VModalView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					height={100}
 					src={props.image ? imageUrl(props.image.attributes.url) : 'public/images/placeholder.png'}
 					alt={props.image ? props.image.attributes.caption : 'Project Image'}
-					onClick={(e) => e.stopPropagation()}
+					onClick={(e: React.MouseEvent) => e.stopPropagation()}
 				/>
 			)}
 		</div>

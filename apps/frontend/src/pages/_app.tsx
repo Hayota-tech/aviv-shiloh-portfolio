@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 /* eslint-disable react/display-name */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/destructuring-assignment */
@@ -45,7 +44,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 			</Head>
 
 			<AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
-				<Component {...pageProps} key={router.asPath} />
+				<Component key={router.asPath} {...pageProps} />
 			</AnimatePresence>
 		</>
 	);

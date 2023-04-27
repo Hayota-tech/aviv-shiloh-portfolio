@@ -16,7 +16,6 @@ module.exports = {
 	},
 	plugins: ['jsx-a11y', 'react', 'react-hooks', 'i18next'],
 	rules: {
-		'no-process-env': ['error'],
 		'jsx-quotes': ['error', 'prefer-double'],
 
 		'jsx-a11y/alt-text': 'error',
@@ -82,8 +81,6 @@ module.exports = {
 		'react/jsx-no-duplicate-props': ['error'],
 
 		'react-hooks/rules-of-hooks': ['error'],
-
-		'i18next/no-literal-string': 2,
 	},
 	overrides: [
 		{

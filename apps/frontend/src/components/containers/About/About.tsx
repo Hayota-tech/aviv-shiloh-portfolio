@@ -1,6 +1,3 @@
-//Use client side rendering
-'use client';
-
 import React, { useState, useEffect } from 'react';
 
 import type { AxiosResponse } from 'axios';
@@ -31,7 +28,6 @@ const About: React.FC<IProps> = () => {
 			.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/about?fields[0]=title&fields[1]=description`)
 			.then((response: AxiosResponse) => {
 				setTextListState(() => response.data.data);
-				console.log(textListState);
 			});
 	}, [backendApi]);
 
