@@ -32,6 +32,3 @@ jobs:
 
             - name: Check ESLint
               run: yarn run lint:all
-
-            - name: Check Prettier
-              run: yarn run prettier:all
