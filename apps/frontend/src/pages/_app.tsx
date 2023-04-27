@@ -9,7 +9,7 @@ import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 import '../styles/custom.scss';
-import { useNextCssRemovalPrevention } from '@/utils/fix-css';
+//import { useNextCssRemovalPrevention } from '@/utils/fix-css';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
 	//useNextCssRemovalPrevention()
