@@ -11,6 +11,7 @@
 		"open",
 		"prettier-plugin-sh",
 		"rimraf",
-		"cz-vinyl"
+		"cz-vinyl",
+		"@types/node"
 	]
 }
