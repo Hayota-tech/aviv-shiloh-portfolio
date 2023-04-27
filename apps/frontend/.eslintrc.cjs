@@ -17,7 +17,16 @@ module.exports = {
 		tsconfigRootDir: __dirname,
 		sourceType: 'module',
 	},
-	plugins: ['@typescript-eslint', 'unused-imports', 'import', 'deprecation', 'jsx-a11y', 'react', 'react-hooks', 'i18next'],
+	plugins: [
+		'@typescript-eslint',
+		'unused-imports',
+		'import',
+		'deprecation',
+		'jsx-a11y',
+		'react',
+		'react-hooks',
+		'i18next',
+	],
 	rules: {
 		'capitalized-comments': ['error'],
 		'max-lines': ['error', { max: 200, skipBlankLines: true, skipComments: true }],
@@ -224,7 +233,6 @@ module.exports = {
 		'react/jsx-no-duplicate-props': ['error'],
 
 		'react-hooks/rules-of-hooks': ['error'],
-
 	},
 	overrides: [
 		{
