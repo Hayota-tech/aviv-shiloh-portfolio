@@ -17,6 +17,7 @@ const configuration = (phase) => {
 			removeConsole: shouldAdjustToProduction,
 			reactRemoveProperties: shouldAdjustToProduction,
 		},
+		trailingSlash: true,
 	};
 };
 
