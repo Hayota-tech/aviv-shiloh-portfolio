@@ -1,10 +1,10 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-
-import { concatClasses } from '@/utils/component';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Requires a loader
 
 import type { IImage } from 'src/interfaces/image';
+import { concatClasses } from '@/utils/component';
+
 
 import ProjectCarouselItem from '../ProjectCarouselItem';
 

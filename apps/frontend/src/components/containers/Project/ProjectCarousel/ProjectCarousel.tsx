@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
+import type { IImage } from 'src/interfaces/image';
 import ProjectCarouselView from './ProjectCarousel.view';
-import { IImage } from 'src/interfaces/image';
 
 interface IProps {
 	readonly imagesList: IImage[];

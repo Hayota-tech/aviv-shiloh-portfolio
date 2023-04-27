@@ -2,8 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import ReactPlayer from 'react-player';
 
-import { imageUrl } from '@/utils/image-url';
 import type { IImage } from 'src/interfaces/image';
+import { imageUrl } from '@/utils/image-url';
 
 import classes from './VModal.module.scss';
 

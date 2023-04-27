@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 
+import type { IProject } from 'src/interfaces/responses';
 import { imageUrl } from '@/utils/image-url';
 
-import classes from './Project.module.scss';
-import { IProject } from 'src/interfaces/responses';
 import SSvg from '@/ui/SSvg';
+import classes from './Project.module.scss';
 import ProjectCarousel from './ProjectCarousel';
 
 interface IProps {
@@ -34,7 +34,7 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<div className={classes['locationContainer']}>
 					<span className={classes['locationContainer__text']}>
 						{projectCity}
-						{','}
+						,
 					</span>
 					<span className={classes['locationContainer__text']}>{projectCountry}</span>
 				</div>
@@ -50,6 +50,7 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				</div>
 				{props.projectInfo?.attributes?.media?.data.map((image, i) => {
 					const imageSrc = imageUrl(image.attributes.url);
+
 					return (
 						<div key={i} className={classes['imageContainer']}>
 							<Image

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import type { AxiosResponse } from 'axios';
 
-import StillView from './Still.view';
-import { backendApi } from '@/utils/http';
 import type { IStillCategory, IStillProject } from 'src/interfaces/responses';
-import { IImage } from 'src/interfaces/image';
+import type { IImage } from 'src/interfaces/image';
+import { backendApi } from '@/utils/http';
+import StillView from './Still.view';
 
 interface IProps {}
 
@@ -71,11 +71,11 @@ const Still: React.FC<IProps> = () => {
 			selectedCategories={selectedCategoriesState}
 			isMenuOpen={isMenuOpenState}
 			isMenuVisible={isMenuVisibleState}
+			isModalOpen={isModalOpenState}
+			selectedModalImage={selectedModalImageState}
 			onSelectAllCategoris={onSelectAllCategoris}
 			onSelectCategory={onSelectCategory}
 			onToggleModal={onToggleModal}
-			isModalOpen={isModalOpenState}
-			selectedModalImage={selectedModalImageState}
 			onToggleMenu={onToggleMenu}
 		/>
 	);

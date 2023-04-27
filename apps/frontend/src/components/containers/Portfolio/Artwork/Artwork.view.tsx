@@ -1,13 +1,13 @@
 import React from 'react';
-import SSvg from '@/ui/SSvg';
 
-import Project from './Project';
-import Transition from '@/layout/Transition';
-import type { IYear } from './interfaces/year';
 import type { IProject } from 'src/interfaces/responses';
 import { yearsList } from 'src/data/years-list';
+import Transition from '@/layout/Transition';
+import SSvg from '@/ui/SSvg';
 import { concatClasses } from '@/utils/component';
 import Menu from '../Menu';
+import type { IYear } from './interfaces/year';
+import Project from './Project';
 
 import classes from './Artwork.module.scss';
 
@@ -80,7 +80,7 @@ const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 						props.selectedYears.length > 0 &&
 						!props.selectedYears.some((year) => year.year === projectDate)
 					)
-						return;
+					{return;}
 
 					return <Project key={index} index={index} project={project} />;
 				})}

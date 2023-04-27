@@ -8,6 +8,7 @@ const Contact: React.FC<IProps> = () => {
 	const onSocialNavigate = (url: string) => {
 		window.open(url, '_blank');
 	};
+
 	return <ContactView onSocialNavigate={onSocialNavigate} />;
 };
 

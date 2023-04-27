@@ -12,7 +12,7 @@ import '../styles/custom.scss';
 import { useNextCssRemovalPrevention } from '@/utils/fix-css';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-	useNextCssRemovalPrevention()
+	useNextCssRemovalPrevention();
 
 	return (
 		<>

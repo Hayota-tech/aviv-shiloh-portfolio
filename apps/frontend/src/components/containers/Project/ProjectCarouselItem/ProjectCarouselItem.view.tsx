@@ -15,7 +15,7 @@ const ProjectCarouselItemView: React.FC<IProps> = (props: React.PropsWithChildre
 				key={props.index}
 				src={props.image}
 				className={classes['container__img']}
-				alt={'test'}
+				alt="test"
 				width={100}
 				height={100}
 			/>

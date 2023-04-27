@@ -11,4 +11,5 @@ const Transition = ({ children }) => (
 		{children}
 	</motion.div>
 );
+
 export default Transition;

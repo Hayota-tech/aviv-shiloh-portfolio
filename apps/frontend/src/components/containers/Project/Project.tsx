@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 
 import type { AxiosResponse } from 'axios';
 
-import { IProject } from 'src/interfaces/responses';
-import ProjectView from './Project.view';
+import type { IProject } from 'src/interfaces/responses';
 import { backendApi } from '@/utils/http';
+import ProjectView from './Project.view';
 
 interface IProps {}
 
@@ -30,6 +30,7 @@ const Project: React.FC<IProps> = () => {
 	useEffect(() => {
 		if (projectsListState && projectId) {
 			const projectInfo = projectsListState.find((project) => project.id.toString() === projectId);
+
 			setProjectInfoState(() => projectInfo);
 		}
 	}, [projectsListState]);
