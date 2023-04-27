@@ -1,7 +1,7 @@
 import React from 'react';
 
-import GalleryView from './Gallery.view';
 import { imageUrl } from '@/utils/image-url';
+import GalleryView from './Gallery.view';
 
 interface IProps {
 	readonly url: string;

@@ -11,6 +11,7 @@ interface IProps {
 
 const ExhibitView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	let endDateWithSpace = '';
+
 	props.endDate ? (endDateWithSpace = ' - ' + props.endDate) : '';
 
 	return (

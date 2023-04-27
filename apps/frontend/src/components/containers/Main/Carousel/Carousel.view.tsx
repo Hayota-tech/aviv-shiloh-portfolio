@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 
+import Link from 'next/link';
+import { imageUrl } from '@/utils/image-url';
+import { concatClasses } from '@/utils/component';
 import type { IProject } from '../../../../interfaces/responses';
 
 import classes from './Carousel.module.scss';
-import { imageUrl } from '@/utils/image-url';
-import Link from 'next/link';
-import { concatClasses } from '@/utils/component';
 
 interface IProps {
 	readonly projectsList: IProject[];
@@ -18,19 +18,25 @@ interface IProps {
 const CarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const mobileSecondImageIndex = props.selectedImageIndex === 0 ? 1 : 0;
 	const projectId = props.projectsList[props.selectedImageIndex]?.id;
+
 	const projectImage =
 		props.projectsList[props.selectedImageIndex]?.attributes?.media?.data[0]?.attributes?.url;
+
 	const projectImageUrl = projectImage ? imageUrl(projectImage) : '/public/images/placeholder.png';
 	const projectName = props.projectsList[props.selectedImageIndex]?.attributes?.name;
 	const projectDate = props.projectsList[props.selectedImageIndex]?.attributes?.date.split('-')[0] ?? '';
 
 	const secondProjectId = props.projectsList[mobileSecondImageIndex]?.id;
+
 	const secondProjectImage =
 		props.projectsList[mobileSecondImageIndex]?.attributes?.media?.data[0]?.attributes?.url;
+
 	const secondProjectImageUrl = secondProjectImage
 		? imageUrl(secondProjectImage)
 		: '/public/images/placeholder.png';
+
 	const secondProjectName = props.projectsList[mobileSecondImageIndex]?.attributes?.name;
+
 	const secondProjectDate =
 		props.projectsList[mobileSecondImageIndex]?.attributes?.date.split('-')[0] ?? '';
 
@@ -66,8 +72,10 @@ const CarouselView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 				<span className={classes['mobileImageInfo__date']}>{secondProjectDate}</span>
 			</div>
 
-			<Link className={classes['mobileMoreWorks']} href={'/portfolio/artwork'}>
-				More works {'>'}
+			<Link className={classes['mobileMoreWorks']} href="/portfolio/artwork">
+				More works
+				{' '}
+				{'>'}
 			</Link>
 			<div className={classes['infoContainer']}>
 				<div className={classes['leftSide']}>

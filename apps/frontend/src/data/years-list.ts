@@ -1,4 +1,4 @@
-import { IYear } from '@/containers/Portfolio/Artwork/interfaces/year';
+import type { IYear } from '@/containers/Portfolio/Artwork/interfaces/year';
 
 export const yearsList: IYear[] = [
 	{ year: '2016' },

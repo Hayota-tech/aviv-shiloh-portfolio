@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 
+import type { ICarouselImage } from 'src/interfaces/carousel-image';
 import { concatClasses } from '@/utils/component';
-import NavLink from './NavLink';
 import { navList } from '../../../data/nav-list';
 
-import type { ICarouselImage } from 'src/interfaces/carousel-image';
 import Header from '../Header';
+import NavLink from './NavLink';
 import classes from './NavMenu.module.scss';
 
 interface IProps {

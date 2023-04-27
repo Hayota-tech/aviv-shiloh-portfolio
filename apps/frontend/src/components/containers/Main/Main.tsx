@@ -9,6 +9,7 @@ interface IProps {}
 
 const Main: React.FC<IProps> = () => {
 	const [projectsListState, setProjectsListState] = useState<IProject[]>([]);
+
 	useEffect(() => {
 		backendApi
 			.get(

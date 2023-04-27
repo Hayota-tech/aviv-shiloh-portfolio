@@ -1,10 +1,10 @@
 import React from 'react';
 
+import Header from '@/layout/Header';
 import { socialMedia } from '../../../data/social-media';
 import { address } from '../../../data/address';
 
 import classes from './Contact.module.scss';
-import Header from '@/layout/Header';
 
 interface IProps {
 	readonly onSocialNavigate: (url: string) => void;

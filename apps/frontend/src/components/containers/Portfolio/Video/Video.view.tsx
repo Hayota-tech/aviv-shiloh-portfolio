@@ -1,13 +1,13 @@
 import React from 'react';
 
-import SSvg from '@/ui/SSvg';
 import type { IVideoCategory, IVideoProject } from 'src/interfaces/responses';
-import Menu from '../Menu';
+import type { IImage } from 'src/interfaces/image';
+import SSvg from '@/ui/SSvg';
 import Transition from '@/layout/Transition';
-import Gallery from '../Gallery';
 import { concatClasses } from '@/utils/component';
-import { IImage } from 'src/interfaces/image';
 import VModal from '@/ui/VModal';
+import Gallery from '../Gallery';
+import Menu from '../Menu';
 
 import classes from './Video.module.scss';
 
@@ -98,7 +98,7 @@ const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 								),
 							)
 						)
-							return;
+						{return;}
 
 						return (
 							<Gallery
