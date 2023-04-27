@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import type { AxiosResponse } from 'axios';
 
+import type { IProject } from 'src/interfaces/responses';
+import type { ICarouselImage } from 'src/interfaces/carousel-image';
 import { backendApi } from '@/utils/http';
 
-import NavMenuView from './NavMenu.view';
-import { IProject } from 'src/interfaces/responses';
 import { imageUrl } from '@/utils/image-url';
-import { ICarouselImage } from 'src/interfaces/carousel-image';
+import NavMenuView from './NavMenu.view';
 
 interface IProps {
 	readonly isMenuVisible: boolean;
@@ -28,7 +28,9 @@ const NavMenu: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			setRandomImageState(() => {
 				const randomImage =
 					projectsListState[selectedImageIndexState]?.attributes.media.data[0]?.attributes;
+
 				const date = projectsListState[selectedImageIndexState]?.attributes.date.split('-')[0] ?? '';
+
 				const name =
 					projectsListState[selectedImageIndexState]?.attributes.media.data[0]?.attributes
 						.caption ?? '';

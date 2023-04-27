@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 
+import type { IProject } from 'src/interfaces/responses';
 import { imageUrl } from '@/utils/image-url';
 
-import classes from './Project.module.scss';
-import { IProject } from 'src/interfaces/responses';
 import SSvg from '@/ui/SSvg';
+import classes from './Project.module.scss';
 import ProjectCarousel from './ProjectCarousel';
 
 interface IProps {
@@ -25,17 +25,18 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			<div className={classes['infoContainer']}>
 				<div className={classes['backButtonContainer']}>
 					<SSvg className={classes['backButtonContainer__icon']} name="arrowLeft" />
-					<button className={classes['backButtonContainer__text']} onClick={props.onNavigateBack}>
+					<button
+						className={classes['backButtonContainer__text']}
+						type="button"
+						onClick={props.onNavigateBack}
+					>
 						BACK
 					</button>
 				</div>
 				<h2 className={classes['infoContainer__name']}>{projectName}</h2>
 				<span className={classes['infoContainer__date']}>{projectDate}</span>
 				<div className={classes['locationContainer']}>
-					<span className={classes['locationContainer__text']}>
-						{projectCity}
-						{','}
-					</span>
+					<span className={classes['locationContainer__text']}>{`${projectCity},`}</span>
 					<span className={classes['locationContainer__text']}>{projectCountry}</span>
 				</div>
 				<p className={classes['infoContainer__description']}>{projectDescription}</p>
@@ -50,6 +51,7 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				</div>
 				{props.projectInfo?.attributes?.media?.data.map((image, i) => {
 					const imageSrc = imageUrl(image.attributes.url);
+
 					return (
 						<div key={i} className={classes['imageContainer']}>
 							<Image

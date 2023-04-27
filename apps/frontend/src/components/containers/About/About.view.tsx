@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 
+import type { IVAboutText } from 'src/interfaces/responses';
 import portrait from '../../../../public/images/aviv-portrait.png';
 
 import classes from './About.module.scss';
 import AboutExhibit from './AboutExhibit';
-import { IVAboutText } from 'src/interfaces/responses';
 
 interface IProps {
 	readonly lastExhibionPosition: number;

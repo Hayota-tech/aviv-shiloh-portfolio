@@ -27,7 +27,7 @@ const GalleryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 					disablePictureInPicture
 					preload="auto"
 					playsinline
-					onContextMenu={(e: any) => e.preventDefault()}
+					onContextMenu={(e: React.MouseEvent) => e.preventDefault()}
 				/>
 			) : (
 				<Image

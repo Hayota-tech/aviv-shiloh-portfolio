@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import type { AxiosResponse } from 'axios';
 
-import { IProject } from 'src/interfaces/responses';
+import type { IProject } from 'src/interfaces/responses';
 import { backendApi } from '@/utils/http';
 import ArtworkView from './Artwork.view';
-import { IYear } from './interfaces/year';
+import type { IYear } from './interfaces/year';
 
 interface IProps {}
 
@@ -45,6 +45,7 @@ const Artwork: React.FC<IProps> = () => {
 				setProjectsListState(() => response.data.data);
 			});
 	}, [backendApi]);
+
 	return (
 		<ArtworkView
 			projectsList={projectsListState}

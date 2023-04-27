@@ -1,5 +1,7 @@
 import React from 'react';
 
+import type { IStillCategory, IStillProject } from 'src/interfaces/responses';
+import type { IImage } from 'src/interfaces/image';
 import SSvg from '@/ui/SSvg';
 import VModal from '@/ui/VModal';
 import { concatClasses } from '@/utils/component';
@@ -7,8 +9,6 @@ import Transition from '@/layout/Transition';
 
 import Gallery from '../Gallery';
 import Menu from '../Menu';
-import type { IStillCategory, IStillProject } from 'src/interfaces/responses';
-import type { IImage } from 'src/interfaces/image';
 
 import classes from './Still.module.scss';
 
@@ -100,7 +100,7 @@ const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 								),
 							)
 						)
-							return;
+						{return;}
 
 						return (
 							<Gallery

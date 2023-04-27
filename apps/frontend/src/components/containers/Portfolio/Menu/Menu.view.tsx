@@ -2,11 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { portfolioNavList } from 'src/data/portfolio-nav-list';
 import { concatClasses } from '@/utils/component';
 
-import classes from './Menu.module.scss';
-import { portfolioNavList } from 'src/data/portfolio-nav-list';
 import SSvg from '@/ui/SSvg';
+import classes from './Menu.module.scss';
 
 interface IProps {
 	readonly isMenuOpen: boolean;
@@ -56,14 +56,14 @@ const MenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 							<Link
 								className={linkClasses}
 								href={element.url}
-								onClick={props.lastLocation === element.url ? props.onToggleMenu : () => {}}
+								onClick={props.lastLocation === element.url ? props.onToggleMenu : () => 0}
 							>
 								{element.title}
 							</Link>
 							<SSvg
 								className={linkIconClasses}
 								name="arrowBold"
-								onClick={props.lastLocation === element.url ? props.onToggleMenu : () => {}}
+								onClick={props.lastLocation === element.url ? props.onToggleMenu : () => 0}
 							/>
 						</div>
 					);
@@ -72,10 +72,10 @@ const MenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			<div className={classes['mobileImageContainer']}>
 				<Image
 					className={classes['mobileImageContainer__image']}
-					src={'/images/placeholder.png'}
+					src="/images/placeholder.png"
 					width={326}
 					height={184}
-					alt={'Carnival of Venice'}
+					alt="Carnival of Venice"
 				/>
 				<span className={classes['mobileImageContainer__name']}>Carnival of Venice</span>
 

@@ -1,6 +1,12 @@
+import React from 'react';
+import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
-const Transition = ({ children }) => (
+interface IProps {
+	readonly children: ReactNode;
+}
+
+const Transition = (props: React.PropsWithChildren<IProps>) => (
 	<motion.div
 		style={{ width: '100%', height: '100%' }}
 		initial={{ opacity: 0 }}
@@ -8,7 +14,11 @@ const Transition = ({ children }) => (
 		exit={{ opacity: 0 }}
 		transition={{ duration: 0.6, ease: 'easeInOut' }}
 	>
-		{children}
+		{props.children}
 	</motion.div>
 );
+
+Transition.displayName = 'Transition';
+Transition.defaultProps = {};
+
 export default Transition;

@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 
+import type { IProject } from 'src/interfaces/responses';
+import Link from 'next/link';
 import { imageUrl } from '@/utils/image-url';
 import { concatClasses } from '@/utils/component';
-import type { IProject } from 'src/interfaces/responses';
 
 import classes from './Project.module.scss';
-import Link from 'next/link';
 
 interface IProps {
 	readonly index: number;
@@ -56,7 +56,7 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							<span className={classes['locationContainer__date']}>{projectDate}</span>
 							<span className={classes['locationContainer__country']}>
 								{props.project?.attributes?.country}
-								{','}
+								,
 							</span>
 							<span className={classes['locationContainer__city']}>
 								{props.project?.attributes?.city}
@@ -66,10 +66,12 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				</div>
 				<div className={classes['lineImagesContainer']}>
 					{props.project?.attributes?.media.data.map((media, index) => {
-						if (index < 1 || index > 3) return null;
+						if (index < 1 || index > 3) {return null;}
+
 						const projectImageUrl = projectImage
 							? imageUrl(media.attributes.url)
 							: '/public/images/placeholder.png';
+
 						return (
 							<Link
 								key={index}

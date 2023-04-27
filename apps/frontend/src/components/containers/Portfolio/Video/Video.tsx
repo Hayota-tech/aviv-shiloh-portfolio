@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import type { AxiosResponse } from 'axios';
 import type { IImage } from 'src/interfaces/image';
 
-import VideoView from './Video.view';
-import { backendApi } from '@/utils/http';
 import type { IVideoCategory, IVideoProject } from 'src/interfaces/responses';
+import { backendApi } from '@/utils/http';
+import VideoView from './Video.view';
 
 interface IProps {}
 
@@ -71,11 +71,11 @@ const Video: React.FC<IProps> = () => {
 			selectedCategories={selectedCategoriesState}
 			isMenuOpen={isMenuOpenState}
 			isMenuVisible={isMenuVisibleState}
+			isModalOpen={isModalOpenState}
+			selectedModalImage={selectedModalImageState}
 			onSelectAllCategoris={onSelectAllCategoris}
 			onSelectCategory={onSelectCategory}
 			onToggleMenu={onToggleMenu}
-			isModalOpen={isModalOpenState}
-			selectedModalImage={selectedModalImageState}
 			onToggleModal={onToggleModal}
 		/>
 	);

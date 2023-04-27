@@ -28,9 +28,9 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const onCloseMenu = (linkName: string) => {
 		const lowerCaseLinkName = linkName.toLowerCase();
 
-		if (route.includes(lowerCaseLinkName)) onToggleMenu();
+		if (route.includes(lowerCaseLinkName)) {onToggleMenu();}
 
-		if (lowerCaseLinkName === 'home' && route === '/') onToggleMenu();
+		if (lowerCaseLinkName === 'home' && route === '/') {onToggleMenu();}
 	};
 
 	return (

@@ -1,8 +1,8 @@
 import React from 'react';
 
+import type { IImage } from 'src/interfaces/image';
 import { imageUrl } from '@/utils/image-url';
 import ProjectCarouselItemView from './ProjectCarouselItem.view';
-import { IImage } from 'src/interfaces/image';
 
 interface IProps {
 	readonly index: number;
