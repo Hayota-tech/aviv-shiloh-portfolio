@@ -2,7 +2,7 @@
 
 @import '../../../../styles/variables.scss';
 
-@keyframes slidein {
+@keyframes slide-in {
 	from {
 		transform: translateX(-100%);
 	}
@@ -12,7 +12,7 @@
 	}
 }
 
-@keyframes fadeOut {
+@keyframes fade-out {
 	from {
 		opacity: 1;
 	}
@@ -22,7 +22,7 @@
 	}
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
 	from {
 		opacity: 0;
 	}
@@ -34,26 +34,26 @@
 
 .container {
 	position: fixed;
-	opacity: 0;
 	top: 0;
 	left: 0;
+	z-index: -1;
 	display: flex;
 	flex-direction: column;
-	background-color: #000000;
 	width: 100vw;
 	height: 100vh;
 	padding: 64px 0 105px 64px;
-	z-index: -1;
+	background-color: #000;
+	opacity: 0;
 
 	&--active {
-		opacity: 1;
-		animation: fadeIn 0.5s;
 		z-index: 1;
+		opacity: 1;
+		animation: fade-in 0.5s;
 	}
 
-	&--fadeOut {
+	&--fade-out {
 		opacity: 0;
-		animation: fadeOut 0.5s;
+		animation: fade-out 0.5s;
 	}
 
 	.backButtonContainer {
@@ -61,10 +61,10 @@
 		align-items: center;
 
 		&__text {
-			text-decoration: none;
 			font-size: 32px;
 			font-weight: 700;
-			color: #ffffff;
+			color: #fff;
+			text-decoration: none;
 		}
 
 		&__icon {
@@ -73,19 +73,19 @@
 	}
 
 	.linksContainer {
-		margin-top: 56px;
 		display: flex;
 		flex-direction: column;
+		margin-top: 56px;
 
 		.innerLink {
 			display: flex;
 			align-items: center;
 
 			&__title {
+				margin-inline-end: 64px;
 				font-size: 16rem;
 				font-weight: 500;
-				color: #ffffff;
-				margin-inline-end: 64px;
+				color: #fff;
 				text-decoration: none;
 
 				&--active {
@@ -97,9 +97,9 @@
 				display: none;
 				width: 62px;
 				height: 37px;
-				transform: rotate(-90deg);
-				transition: fill 0.2s ease-in-out;
 				fill: #268741;
+				transition: fill 0.2s ease-in-out;
+				transform: rotate(-90deg);
 
 				&--active {
 					display: block;
@@ -116,17 +116,17 @@
 
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
-		padding: 16px;
 		z-index: 7;
+		padding: 16px;
 
 		.backButtonContainer {
 			&__icon {
 				display: flex;
-				cursor: pointer;
 				width: 20px;
 				height: 19px;
 				margin-inline-end: 8px;
-				fill: #ffffff;
+				cursor: pointer;
+				fill: #fff;
 			}
 
 			&__text {
@@ -141,8 +141,8 @@
 
 			.innerLink {
 				&__title {
-					font-size: 6.4rem;
 					margin-inline-end: 16px;
+					font-size: 6.4rem;
 				}
 
 				&__icon {
@@ -156,7 +156,7 @@
 			display: flex;
 			flex-direction: column;
 			margin-top: 128px;
-			animation: slidein 0.5s;
+			animation: slide-in 0.5s;
 
 			&__image {
 				display: block;
@@ -164,16 +164,16 @@
 			}
 
 			&__name {
+				margin: 16px 0 4px;
 				font-size: 2.4rem;
 				font-weight: 500;
-				color: #ffffff;
-				margin: 16px 0 4px;
+				color: #fff;
 			}
 
 			&__date {
 				font-size: 2rem;
 				font-weight: 400;
-				color: #ffffff;
+				color: #fff;
 			}
 		}
 	}

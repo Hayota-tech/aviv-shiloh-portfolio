@@ -5,8 +5,8 @@
 .container {
 	display: flex;
 	flex-direction: column;
+	padding: 0 64px 144px;
 	margin-top: 117px;
-	padding: 0 64px 144px 64px;
 
 	.headerContainer {
 		display: flex;
@@ -14,15 +14,15 @@
 		margin-top: 59px;
 
 		&__title {
+			margin-inline-end: 64px;
 			font-size: 19rem;
 			font-weight: 500;
-			margin-inline-end: 64px;
 		}
 
 		&__icon {
-			cursor: pointer;
 			width: 62px;
 			height: 37px;
+			cursor: pointer;
 			fill: #1e1e1e;
 		}
 	}
@@ -34,11 +34,11 @@
 		margin-bottom: 92px;
 
 		&__item {
+			margin-bottom: 8px;
 			font-size: 3.6rem;
 			font-weight: 400;
-			margin-bottom: 8px;
-			white-space: nowrap;
 			color: #1e1e1e;
+			white-space: nowrap;
 
 
 			&--selected {
@@ -63,9 +63,9 @@
 		padding-bottom: 118px;
 
 		&__innerContainer {
+			grid-column: span 2 / auto;
 			width: 100%;
 			height: auto;
-			grid-column: span 2 / auto;
 			object-fit: cover;
 
 			video {
@@ -89,18 +89,18 @@
 	.container {
 		display: flex;
 		flex-direction: column;
+		padding: 0 16px 104px;
 		margin-top: 48px;
-		padding: 0 16px 104px 16px;
 
 		.headerContainer {
 			display: flex;
 			align-items: center;
-			margin-top: 0px;
 			padding-bottom: 8px;
+			margin-top: 0;
 
 			&__title {
-				font-size: 64px;
 				margin-inline-end: 32px;
+				font-size: 64px;
 				color: #1e1e1e;
 			}
 
@@ -111,14 +111,14 @@
 		}
 
 		.categoriesList {
-			overflow-x: auto;
-			margin-bottom: 20px;
-			padding-bottom: 20px;
 			gap: 8px 0;
+			padding-bottom: 20px;
+			margin-bottom: 20px;
+			overflow-x: auto;
 
 			&__item {
+				margin-bottom: 0;
 				font-size: 24px;
-				margin-bottom: 0px;
 
 			}
 
@@ -130,16 +130,16 @@
 		.galleryContainer {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
-			height: 100%;
 			grid-gap: 16px;
+			height: 100%;
 			padding-bottom: 0;
 
 
 			&__innerContainer {
+				grid-column: initial;
 				width: 100%;
 				height: auto;
 				object-fit: cover;
-				grid-column: initial;
 
 				&:nth-child(3n-2) {
 					grid-column: span 2 / auto;

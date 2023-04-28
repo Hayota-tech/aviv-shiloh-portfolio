@@ -2,7 +2,7 @@
 
 @import '../../../styles/variables.scss';
 
-@keyframes slideUp {
+@keyframes slide-up {
 	from {
 		top: 64px;
 	}
@@ -15,15 +15,15 @@
 .container {
 	position: relative;
 	top: 64px;
+	z-index: 1;
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
 	width: 100%;
 	padding-inline: 64px;
-	z-index: 1;
 
-	&--slideUp {
-		animation: slideUp 1s;
+	&--slide-up {
+		animation: slide-up 1s;
 	}
 
 	&--float {
@@ -35,12 +35,12 @@
 	}
 
 	&__menu {
-		text-decoration: none;
+		z-index: 2;
 		font-size: 3.2rem;
 		font-weight: 700;
-		transition: color 0.2s ease-in-out;
+		text-decoration: none;
 		white-space: nowrap;
-		z-index: 2;
+		transition: color 0.2s ease-in-out;
 
 		&--dark {
 			color: #1e1e1e;
@@ -66,14 +66,14 @@
 	}
 
 	&__logo {
-		text-decoration: none;
 		font-size: 4rem;
 		font-weight: 700;
-		transition: color 0.2s ease-in-out;
+		text-decoration: none;
 		white-space: nowrap;
+		transition: color 0.2s ease-in-out;
 
 		&--dark {
-			color: #333333;
+			color: #333;
 		}
 
 		&--light {
@@ -107,12 +107,12 @@
 
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
-		padding-inline: 16px;
 		top: 16px;
 		z-index: 5;
 		align-items: center;
+		padding-inline: 16px;
 
-		&--slideUp {
+		&--slide-up {
 			animation: none;
 		}
 
@@ -121,8 +121,8 @@
 		}
 
 		.mobileBurger {
-			display: block;
 			z-index: 6;
+			display: block;
 
 			&--fromNavMenu {
 				z-index: 1;

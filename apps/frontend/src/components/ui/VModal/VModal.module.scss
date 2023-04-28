@@ -1,4 +1,4 @@
-@keyframes fadeIn {
+@keyframes fade-in {
 	0% {
 		opacity: 0;
 	}
@@ -10,20 +10,19 @@
 
 .backdrop {
 	position: fixed;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	top: 0;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100vw;
 	height: 100vh;
-	background: rgba(0, 0, 0, 0.8);
-	z-index: 100;
-	animation: fadeIn ease 0.7s;
-
+	background: #000c;
+	animation: fade-in ease 0.7s;
 
 	.modal {
-		height: auto;
 		width: 80%;
+		height: auto;
 		max-height: 80vh;
 		object-fit: cover;
 	}
