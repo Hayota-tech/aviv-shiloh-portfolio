@@ -2,10 +2,11 @@
 
 @import '../../../../styles/variables.scss';
 
-@keyframes fadeIn {
+@keyframes fade-in {
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 1;
 	}
@@ -20,15 +21,15 @@
 		object-fit: cover;
 
 		&--visible {
-			animation: fadeIn 0.7s ease-in-out;
+			animation: fade-in 0.7s ease-in-out;
 		}
 	}
 
 	&__link {
-		color: #ffffff;
-		text-decoration: none;
 		font-size: 9rem;
 		font-weight: 600;
+		color: #fff;
+		text-decoration: none;
 	}
 }
 
@@ -39,10 +40,10 @@
 		}
 
 		&__link {
-			color: #ffffff;
-			text-decoration: none;
 			font-size: 5.8rem;
 			font-weight: 600;
+			color: #fff;
+			text-decoration: none;
 		}
 	}
 }

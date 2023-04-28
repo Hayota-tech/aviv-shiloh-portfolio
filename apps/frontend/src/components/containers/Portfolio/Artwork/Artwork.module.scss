@@ -5,8 +5,8 @@
 .container {
 	display: flex;
 	flex-direction: column;
+	padding: 0 64px 144px;
 	margin-top: 117px;
-	padding: 0 64px 144px 64px;
 
 	.headerContainer {
 		display: flex;
@@ -14,15 +14,15 @@
 		margin-top: 56px;
 
 		&__title {
+			margin-inline-end: 64px;
 			font-size: 190px;
 			font-weight: 500;
-			margin-inline-end: 64px;
 		}
 
 		&__icon {
-			cursor: pointer;
 			width: 62px;
 			height: 37px;
+			cursor: pointer;
 			fill: #1e1e1e;
 		}
 	}
@@ -57,18 +57,18 @@
 	.container {
 		display: flex;
 		flex-direction: column;
+		padding: 0 0 104px;
 		margin-top: 48px;
-		padding: 0 0 104px 0;
 
 		.headerContainer {
 			display: flex;
 			align-items: center;
-			margin-top: 0px;
 			padding-inline: 16px;
+			margin-top: 0;
 
 			&__title {
-				font-size: 64px;
 				margin-inline-end: 16px;
+				font-size: 64px;
 				color: #1E1E1E;
 			}
 
@@ -79,10 +79,10 @@
 		}
 
 		.yearsList {
-			padding: 0 16px 8px 16px;
+			gap: 8px 0;
+			padding: 0 16px 8px;
 			margin-top: 8px;
 			overflow-x: auto;
-			gap: 8px 0;
 			
 
 			&__item {

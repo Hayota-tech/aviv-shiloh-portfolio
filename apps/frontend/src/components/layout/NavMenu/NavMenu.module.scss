@@ -2,37 +2,41 @@
 
 @import '../../../styles/variables.scss';
 
-@keyframes bottomToTop {
+@keyframes bottom-to-top {
 	from {
 		transform: translateY(100%);
 	}
+
 	to {
 		transform: translateY(0);
 	}
 }
 
-@keyframes slidein {
+@keyframes slide-in {
 	from {
 		transform: translateX(-100%);
 	}
+
 	to {
 		transform: translateX(0);
 	}
 }
 
-@keyframes fadeOut {
+@keyframes fade-out {
 	from {
 		opacity: 1;
 	}
+
 	to {
 		opacity: 0;
 	}
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
 	from {
 		opacity: 0;
 	}
+
 	to {
 		opacity: 1;
 	}
@@ -42,26 +46,26 @@
 	position: fixed;
 	top: 0;
 	left: 0;
+	z-index: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	background-color: #000000;
 	width: 100vw;
 	height: 100vh;
-	z-index: 1;
-	animation: bottomToTop 1s;
+	background-color: #000;
+	animation: bottom-to-top 1s;
 
-	&--fadeOut {
+	&--fade-out {
 		opacity: 0;
-		animation: fadeOut 0.5s;
+		animation: fade-out 0.5s;
 	}
 
 	.innerContainer {
 		display: flex;
 		flex-direction: row-reverse;
-		height: fit-content;
 		width: 100%;
-		margin: 130px 0 90px 0;
+		height: fit-content;
+		margin: 130px 0 90px;
 
 		.linksContainer {
 			display: flex;
@@ -78,19 +82,19 @@
 
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
-		opacity: 1;
-		animation: fadeIn 0.9s;
 		justify-content: flex-start;
+		opacity: 1;
+		animation: fade-in 0.9s;
 
-		&--fadeOut {
+		&--fade-out {
 			opacity: 0;
-			animation: fadeOut 0.5s;
+			animation: fade-out 0.5s;
 		}
 
 		.innerContainer {
 			flex-direction: column;
-			margin: 82px 0 0 0;
 			padding-inline: 32px;
+			margin: 55px 0 0;
 
 			.linksContainer {
 				margin-inline-end: 0;
@@ -100,7 +104,7 @@
 				display: flex;
 				flex-direction: column;
 				margin-top: 62px;
-				animation: slidein 0.5s;
+				animation: slide-in 0.5s;
 
 				&__image {
 					display: block;
@@ -108,16 +112,16 @@
 				}
 
 				&__name {
+					margin: 16px 0 4px;
 					font-size: 2.4rem;
 					font-weight: 500;
-					color: #ffffff;
-					margin: 16px 0 4px;
+					color: #fff;
 				}
 
 				&__date {
 					font-size: 2rem;
 					font-weight: 400;
-					color: #ffffff;
+					color: #fff;
 				}
 			}
 		}

@@ -6,7 +6,7 @@
 	display: none;
 }
 
-@media (max-width: 500px) {
+@media (width <= 500px) {
 	.carousel {
 		display: flex;
 		order: 4;
@@ -19,7 +19,7 @@
 		height: 12px;
 		margin-inline-start: 4px;
 		margin-bottom: 8px;
-		border: 1px solid #000000;
+		border: 1px solid #000;
 		border-radius: 50%;
 
 		&--selected {

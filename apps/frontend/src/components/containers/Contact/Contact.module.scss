@@ -19,10 +19,10 @@
 		&__title {
 			position: relative;
 			left: -15px;
-			font-size: 11rem;
 			align-self: flex-end;
-			color: #ffffff;
 			margin-bottom: 42px;
+			font-size: 11rem;
+			color: #fff;
 		}
 	}
 
@@ -35,16 +35,16 @@
 			flex-direction: column;
 
 			&__title {
+				margin-bottom: 32px;
 				font-size: 2.4rem;
 				font-weight: 500;
-				color: #ffffff;
-				margin-bottom: 32px;
+				color: #fff;
 			}
 
 			&__adressText {
 				font-size: 3.2rem;
 				font-weight: 600;
-				color: #ffffff;
+				color: #fff;
 			}
 
 			.mailWeb {
@@ -53,16 +53,16 @@
 				margin-top: 56px;
 
 				&__title {
+					margin-bottom: 32px;
 					font-size: 2.4rem;
 					font-weight: 500;
-					color: #ffffff;
-					margin-bottom: 32px;
+					color: #fff;
 				}
 
 				&__mail {
 					font-size: 3.2rem;
 					font-weight: 400;
-					color: #ffffff;
+					color: #fff;
 					text-decoration: none;
 				}
 			}
@@ -70,21 +70,21 @@
 
 		.rightSide {
 			display: flex;
-			align-items: flex-start;
 			flex-direction: column;
+			align-items: flex-start;
 			margin-inline-end: 380px;
 
 			&__title {
+				margin-bottom: 32px;
 				font-size: 2.4rem;
 				font-weight: 500;
-				color: #ffffff;
-				margin-bottom: 32px;
+				color: #fff;
 			}
 
 			&__socialButton {
 				font-size: 3.2rem;
 				font-weight: 400;
-				color: #ffffff;
+				color: #fff;
 				text-decoration: none;
 			}
 
@@ -105,13 +105,13 @@
 		height: auto;
 
 		.innerContainer {
-			padding: 63px 32px 0 32px;
+			padding: 63px 32px 0;
 
 			&__title {
 				position: static;
 				align-self: initial;
-				font-size: 6.4rem;
 				margin-bottom: 48px;
+				font-size: 6.4rem;
 			}
 		}
 
@@ -120,16 +120,16 @@
 
 			.leftSide {
 				&__title {
+					margin-bottom: 32px;
 					font-size: 2.4rem;
 					font-weight: 500;
-					color: #ffffff;
-					margin-bottom: 32px;
+					color: #fff;
 				}
 
 				&__adressText {
 					font-size: 3.2rem;
 					font-weight: 600;
-					color: #ffffff;
+					color: #fff;
 				}
 
 				.mailWeb {
@@ -139,20 +139,20 @@
 
 			.rightSide {
 				align-items: flex-end;
-				margin-inline-end: 0px;
+				margin-inline-end: 0;
 				margin-top: 48px;
 
 				&__title {
+					margin-bottom: 32px;
 					font-size: 2.4rem;
 					font-weight: 500;
-					color: #ffffff;
-					margin-bottom: 32px;
+					color: #fff;
 				}
 
 				&__socialButton {
 					font-size: 3.2rem;
 					font-weight: 400;
-					color: #ffffff;
+					color: #fff;
 					text-decoration: none;
 				}
 			}
@@ -165,24 +165,24 @@
 			margin-top: 48px;
 
 			&__title {
+				margin-bottom: 32px;
 				font-size: 2.4rem;
 				font-weight: 500;
-				color: #ffffff;
-				margin-bottom: 32px;
+				color: #fff;
 			}
 
 			&__mail {
 				font-size: 3.2rem;
 				font-weight: 400;
-				color: #ffffff;
+				color: #fff;
 				text-decoration: none;
 			}
 
 			.mobileSignature {
+				margin: 71px 0 7px;
 				font-size: 2rem;
-				color: #ffffff;
 				font-weight: 700;
-				margin: 71px 0 7px 0;
+				color: #fff;
 			}
 		}
 	}
