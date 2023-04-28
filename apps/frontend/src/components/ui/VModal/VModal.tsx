@@ -1,6 +1,7 @@
 import React from 'react';
 
-import type { IImage } from 'src/interfaces/image';
+import type { IImage } from '../../../interfaces/image';
+
 import VModalView from './VModal.view';
 
 interface IProps {

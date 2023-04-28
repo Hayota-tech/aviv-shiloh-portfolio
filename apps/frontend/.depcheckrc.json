@@ -1,3 +1,4 @@
 {
-  "ignores": ["lint-staged", "prettier", "stylelint", "prettier-plugin-sh"]
+	"ignores": ["lint-staged", "prettier", "stylelint", "prettier-plugin-sh"],
+	"skip-missing": true
 }
