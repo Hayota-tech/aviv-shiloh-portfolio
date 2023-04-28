@@ -5,6 +5,9 @@
 	"description": "Aviv Shiloh portfolio",
 	"author": "Hayota Studio <hayota.studio@gmail.com> (https://hayota.studio)",
 	"license": "UNLICENSED",
+	"workspaces": [
+		"./apps/**"
+	],
 	"scripts": {
 		"husky:install": "husky install",
 		"git:config": "git config --local include.path ../.gitconfig",
@@ -20,7 +23,7 @@
 		"inflint": "inflint -c ./inflint.config.ts",
 		"depcheck:root": "depcheck --config ./.depcheckrc.json",
 		"depcheck:nested": "nx run-many --target=depcheck --nx-bail",
-		"depcheck:all": "run-p depcheck:root",
+		"depcheck:all": "run-p depcheck:root depcheck:nested",
 		"prettier": "prettier --check **/*.{ts,js,cjs,json,yaml}"
 	},
 	"devDependencies": {
@@ -54,6 +57,6 @@
 	},
 	"packageManager": "yarn@1.22.17",
 	"engines": {
-		"node": "18.15.0"
+		"node": "18.16.0"
 	}
 }

@@ -16,7 +16,7 @@ jobs:
             - name: Setup Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: 18.15.0
+                  node-version: 18.16.0
 
             - name: Installing dependencies
               run: yarn install --immutable --immutable-cache --check-cache
@@ -28,7 +28,7 @@ jobs:
               run: yarn run inflint
 
             - name: Check Typescript
-              run: yarn run type-check:nested
+              run: yarn run type-check:all
 
             - name: Check ESLint
               run: yarn run lint:all
