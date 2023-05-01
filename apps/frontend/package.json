@@ -6,7 +6,7 @@
 		"start:dev": "next dev -p 80",
 		"build": "next build",
 		"start": "next start",
-		"export": "yarn run build && next export -o _static",
+		"export": "npm run build && next export -o _static",
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.{ts,tsx,cjs}\"",
 		"type-check": "tsc --project ./tsconfig.json",
 		"depcheck": "depcheck --config ./.depcheckrc.json",
