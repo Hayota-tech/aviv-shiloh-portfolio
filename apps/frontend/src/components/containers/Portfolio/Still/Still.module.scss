@@ -17,10 +17,7 @@
 			margin-inline-end: 64px;
 			font-size: 19rem;
 			font-weight: 500;
-
-			&--selected {
-				color: #268741;
-			}
+			color: #268741;
 		}
 
 		&__icon {
@@ -108,11 +105,6 @@
 			&__title {
 				margin-inline-end: 32px;
 				font-size: 64px;
-				color: #1e1e1e;
-
-				&--selected {
-					color: #268741;
-				}
 			}
 
 			&__icon {

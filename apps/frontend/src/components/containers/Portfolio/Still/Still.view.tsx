@@ -27,14 +27,6 @@ interface IProps {
 }
 
 const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const isOnCurrentPage = window.location.pathname.includes('/still');
-
-	const titleClasses = concatClasses(
-		classes,
-		'headerContainer__title',
-		isOnCurrentPage ? 'headerContainer__title--selected' : '',
-	);
-
 	return (
 		<Transition>
 			{props.isModalOpen && (
@@ -43,7 +35,11 @@ const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 			<section className={classes['container']}>
 				<div className={classes['headerContainer']}>
-					<button className={titleClasses} type="button" onClick={props.onToggleMenu}>
+					<button
+						className={classes['headerContainer__title']}
+						type="button"
+						onClick={props.onToggleMenu}
+					>
 						Still
 					</button>
 					<SSvg
