@@ -26,6 +26,14 @@ interface IProps {
 }
 
 const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const isOnCurrentPage = window.location.pathname.includes('/video');
+
+	const titleClasses = concatClasses(
+		classes,
+		'headerContainer__title',
+		isOnCurrentPage ? 'headerContainer__title--selected' : '',
+	);
+
 	return (
 		<Transition>
 			{props.isModalOpen && (
@@ -33,11 +41,7 @@ const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			)}
 			<section className={classes['container']}>
 				<div className={classes['headerContainer']}>
-					<button
-						className={classes['headerContainer__title']}
-						type="button"
-						onClick={props.onToggleMenu}
-					>
+					<button className={titleClasses} type="button" onClick={props.onToggleMenu}>
 						Video
 					</button>
 					<SSvg
@@ -53,6 +57,10 @@ const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						/>
 					)}
 				</div>
+
+				<button className={classes['subTitle']} type="button" onClick={props.onToggleMenu}>
+					Artworks, Still
+				</button>
 
 				<div className={classes['categoriesList']}>
 					<button
@@ -97,8 +105,9 @@ const VideoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 									(projectCategory) => projectCategory.id === category.id,
 								),
 							)
-						)
-						{return;}
+						) {
+							return;
+						}
 
 						return (
 							<Gallery
