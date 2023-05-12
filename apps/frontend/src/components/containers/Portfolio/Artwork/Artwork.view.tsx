@@ -22,19 +22,15 @@ interface IProps {
 }
 
 const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const isOnCurrentPage = window.location.pathname.includes('/artwork');
-
-	const titleClasses = concatClasses(
-		classes,
-		'headerContainer__title',
-		isOnCurrentPage ? 'headerContainer__title--selected' : '',
-	);
-
 	return (
 		<Transition>
 			<section className={classes['container']}>
 				<div className={classes['headerContainer']}>
-					<button className={titleClasses} type="button" onClick={props.onToggleMenu}>
+					<button
+						className={classes['headerContainer__title']}
+						type="button"
+						onClick={props.onToggleMenu}
+					>
 						Artworks
 					</button>
 
