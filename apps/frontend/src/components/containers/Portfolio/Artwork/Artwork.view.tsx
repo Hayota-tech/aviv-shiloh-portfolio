@@ -22,17 +22,22 @@ interface IProps {
 }
 
 const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const isOnCurrentPage = window.location.pathname.includes('/artwork');
+
+	const titleClasses = concatClasses(
+		classes,
+		'headerContainer__title',
+		isOnCurrentPage ? 'headerContainer__title--selected' : '',
+	);
+
 	return (
 		<Transition>
 			<section className={classes['container']}>
 				<div className={classes['headerContainer']}>
-					<button
-						className={classes['headerContainer__title']}
-						type="button"
-						onClick={props.onToggleMenu}
-					>
+					<button className={titleClasses} type="button" onClick={props.onToggleMenu}>
 						Artworks
 					</button>
+
 					<button type="button" onClick={props.onToggleMenu}>
 						<SSvg className={classes['headerContainer__icon']} name="arrowBold" />
 					</button>
@@ -44,6 +49,10 @@ const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 						/>
 					)}
 				</div>
+
+				<button className={classes['subTitle']} type="button" onClick={props.onToggleMenu}>
+					Still, Video
+				</button>
 
 				<div className={classes['yearsList']}>
 					<button
@@ -79,8 +88,9 @@ const ArtworkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 					if (
 						props.selectedYears.length > 0 &&
 						!props.selectedYears.some((year) => year.year === projectDate)
-					)
-					{return;}
+					) {
+						return;
+					}
 
 					return <Project key={index} index={index} project={project} />;
 				})}
