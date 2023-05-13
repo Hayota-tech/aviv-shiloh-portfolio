@@ -6,9 +6,12 @@ import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { Provider } from 'react-redux';
 
 import '../styles/custom.scss';
 import { useNextCssRemovalPrevention } from '@/utils/fix-css';
+
+import { store } from '../store/app';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
 	useNextCssRemovalPrevention();
@@ -42,10 +45,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 				<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 				<link rel="manifest" href="/site.webmanifest" />
 			</Head>
-
-			<AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
-				<Component key={router.asPath} {...pageProps} />
-			</AnimatePresence>
+			<Provider store={store}>
+				<AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
+					<Component key={router.asPath} {...pageProps} />
+				</AnimatePresence>
+			</Provider>
 		</>
 	);
 }

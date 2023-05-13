@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import type { AxiosResponse } from 'axios';
+import { connect } from 'react-redux';
 
 import type { IProject } from 'src/interfaces/responses';
 import { backendApi } from '@/utils/http';
+import type * as fromApp from '../../../store/app';
+
 import MainView from './Main.view';
 
-interface IProps {}
+interface IPropsFromState {
+	readonly isMenuOpen: boolean;
+}
 
-const Main: React.FC<IProps> = () => {
+interface IProps extends IPropsFromState {}
+
+const Main: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [projectsListState, setProjectsListState] = useState<IProject[]>([]);
+	const [isMenuVisibleState, setIsMenuVisibleState] = useState<boolean>(false);
+
+	useEffect(() => {
+		setTimeout(() => setIsMenuVisibleState(() => false), 500);
+	}, [props.isMenuOpen]);
 
 	useEffect(() => {
 		backendApi
@@ -20,10 +32,16 @@ const Main: React.FC<IProps> = () => {
 			});
 	}, [backendApi]);
 
-	return <MainView projectsList={projectsListState} />;
+	return <MainView projectsList={projectsListState} isMenuOpen={isMenuVisibleState} />;
 };
 
 Main.displayName = 'Main';
 Main.defaultProps = {};
 
-export default React.memo(Main);
+const mapStateToProps = (state: fromApp.RootState) => {
+	return {
+		isMenuOpen: state.user.isMenuOpen,
+	};
+};
+
+export default connect(mapStateToProps)(React.memo(Main));
