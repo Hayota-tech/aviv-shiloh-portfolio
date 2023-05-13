@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { concatClasses } from '@/utils/component';
 import type { IProject } from '../../../interfaces/responses';
 import intro from '../../../../public/images/intro.png';
 import Carousel from './Carousel';
@@ -10,11 +11,18 @@ import classes from './Main.module.scss';
 
 interface IProps {
 	readonly projectsList: IProject[];
+	readonly isMenuOpen: boolean;
 }
 
 const MainView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const containerClass = concatClasses(
+		classes,
+		'container',
+		props.isMenuOpen ? 'container--unscrollable' : '',
+	);
+
 	return (
-		<main className={classes['container']}>
+		<main className={containerClass}>
 			<Image
 				className={classes['container__image']}
 				width={100}
