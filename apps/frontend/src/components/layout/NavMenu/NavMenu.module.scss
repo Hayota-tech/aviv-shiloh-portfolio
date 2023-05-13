@@ -60,6 +60,50 @@
 		animation: fade-out 0.5s;
 	}
 
+	.headerContainer {
+		position: relative;
+		top: 64px;
+		z-index: 1;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		width: 100%;
+		padding-inline: 64px;
+
+		&--float {
+			margin-bottom: -64px;
+		}
+
+		.mobileBurger {
+			display: none;
+		}
+
+		&__menu {
+			z-index: 2;
+			font-size: 3.2rem;
+			font-weight: 700;
+			color: #268741;
+			text-decoration: none;
+			white-space: nowrap;
+			transition: color 0.2s ease-in-out;
+		}
+
+		&__logo {
+			font-size: 4rem;
+			font-weight: 700;
+			color: #f5f5f5;
+			text-decoration: none;
+			white-space: nowrap;
+			transition: color 0.2s ease-in-out;
+		}
+
+		&__text {
+			font-size: 3.2rem;
+			font-weight: 700;
+			color: #f5f5f5;
+		}
+	}
+
 	.innerContainer {
 		display: flex;
 		flex-direction: row-reverse;
@@ -83,12 +127,42 @@
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
 		justify-content: flex-start;
-		opacity: 1;
 		animation: fade-in 0.9s;
 
 		&--fade-out {
 			opacity: 0;
 			animation: fade-out 0.5s;
+		}
+
+		.headerContainer {
+			top: 16px;
+			z-index: 5;
+			align-items: center;
+			padding-inline: 16px;
+
+			.mobileBurger {
+				z-index: 6;
+				display: block;
+
+				&__icon {
+					width: 20.5px;
+					height: 20.5px;
+					stroke: #268741;
+				}
+			}
+
+			&__menu {
+				display: none;
+			}
+
+			&__logo {
+				font-size: 2.4rem;
+				font-weight: 800;
+			}
+
+			&__text {
+				display: none;
+			}
 		}
 
 		.innerContainer {

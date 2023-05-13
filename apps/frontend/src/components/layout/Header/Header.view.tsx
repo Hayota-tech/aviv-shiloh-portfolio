@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { concatClasses } from '@/utils/component';
 import SSvg from '@/ui/SSvg';
 import NavMenu from '../NavMenu';
+
 import classes from './Header.module.scss';
 
 interface IProps {
@@ -25,7 +26,6 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		'container',
 		props.isMenuOpen ? 'container--slideUp' : '',
 		props.float ? 'container--float' : '',
-		//Check if url container 'contact'
 		route.includes('contact') ? 'container--contact' : '',
 	);
 

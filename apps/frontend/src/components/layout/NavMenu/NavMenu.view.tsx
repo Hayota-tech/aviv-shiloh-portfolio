@@ -1,11 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import type { ICarouselImage } from 'src/interfaces/carousel-image';
 import { concatClasses } from '@/utils/component';
+import SSvg from '@/ui/SSvg';
+
 import { navList } from '../../../data/nav-list';
 
-import Header from '../Header';
 import NavLink from './NavLink';
 import classes from './NavMenu.module.scss';
 
@@ -27,7 +29,28 @@ const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 
 	return (
 		<section className={containerClasses}>
-			<Header theme="light" fromNavMenu />
+			<div className={classes['headerContainer']}>
+				<div className={classes['mobileBurger']}>
+					<button
+						className={classes['mobileBurger__button']}
+						type="button"
+						onClick={props.onToggleMenu}
+					>
+						<SSvg name="humburger" className={classes['mobileBurger__icon']} />
+					</button>
+				</div>
+				<button
+					className={classes['headerContainer__menu']}
+					type="button"
+					onClick={props.onToggleMenu}
+				>
+					MENU
+				</button>
+				<Link className={classes['headerContainer__logo']} href="/" onClick={props.onToggleMenu}>
+					AVIV SHILOH
+				</Link>
+				<span className={classes['headerContainer__text']}>©2023</span>
+			</div>
 
 			<div className={classes['innerContainer']}>
 				<div className={classes['linksContainer']}>
