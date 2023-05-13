@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 
 import HeaderView from './Header.view';
 
+import { addToSessionStorage, getFromSessionStorage } from '../../../utils/session-storage';
+
 interface IProps {
 	readonly theme?: string;
 	readonly float?: boolean;
@@ -16,21 +18,27 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	const onToggleMenu = () => {
 		if (isMenuOpenState) {
-			setIsMenuVisibleState(() => false);
-			setTimeout(() => setIsMenuOpenState(false), 500);
+			addToSessionStorage('isMenuOpen', false);
+			setIsMenuVisibleState(() => getFromSessionStorage('isMenuOpen'));
+			setTimeout(() => setIsMenuOpenState(getFromSessionStorage('isMenuOpen')), 500);
 		} else {
+			addToSessionStorage('isMenuOpen', true);
 			setTimeout(() => document.body?.scrollTo(0, 0), 1000);
-			setIsMenuOpenState(() => true);
-			setIsMenuVisibleState(() => true);
+			setIsMenuOpenState(() => getFromSessionStorage('isMenuOpen'));
+			setIsMenuVisibleState(() => getFromSessionStorage('isMenuOpen'));
 		}
 	};
 
 	const onCloseMenu = (linkName: string) => {
 		const lowerCaseLinkName = linkName.toLowerCase();
 
-		if (route.includes(lowerCaseLinkName)) {onToggleMenu();}
+		if (route.includes(lowerCaseLinkName)) {
+			onToggleMenu();
+		}
 
-		if (lowerCaseLinkName === 'home' && route === '/') {onToggleMenu();}
+		if (lowerCaseLinkName === 'home' && route === '/') {
+			onToggleMenu();
+		}
 	};
 
 	return (

@@ -4,12 +4,28 @@ import type { AxiosResponse } from 'axios';
 import type { IProject } from 'src/interfaces/responses';
 import { backendApi } from '@/utils/http';
 import MainView from './Main.view';
+// import { getFromSessionStorage } from '../../../utils/session-storage';
 
 interface IProps {}
 
 const Main: React.FC<IProps> = () => {
 	const [projectsListState, setProjectsListState] = useState<IProject[]>([]);
+	if (typeof sessionStorage !== 'undefined') {
+		// Access sessionStorage here
 
+		const [sessionData, setSessionData] = useState<string | null>(sessionStorage.getItem('isMenuOpen'));
+
+		useEffect(() => {
+			const onStorageChange = (event: StorageEvent) => {
+				if (event.storageArea === sessionStorage && event.key === 'isMenuOpen') {
+					setSessionData(event.newValue);
+				}
+			};
+			window.addEventListener('storage', onStorageChange);
+			console.log(sessionData);
+			return () => window.removeEventListener('storage', onStorageChange);
+		}, []);
+	}
 	useEffect(() => {
 		backendApi
 			.get(
