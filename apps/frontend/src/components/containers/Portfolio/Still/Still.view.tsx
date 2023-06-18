@@ -91,10 +91,16 @@ const StillView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 				</div>
 				<div className={classes['galleryContainer']}>
 					{props.projectsList.map((project, index) => {
-						const image = project.attributes.media.data[0]?.attributes.url ?? '';
-						const imageAlt = project.attributes.media.data[0]?.attributes.caption ?? '';
+						const mediaData = project.attributes.media.data;
+
+						if (!mediaData) {
+							return null;
+						}
+
+						const image = mediaData[0]?.attributes.url ?? '';
+						const imageAlt = mediaData[0]?.attributes.caption ?? '';
 						const projectCategory = project?.attributes.categories.data;
-						const imageDetails = project.attributes.media.data[0];
+						const imageDetails = mediaData[0];
 
 						if (
 							props.selectedCategories.length > 0 &&
