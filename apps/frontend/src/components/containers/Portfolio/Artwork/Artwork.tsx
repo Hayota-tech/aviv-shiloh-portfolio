@@ -39,10 +39,22 @@ const Artwork: React.FC<IProps> = () => {
 	useEffect(() => {
 		backendApi
 			.get(
-				`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?fields[1]=name&fields[2]=date&fields[3]=country&fields[4]=city&populate[0]=media`,
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects?fields[1]=name&fields[2]=date&fields[3]=country&fields[4]=city&fields[5]=order&populate[0]=media`,
 			)
 			.then((response: AxiosResponse) => {
-				setProjectsListState(() => response.data.data);
+				const orderedProjects = response.data.data.sort((a: IProject, b: IProject) => {
+					if (a.attributes.order < b.attributes.order) {
+						return -1;
+					}
+
+					if (a.attributes.order > b.attributes.order) {
+						return 1;
+					}
+
+					return 0;
+				});
+
+				setProjectsListState(() => orderedProjects);
 			});
 	}, [backendApi]);
 
