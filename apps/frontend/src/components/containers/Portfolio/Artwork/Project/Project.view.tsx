@@ -56,7 +56,7 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							<span className={classes['locationContainer__date']}>{projectDate}</span>
 							<span className={classes['locationContainer__country']}>
 								{props.project?.attributes?.country}
-								,
+								{props.project?.attributes?.city && ','}
 							</span>
 							<span className={classes['locationContainer__city']}>
 								{props.project?.attributes?.city}
@@ -66,7 +66,9 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				</div>
 				<div className={classes['lineImagesContainer']}>
 					{props.project?.attributes?.media.data.map((media, index) => {
-						if (index < 1 || index > 3) {return null;}
+						if (index < 1 || index > 3) {
+							return null;
+						}
 
 						const projectImageUrl = projectImage
 							? imageUrl(media.attributes.url)
