@@ -2,10 +2,11 @@ export interface IProject {
 	readonly id: number;
 	readonly attributes: {
 		readonly name: string;
-		readonly description: string;
+		readonly description: string | null;
 		readonly date: string;
 		readonly country: string;
 		readonly city: string;
+		readonly order: number;
 		readonly media: {
 			readonly data: {
 				readonly id: number;
