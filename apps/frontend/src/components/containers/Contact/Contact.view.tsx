@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from '@/layout/Header';
+import SSvg from '@/ui/SSvg';
 import { socialMedia } from '../../../data/social-media';
 import { address } from '../../../data/address';
 
@@ -26,8 +27,12 @@ const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							</span>
 						))}
 						<div className={classes['mailWeb']}>
-							<span className={classes['mailWeb__title']}>MAIL</span>
+							<span className={classes['mailWeb__title']}>LET’S TALK</span>
+							<span className={classes['mailWeb__phoneNumber']}>+972 50 4949449</span>
 							<a className={classes['mailWeb__mail']} href="mailto:aviv.shiloh@gmail.com">
+								aviv.shiloh@gmail.com
+							</a>
+							<a className={classes['mailWeb__mailMobile']} href="mailto:aviv.shiloh@gmail.com">
 								aviv.shiloh@gmail.com
 							</a>
 						</div>
@@ -41,9 +46,15 @@ const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 								type="button"
 								onClick={() => props.onSocialNavigate(element.url)}
 							>
-								{element.name}
+								<SSvg name={element.name} className={classes['rightSide__icon']} />
 							</button>
 						))}
+						<a
+							href="https://u4wvavq62qc.typeform.com/to/XieOohpc"
+							className={classes['rightSide__text']}
+						>
+							Leave a message &gt;
+						</a>
 					</div>
 				</div>
 				<div className={classes['mailMobile']}>
