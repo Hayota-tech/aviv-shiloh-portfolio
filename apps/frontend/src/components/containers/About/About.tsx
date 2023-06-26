@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import type { AxiosResponse } from 'axios';
-import type { IVAboutText } from 'src/interfaces/responses';
+import type { IVAboutText, IVExibhitions } from 'src/interfaces/responses';
 import { backendApi } from '@/utils/http';
 
 import AboutView from './About.view';
@@ -11,6 +11,7 @@ interface IProps {}
 const About: React.FC<IProps> = () => {
 	const [lastExhibionPositionState, setLastExhibionPositionState] = useState<number>(0);
 	const [textListState, setTextListState] = useState<IVAboutText | undefined>();
+	const [exibhitionsListState, setExibhitionsListState] = useState<IVExibhitions[]>([]);
 
 	const handleScroll = (e: React.UIEvent<HTMLElement>) => {
 		const target = e.target as HTMLElement;
@@ -31,11 +32,22 @@ const About: React.FC<IProps> = () => {
 			});
 	}, [backendApi]);
 
+	useEffect(() => {
+		backendApi
+			.get(
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/exibhitions?populate[0]=title&populate[1]=location&populate[2]=link&populate[3]=startDate&populate[4]=endDate`,
+			)
+			.then((response: AxiosResponse) => {
+				setExibhitionsListState(() => response.data.data);
+			});
+	}, [backendApi]);
+
 	return (
 		<AboutView
 			handleScroll={handleScroll}
 			lastExhibionPosition={lastExhibionPositionState}
 			textList={textListState}
+			exibhitionsList={exibhitionsListState}
 		/>
 	);
 };

@@ -76,3 +76,14 @@ export interface IVAboutText {
 		readonly description: string;
 	};
 }
+
+export interface IVExibhitions {
+	readonly id: number;
+	readonly attributes: {
+		readonly title: string;
+		readonly location: string;
+		readonly link: string;
+		readonly startDate: Date;
+		readonly endDate: Date;
+	};
+}
