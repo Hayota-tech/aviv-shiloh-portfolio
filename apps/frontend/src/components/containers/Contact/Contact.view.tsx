@@ -1,16 +1,24 @@
 import React from 'react';
 
 import Header from '@/layout/Header';
+import type { IContact } from '@/interfaces/responses';
 import { socialMedia } from '../../../data/social-media';
-import { address } from '../../../data/address';
 
 import classes from './Contact.module.scss';
 
 interface IProps {
 	readonly onSocialNavigate: (url: string) => void;
+	readonly contactData: IContact | undefined;
 }
 
 const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const address = props.contactData?.attributes.address;
+	const city = props.contactData?.attributes.city;
+	const country = props.contactData?.attributes.country;
+	const email = props.contactData?.attributes.email;
+
+	const placeText = [{ name: 'Aviv Shiloh' }, { name: address }, { name: city }, { name: country }];
+
 	return (
 		<section className={classes['container']}>
 			<Header theme="light" />
@@ -20,15 +28,15 @@ const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<div className={classes['contactContainer']}>
 					<div className={classes['leftSide']}>
 						<span className={classes['leftSide__title']}>WHERE</span>
-						{address.map((element, i) => (
+						{placeText.map((element, i) => (
 							<span key={i} className={classes['leftSide__adressText']}>
 								{element.name}
 							</span>
 						))}
 						<div className={classes['mailWeb']}>
 							<span className={classes['mailWeb__title']}>MAIL</span>
-							<a className={classes['mailWeb__mail']} href="mailto:aviv.shiloh@gmail.com">
-								aviv.shiloh@gmail.com
+							<a className={classes['mailWeb__mail']} href={`mailto:${email}`}>
+								{email}
 							</a>
 						</div>
 					</div>
