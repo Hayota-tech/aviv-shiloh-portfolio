@@ -32,9 +32,6 @@ const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							<a className={classes['mailWeb__mail']} href="mailto:aviv.shiloh@gmail.com">
 								aviv.shiloh@gmail.com
 							</a>
-							<a className={classes['mailWeb__mailMobile']} href="mailto:aviv.shiloh@gmail.com">
-								aviv.shiloh@gmail.com
-							</a>
 						</div>
 					</div>
 					<div className={classes['rightSide']}>
