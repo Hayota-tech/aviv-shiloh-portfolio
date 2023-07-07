@@ -31,10 +31,10 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		props.index % 2 !== 0 ? 'bigImageContainer--reverse' : '',
 	);
 
-	const infoContainerClasses = concatClasses(
+	const infoContainerMobileClasses = concatClasses(
 		classes,
-		'infoContainer',
-		props.index % 2 !== 0 ? 'infoContainer--reverse' : '',
+		'infoContainerMobile',
+		props.index % 2 !== 0 ? 'infoContainerMobile--reverse' : '',
 	);
 
 	return (
@@ -50,8 +50,8 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							height={100}
 						/>
 					</Link>
-					<div className={infoContainerClasses}>
-						<span className={classes['infoContainer__name']}>{projectName}</span>
+					<div className={infoContainerMobileClasses}>
+						<span className={classes['infoContainerMobile__name']}>{projectName}</span>
 						<div className={classes['locationContainer']}>
 							<span className={classes['locationContainer__date']}>{projectDate}</span>
 							<span className={classes['locationContainer__country']}>
@@ -90,6 +90,19 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							</Link>
 						);
 					})}
+				</div>
+			</div>
+			<div className={classes['infoContainerDesktop']}>
+				<span className={classes['infoContainerDesktop__name']}>{projectName}</span>
+				<div className={classes['locationContainer']}>
+					<span className={classes['locationContainer__date']}>{projectDate}</span>
+					<span className={classes['locationContainer__country']}>
+						{props.project?.attributes?.country}
+						{props.project?.attributes?.city && ','}
+					</span>
+					<span className={classes['locationContainer__city']}>
+						{props.project?.attributes?.city}
+					</span>
 				</div>
 			</div>
 		</section>
