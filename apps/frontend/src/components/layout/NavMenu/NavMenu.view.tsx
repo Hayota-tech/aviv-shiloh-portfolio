@@ -49,7 +49,12 @@ const NavMenuView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<Link className={classes['headerContainer__logo']} href="/" onClick={props.onToggleMenu}>
 					AVIV SHILOH
 				</Link>
-				<span className={classes['headerContainer__text']}>©2023</span>
+				<a
+					href="https://api.whatsapp.com/send?phone=972504949449"
+					className={classes['headerContainer__text']}
+				>
+					CONTACT
+				</a>
 			</div>
 
 			<div className={classes['innerContainer']}>

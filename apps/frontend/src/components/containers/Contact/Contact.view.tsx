@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from '@/layout/Header';
+import SSvg from '@/ui/SSvg';
 import { socialMedia } from '../../../data/social-media';
 import { address } from '../../../data/address';
 
@@ -41,7 +42,7 @@ const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 								type="button"
 								onClick={() => props.onSocialNavigate(element.url)}
 							>
-								{element.name}
+								<SSvg name={element.name} className={classes['rightSide__icon']} />
 							</button>
 						))}
 					</div>

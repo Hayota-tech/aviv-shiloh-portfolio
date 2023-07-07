@@ -87,7 +87,9 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 			>
 				AVIV SHILOH
 			</Link>
-			<span className={textClass}>©2023</span>
+			<a href="https://api.whatsapp.com/send?phone=972504949449" className={textClass}>
+				CONTACT
+			</a>
 			{props.isMenuOpen && (
 				<NavMenu
 					isMenuVisible={props.isMenuVisible}
