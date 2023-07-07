@@ -5,6 +5,7 @@ import classes from './Exhibit.module.scss';
 interface IProps {
 	readonly title: string | undefined;
 	readonly location: string | undefined;
+	readonly link: string | undefined;
 	readonly startDate: Date | undefined;
 	readonly endDate?: Date | undefined;
 }
@@ -47,7 +48,9 @@ const ExhibitView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	return (
 		<div className={classes['container']}>
 			<span className={classes['container__title']}>{props.title}</span>
-			<span className={classes['container__exhibition']}>{props.location}</span>
+			<a href={props.link} className={classes['container__exhibition']}>
+				{props.location}
+			</a>
 			<div className={classes['dateContainer']}>
 				<span className={classes['dateContainer__date']}>{formattedStartDate}</span>
 				<span className={classes['dateContainer__date']}>{formattedEndtDate}</span>

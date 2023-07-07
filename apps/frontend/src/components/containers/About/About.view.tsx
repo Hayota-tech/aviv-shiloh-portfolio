@@ -39,6 +39,7 @@ const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						{props.exibhitionsList.map((exhibition, key) => {
 							const title = exhibition?.attributes.title ?? '';
 							const location = exhibition?.attributes.location ?? '';
+							const link = exhibition?.attributes.link ?? '';
 							const startDate = exhibition?.attributes.startDate ?? '';
 							const endDate = exhibition?.attributes.endDate ?? '';
 
@@ -47,6 +48,7 @@ const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 									key={key}
 									title={title}
 									location={location}
+									link={link}
 									startDate={startDate}
 									endDate={endDate}
 								/>
