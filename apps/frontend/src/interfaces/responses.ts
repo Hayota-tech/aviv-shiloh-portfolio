@@ -76,3 +76,14 @@ export interface IVAboutText {
 		readonly description: string;
 	};
 }
+
+export interface IContact {
+	readonly id: number;
+	readonly attributes: {
+		readonly address: string;
+		readonly country: string;
+		readonly city: string;
+		readonly email: string;
+		readonly phoneNumber: string;
+	};
+}

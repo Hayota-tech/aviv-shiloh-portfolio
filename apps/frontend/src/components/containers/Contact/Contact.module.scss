@@ -77,8 +77,6 @@
 					color: #fff;
 					text-decoration: none;
 				}
-
-
 			}
 		}
 
@@ -86,7 +84,7 @@
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
-			margin-inline-end: 380px;
+			margin-inline-end: 108px;
 
 			&__title {
 				margin-bottom: 32px;
@@ -115,10 +113,11 @@
 			}
 
 			&__textDesktop {
-				margin-top: 144px;
+				margin-top: auto;
 				font-size: 48px;
 				color: #FFF;
 				text-decoration: none;
+				white-space: nowrap;
 			}
 		}
 	}
