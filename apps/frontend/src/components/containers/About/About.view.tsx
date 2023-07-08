@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import type { IVAboutText } from 'src/interfaces/responses';
+import type { IAboutText, IExibhitions } from 'src/interfaces/responses';
 import portrait from '../../../../public/images/aviv-portrait.png';
 
 import classes from './About.module.scss';
@@ -9,55 +9,12 @@ import AboutExhibit from './AboutExhibit';
 
 interface IProps {
 	readonly lastExhibionPosition: number;
-	readonly textList: IVAboutText | undefined;
+	readonly textList: IAboutText | undefined;
+	readonly exibhitionsList: IExibhitions[];
 	readonly handleScroll: (e: React.UIEvent<HTMLElement>) => void;
 }
 
 const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const dummyData = [
-		{
-			title: 'Big Apple',
-			exhibition: 'International Photography Festival',
-			startDate: 'NOVEMBER 28 - 2019',
-			endDate: 'DECEMBER 7 - 2019',
-		},
-		{
-			title: 'Big Apple',
-			exhibition: 'International Photography Festival',
-			startDate: 'NOVEMBER 28 - 2019',
-			endDate: 'DECEMBER 7 - 2019',
-		},
-		{
-			title: 'Big Apple',
-			exhibition: 'International Photography Festival',
-			startDate: 'NOVEMBER 28 - 2019',
-		},
-		{
-			title: 'Big Apple',
-			exhibition: 'International Photography Festival',
-			startDate: 'NOVEMBER 28 - 2019',
-			endDate: 'DECEMBER 7 - 2019',
-		},
-		{
-			title: 'Big Apple',
-			exhibition: 'International Photography Festival',
-			startDate: 'NOVEMBER 28 - 2019',
-			endDate: 'DECEMBER 7 - 2019',
-		},
-		{
-			title: 'Big Apple',
-			exhibition: 'International Photography Festival',
-			startDate: 'NOVEMBER 28 - 2019',
-			endDate: 'DECEMBER 7 - 2019',
-		},
-		{
-			title: 'Big Apple',
-			exhibition: 'International Photography Festival',
-			startDate: 'NOVEMBER 28 - 2019',
-			endDate: 'DECEMBER 7 - 2019',
-		},
-	];
-
 	const style = {
 		WebkitMaskImage: `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) ${
 			100 - props.lastExhibionPosition + '%'
@@ -79,15 +36,24 @@ const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 					<h1 className={classes['exhibitionsContainer__title']}>Exhibitions</h1>
 
 					<div className={classes['innerExihitions']} style={style} onScroll={props.handleScroll}>
-						{dummyData.map((exhibition, key) => (
-							<AboutExhibit
-								key={key}
-								title={exhibition.title}
-								exhibition={exhibition.exhibition}
-								startDate={exhibition.startDate}
-								endDate={exhibition.endDate}
-							/>
-						))}
+						{props.exibhitionsList.map((exhibition, key) => {
+							const title = exhibition?.attributes.title;
+							const location = exhibition?.attributes.location;
+							const link = exhibition?.attributes.link;
+							const startDate = exhibition?.attributes.startDate;
+							const endDate = exhibition?.attributes.endDate;
+
+							return (
+								<AboutExhibit
+									key={key}
+									title={title}
+									location={location}
+									link={link}
+									startDate={startDate}
+									endDate={endDate}
+								/>
+							);
+						})}
 					</div>
 				</div>
 			</div>

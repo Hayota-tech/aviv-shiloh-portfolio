@@ -69,10 +69,21 @@ export interface IVideoCategory {
 	};
 }
 
-export interface IVAboutText {
+export interface IAboutText {
 	readonly id: number;
 	readonly attributes: {
 		readonly title: string;
 		readonly description: string;
+	};
+}
+
+export interface IExibhitions {
+	readonly id: number;
+	readonly attributes: {
+		readonly title: string;
+		readonly location: string;
+		readonly link: string;
+		readonly startDate: Date;
+		readonly endDate?: Date;
 	};
 }
