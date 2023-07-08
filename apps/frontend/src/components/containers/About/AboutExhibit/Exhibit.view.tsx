@@ -1,49 +1,24 @@
 import React from 'react';
 
+import { dateForamt } from '@/utils/date-format';
 import classes from './Exhibit.module.scss';
 
 interface IProps {
-	readonly title: string | undefined;
-	readonly location: string | undefined;
-	readonly link: string | undefined;
-	readonly startDate: Date | undefined;
-	readonly endDate?: Date | undefined;
+	readonly title: string;
+	readonly location: string;
+	readonly link: string;
+	readonly startDate: Date;
+	readonly endDate?: Date;
 }
 
 const ExhibitView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	let formattedEndtDate;
-	let formattedStartDate;
 	const startDate = new Date(props.startDate ? props.startDate : '');
 	const endDate = new Date(props.endDate ? props.endDate : '');
 
-	const months = [
-		'JANUARY',
-		'FEBRUARY',
-		'MARCH',
-		'APRIL',
-		'MAY',
-		'JUNE',
-		'JULY',
-		'AUGUST',
-		'SEPTEMBER',
-		'OCTOBER',
-		'NOVEMBER',
-		'DECEMBER',
-	];
+	const formattedStartDate = dateForamt(startDate);
+	let formattedEndtDate = dateForamt(endDate);
 
-	props.startDate
-		? (formattedStartDate = `${
-			months[startDate.getMonth()]
-		  } ${startDate.getDate()} - ${startDate.getFullYear()}`)
-		: null;
-
-	props.endDate
-		? (formattedEndtDate = `${
-			months[endDate?.getMonth()]
-		  } ${endDate?.getDate()} - ${endDate?.getFullYear()}`)
-		: null;
-
-	props.endDate ? (formattedEndtDate = '\b' + '-' + '\b' + formattedEndtDate) : '';
+	props.endDate ? (formattedEndtDate = '\b' + '-' + '\b' + formattedEndtDate.toUpperCase()) : '';
 
 	return (
 		<div className={classes['container']}>
@@ -52,7 +27,7 @@ const ExhibitView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				{props.location}
 			</a>
 			<div className={classes['dateContainer']}>
-				<span className={classes['dateContainer__date']}>{formattedStartDate}</span>
+				<span className={classes['dateContainer__date']}>{formattedStartDate.toUpperCase()}</span>
 				<span className={classes['dateContainer__date']}>{formattedEndtDate}</span>
 			</div>
 		</div>

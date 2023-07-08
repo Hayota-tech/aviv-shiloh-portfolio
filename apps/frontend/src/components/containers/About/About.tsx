@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import type { AxiosResponse } from 'axios';
-import type { IVAboutText, IVExibhitions } from 'src/interfaces/responses';
+import type { IAboutText, IExibhitions } from 'src/interfaces/responses';
 import { backendApi } from '@/utils/http';
 
 import AboutView from './About.view';
@@ -10,8 +10,8 @@ interface IProps {}
 
 const About: React.FC<IProps> = () => {
 	const [lastExhibionPositionState, setLastExhibionPositionState] = useState<number>(0);
-	const [textListState, setTextListState] = useState<IVAboutText | undefined>();
-	const [exibhitionsListState, setExibhitionsListState] = useState<IVExibhitions[]>([]);
+	const [textListState, setTextListState] = useState<IAboutText | undefined>();
+	const [exibhitionsListState, setExibhitionsListState] = useState<IExibhitions[]>([]);
 
 	const handleScroll = (e: React.UIEvent<HTMLElement>) => {
 		const target = e.target as HTMLElement;

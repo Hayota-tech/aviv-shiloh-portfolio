@@ -3,11 +3,11 @@ import React from 'react';
 import ExhibitView from './Exhibit.view';
 
 interface IProps {
-	readonly title: string | undefined;
-	readonly location: string | undefined;
-	readonly link: string | undefined;
-	readonly startDate: Date | undefined;
-	readonly endDate?: Date | undefined;
+	readonly title: string;
+	readonly location: string;
+	readonly link: string;
+	readonly startDate: Date;
+	readonly endDate?: Date;
 }
 
 const Exhibit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

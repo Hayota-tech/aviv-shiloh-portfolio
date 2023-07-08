@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import type { IVAboutText, IVExibhitions } from 'src/interfaces/responses';
+import type { IAboutText, IExibhitions } from 'src/interfaces/responses';
 import portrait from '../../../../public/images/aviv-portrait.png';
 
 import classes from './About.module.scss';
@@ -9,8 +9,8 @@ import AboutExhibit from './AboutExhibit';
 
 interface IProps {
 	readonly lastExhibionPosition: number;
-	readonly textList: IVAboutText | undefined;
-	readonly exibhitionsList: IVExibhitions[];
+	readonly textList: IAboutText | undefined;
+	readonly exibhitionsList: IExibhitions[];
 	readonly handleScroll: (e: React.UIEvent<HTMLElement>) => void;
 }
 
@@ -37,11 +37,11 @@ const AboutView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 					<div className={classes['innerExihitions']} style={style} onScroll={props.handleScroll}>
 						{props.exibhitionsList.map((exhibition, key) => {
-							const title = exhibition?.attributes.title ?? '';
-							const location = exhibition?.attributes.location ?? '';
-							const link = exhibition?.attributes.link ?? '';
-							const startDate = exhibition?.attributes.startDate ?? '';
-							const endDate = exhibition?.attributes.endDate ?? '';
+							const title = exhibition?.attributes.title;
+							const location = exhibition?.attributes.location;
+							const link = exhibition?.attributes.link;
+							const startDate = exhibition?.attributes.startDate;
+							const endDate = exhibition?.attributes.endDate;
 
 							return (
 								<AboutExhibit
