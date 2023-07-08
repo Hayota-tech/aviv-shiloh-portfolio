@@ -8,7 +8,7 @@ import ContactView from './Contact.view';
 interface IProps {}
 
 const Contact: React.FC<IProps> = () => {
-	const [contactDataState, setContactDataState] = useState<IContact | undefined>();
+	const [contactDataState, setContactDataState] = useState<IContact | null>(null);
 
 	const onSocialNavigate = (url: string) => {
 		window.open(url, '_blank');
