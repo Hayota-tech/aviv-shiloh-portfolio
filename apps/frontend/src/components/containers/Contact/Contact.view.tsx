@@ -20,6 +20,12 @@ const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<h3 className={classes['innerContainer__title']}>CONTACT</h3>
 				<div className={classes['contactContainer']}>
 					<div className={classes['leftSide']}>
+						<a
+							href="https://u4wvavq62qc.typeform.com/to/XieOohpc"
+							className={classes['leftSide__textMobile']}
+						>
+							Leave a message &gt;
+						</a>
 						<span className={classes['leftSide__title']}>WHERE</span>
 						{address.map((element, i) => (
 							<span key={i} className={classes['leftSide__adressText']}>
@@ -27,7 +33,8 @@ const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							</span>
 						))}
 						<div className={classes['mailWeb']}>
-							<span className={classes['mailWeb__title']}>MAIL</span>
+							<span className={classes['mailWeb__title']}>LET’S TALK</span>
+							<span className={classes['mailWeb__phoneNumber']}>+972 50 4949449</span>
 							<a className={classes['mailWeb__mail']} href="mailto:aviv.shiloh@gmail.com">
 								aviv.shiloh@gmail.com
 							</a>
@@ -45,16 +52,22 @@ const ContactView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 								<SSvg name={element.name} className={classes['rightSide__icon']} />
 							</button>
 						))}
+						<a
+							href="https://u4wvavq62qc.typeform.com/to/XieOohpc"
+							className={classes['rightSide__textDesktop']}
+						>
+							Leave a message &gt;
+						</a>
 					</div>
 				</div>
 				<div className={classes['mailMobile']}>
-					<span className={classes['mailMobile__title']}>MAIL</span>
-					<a className={classes['mailMobile__mail']} href="mailto:aviv.shiloh@gmail.com">
+					<span className={classes['mailMobile__title']}>LET’S TALK</span>
+					<span className={classes['mailMobile__text']}>+972 50 4949449</span>
+					<a className={classes['mailMobile__text']} href="mailto:aviv.shiloh@gmail.com">
 						aviv.shiloh@gmail.com
 					</a>
-
-					<span className={classes['mobileSignature']}>©2023 AVIV SHILOH</span>
 				</div>
+				<span className={classes['mobileSignature']}>©2023 AVIV SHILOH</span>
 			</div>
 		</section>
 	);

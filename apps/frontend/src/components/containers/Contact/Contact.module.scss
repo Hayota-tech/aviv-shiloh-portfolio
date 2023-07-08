@@ -34,6 +34,10 @@
 			display: flex;
 			flex-direction: column;
 
+			&__textMobile {
+				display: none;
+			}
+
 			&__title {
 				margin-bottom: 32px;
 				font-size: 2.4rem;
@@ -59,12 +63,22 @@
 					color: #fff;
 				}
 
+				&__phoneNumber {
+					margin-bottom: 8px;
+					font-size: 3.2rem;
+					font-weight: 400;
+					color: #fff;
+					text-decoration: none;
+				}
+
 				&__mail {
 					font-size: 3.2rem;
 					font-weight: 400;
 					color: #fff;
 					text-decoration: none;
 				}
+
+
 			}
 		}
 
@@ -100,10 +114,20 @@
 				fill: transparent;
 			}
 
+			&__textDesktop {
+				margin-top: 144px;
+				font-size: 48px;
+				color: #FFF;
+				text-decoration: none;
+			}
 		}
 	}
 
 	.mailMobile {
+		display: none;
+	}
+
+	.mobileSignature {
 		display: none;
 	}
 }
@@ -128,6 +152,15 @@
 			flex-direction: column;
 
 			.leftSide {
+				&__textMobile {
+					display: block;
+					margin-bottom: 48px;
+					font-size: 3.6rem;
+					color: #FFF;
+					text-decoration: none;
+					white-space: nowrap;
+				}
+
 				&__title {
 					margin-bottom: 32px;
 					font-size: 2.4rem;
@@ -164,13 +197,17 @@
 					color: #fff;
 					text-decoration: none;
 				}
+
+				&__textDesktop {
+					display: none;
+				}
 			}
 		}
 
 		.mailMobile {
 			display: flex;
 			flex-direction: column;
-			align-items: center;
+			align-items: initial;
 			margin-top: 48px;
 
 			&__title {
@@ -180,19 +217,22 @@
 				color: #fff;
 			}
 
-			&__mail {
+			&__text {
 				font-size: 3.2rem;
 				font-weight: 400;
 				color: #fff;
 				text-decoration: none;
 			}
 
-			.mobileSignature {
-				margin: 71px 0 7px;
-				font-size: 2rem;
-				font-weight: 700;
-				color: #fff;
-			}
+		}
+
+		.mobileSignature {
+			display: block;
+			margin: 71px 0 7px;
+			font-size: 2rem;
+			font-weight: 700;
+			color: #fff;
+			text-align: center;
 		}
 	}
 }
