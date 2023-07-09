@@ -4,12 +4,13 @@
 
 .container {
 	display: flex;
+	flex-direction: column;
 	margin-top: 92px;
 
 	.imagesContainer {
 		display: flex;
 		width: 100%;
-		height: 666px;
+		height: 668px;
 
 		&--reverse {
 			flex-direction: row-reverse;
@@ -17,9 +18,8 @@
 
 		.bigImageContainer {
 			display: flex;
+			flex: 1 0 75%;
 			flex-direction: column;
-			width: 66%;
-			height: 100%;
 			margin-inline-end: 8px;
 
 			&--reverse {
@@ -28,7 +28,7 @@
 
 			.bigImageLinkContainer {
 				width: 100%;
-				height: 90%;
+				height: 100%;
 
 				&__image {
 					width: 100%;
@@ -36,61 +36,16 @@
 					object-fit: cover;
 				}
 			}
-
-			.infoContainer {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				width: 100%;
-				height: 10%;
-				margin-top: 16px;
-
-				&--reverse {
-					align-items: center;
-				}
-
-				&__name {
-					font-size: 4.8rem;
-					font-weight: 500;
-					color: #1e1e1e;
-					white-space: nowrap;
-				}
-
-				.locationContainer {
-					display: flex;
-					align-items: center;
-
-					&__date {
-						font-size: 3.6rem;
-						font-weight: 400;
-						color: #1e1e1e;
-					}
-
-					&__city {
-						font-size: 3.6rem;
-						font-weight: 400;
-						color: #1e1e1e;
-					}
-
-					&__country {
-						margin: 0 8px;
-						font-size: 3.6rem;
-						font-weight: 400;
-						color: #1e1e1e;
-					}
-				}
-			}
 		}
 
 		.lineImagesContainer {
 			display: flex;
 			flex-direction: column;
-			width: 34%;
-			height: 100%;
+			width: 100%;
 
 			.lineImagesLinkContainer {
 				width: 100%;
-				height: 29.2%;
+				height: 32.6%;
 
 				&__image {
 					width: 100%;
@@ -104,6 +59,48 @@
 			}
 		}
 	}
+
+	.infoContainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 18px;
+
+		&__name {
+			font-size: 4.8rem;
+			font-weight: 500;
+			color: #1e1e1e;
+			white-space: nowrap;
+		}
+
+		.locationContainer {
+			display: flex;
+			align-items: center;
+
+			&__date {
+				font-size: 3.6rem;
+				font-weight: 400;
+				color: #1e1e1e;
+			}
+
+			&__city {
+				font-size: 3.6rem;
+				font-weight: 400;
+				color: #1e1e1e;
+			}
+
+			&__country {
+				margin: 0 8px;
+				font-size: 3.6rem;
+				font-weight: 400;
+				color: #1e1e1e;
+			}
+		}
+	}
+
+	.infoContainerMobile {
+		display: none;
+	}
 }
 
 @media (max-width: map.get($sizes, main-mobile-width)) {
@@ -112,7 +109,7 @@
 		margin-top: 48px;
 
 		.imagesContainer {
-			height: 290px;
+			height: auto;
 
 			&--reverse {
 				flex-direction: row;
@@ -126,40 +123,6 @@
 				&--reverse {
 					margin: 0;
 				}
-
-				.infoContainer {
-					flex-direction: column;
-					align-items: flex-start;
-					padding-inline: 16px;
-					margin-top: 10px;
-
-					&--reverse {
-						align-items: flex-end;
-					}
-
-					&__name {
-						font-size: 24px;
-					}
-
-					.locationContainer {
-						display: flex;
-						align-items: center;
-						margin-top: 4px;
-
-						&__date {
-							font-size: 20px;
-						}
-
-						&__city {
-							font-size: 20px;
-						}
-
-						&__country {
-							margin: 0 5px;
-							font-size: 20px;
-						}
-					}
-				}
 			}
 
 			.lineImagesContainer {
@@ -169,6 +132,40 @@
 
 		.imagesContainer:not(:first-child) {
 			margin-top: 55px;
+		}
+
+		.infoContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding-inline: 16px;
+			margin-top: 10px;
+
+			&--reverse {
+				align-items: flex-end;
+			}
+
+			&__name {
+				font-size: 24px;
+			}
+
+			.locationContainer {
+				display: flex;
+				margin-top: 4px;
+
+				&__date {
+					font-size: 20px;
+				}
+
+				&__city {
+					font-size: 20px;
+				}
+
+				&__country {
+					margin: 0 5px;
+					font-size: 20px;
+				}
+			}
 		}
 	}
 }
