@@ -10,6 +10,7 @@
 	.imagesContainer {
 		display: flex;
 		width: 100%;
+		height: 668px;
 
 		&--reverse {
 			flex-direction: row-reverse;
@@ -17,8 +18,8 @@
 
 		.bigImageContainer {
 			display: flex;
+			flex: 1 0 75%;
 			flex-direction: column;
-			width: 300%;
 			margin-inline-end: 8px;
 
 			&--reverse {
@@ -41,11 +42,10 @@
 			display: flex;
 			flex-direction: column;
 			width: 100%;
-			height: 100%;
 
 			.lineImagesLinkContainer {
 				width: 100%;
-				height: 33.3%;
+				height: 32.6%;
 
 				&__image {
 					width: 100%;
@@ -60,7 +60,7 @@
 		}
 	}
 
-	.infoContainerDesktop {
+	.infoContainer {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -106,13 +106,10 @@
 @media (max-width: map.get($sizes, main-mobile-width)) {
 	.container {
 		height: 100%;
-
-		&:first-of-type {
-			margin-top: 16px;
-		}
+		margin-top: 48px;
 
 		.imagesContainer {
-			height: 290px;
+			height: auto;
 
 			&--reverse {
 				flex-direction: row;
@@ -126,40 +123,6 @@
 				&--reverse {
 					margin: 0;
 				}
-
-				.infoContainerMobile {
-					display: flex;
-					flex-direction: column;
-					padding-inline: 16px;
-					margin-top: 10px;
-
-					&--reverse {
-						align-items: flex-end;
-					}
-
-					&__name {
-						font-size: 24px;
-					}
-
-					.locationContainer {
-						display: flex;
-						align-items: center;
-						margin-top: 4px;
-
-						&__date {
-							font-size: 20px;
-						}
-
-						&__city {
-							font-size: 20px;
-						}
-
-						&__country {
-							margin: 0 5px;
-							font-size: 20px;
-						}
-					}
-				}
 			}
 
 			.lineImagesContainer {
@@ -171,8 +134,38 @@
 			margin-top: 55px;
 		}
 
-		.infoContainerDesktop {
-			display: none;
+		.infoContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding-inline: 16px;
+			margin-top: 10px;
+
+			&--reverse {
+				align-items: flex-end;
+			}
+
+			&__name {
+				font-size: 24px;
+			}
+
+			.locationContainer {
+				display: flex;
+				margin-top: 4px;
+
+				&__date {
+					font-size: 20px;
+				}
+
+				&__city {
+					font-size: 20px;
+				}
+
+				&__country {
+					margin: 0 5px;
+					font-size: 20px;
+				}
+			}
 		}
 	}
 }

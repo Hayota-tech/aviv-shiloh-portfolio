@@ -31,10 +31,10 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		props.index % 2 !== 0 ? 'bigImageContainer--reverse' : '',
 	);
 
-	const infoContainerMobileClasses = concatClasses(
+	const infoContainerClasses = concatClasses(
 		classes,
-		'infoContainerMobile',
-		props.index % 2 !== 0 ? 'infoContainerMobile--reverse' : '',
+		'infoContainer',
+		props.index % 2 !== 0 ? 'infoContainer--reverse' : '',
 	);
 
 	return (
@@ -50,19 +50,6 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							height={100}
 						/>
 					</Link>
-					<div className={infoContainerMobileClasses}>
-						<span className={classes['infoContainerMobile__name']}>{projectName}</span>
-						<div className={classes['locationContainer']}>
-							<span className={classes['locationContainer__date']}>{projectDate}</span>
-							<span className={classes['locationContainer__country']}>
-								{props.project?.attributes?.country}
-								{props.project?.attributes?.city && ','}
-							</span>
-							<span className={classes['locationContainer__city']}>
-								{props.project?.attributes?.city}
-							</span>
-						</div>
-					</div>
 				</div>
 				<div className={classes['lineImagesContainer']}>
 					{props.project?.attributes?.media.data.map((media, index) => {
@@ -92,8 +79,8 @@ const ProjectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 					})}
 				</div>
 			</div>
-			<div className={classes['infoContainerDesktop']}>
-				<span className={classes['infoContainerDesktop__name']}>{projectName}</span>
+			<div className={infoContainerClasses}>
+				<span className={classes['infoContainer__name']}>{projectName}</span>
 				<div className={classes['locationContainer']}>
 					<span className={classes['locationContainer__date']}>{projectDate}</span>
 					<span className={classes['locationContainer__country']}>
